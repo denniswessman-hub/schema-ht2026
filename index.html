@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#e4022d">
+    <meta name="color-scheme" content="light">
+    <meta name="description" content="Mobilanpassat schema för Polisutbildningen vid Malmö universitet, höstterminen 2026.">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Schema HT26">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; worker-src 'self'; manifest-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'">
+    <title>Polisutbildningen Malmö – Schema HT2026</title>
+    <link rel="manifest" href="./manifest.json">
+    <link rel="icon" href="./icons/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#schema">Hoppa till schemat</a>
+
+    <header class="app-header">
+      <div class="header-rule" aria-hidden="true"></div>
+      <div class="header-inner">
+        <div class="eyebrow">Malmö universitet · Polisutbildningen</div>
+        <div class="header-title-row">
+          <div>
+            <h1>Schema HT2026</h1>
+            <p id="term-period" class="term-period">Läser schema…</p>
+          </div>
+          <button id="install-button" class="button button-secondary install-button" type="button" hidden>
+            Installera app
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="term-info-shell" aria-labelledby="term-info-heading">
+        <div class="term-info-inner">
+          <details class="term-info">
+            <summary>
+              <span>
+                <span class="section-kicker">Termin 5 · HT26</span>
+                <span class="term-info-summary-title" id="term-info-heading">Information inför sista terminen</span>
+              </span>
+              <span class="summary-action">Visa/dölj</span>
+            </summary>
+            <div id="term-info-content" class="term-info-content"></div>
+          </details>
+        </div>
+      </section>
+
+      <section class="controls-shell" aria-labelledby="filter-heading">
+        <div class="controls-inner">
+          <div class="controls-heading-row">
+            <div>
+              <p class="section-kicker">Hitta rätt direkt</p>
+              <h2 id="filter-heading">Filtrera schemat</h2>
+            </div>
+            <button id="reset-filters" class="text-button" type="button">Rensa</button>
+          </div>
+
+          <div class="quick-filters" aria-label="Snabbval">
+            <button class="quick-filter is-active" type="button" data-range="all" aria-pressed="true">Alla</button>
+            <button class="quick-filter" type="button" data-range="today" aria-pressed="false">Idag</button>
+            <button class="quick-filter" type="button" data-range="current" aria-pressed="false">Denna vecka</button>
+            <button class="quick-filter" type="button" data-range="next" aria-pressed="false">Nästa vecka</button>
+          </div>
+
+          <div class="filter-grid">
+            <label class="field">
+              <span>Min basgrupp</span>
+              <select id="group-filter">
+                <option value="all">Alla basgrupper</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>Vecka</span>
+              <select id="week-filter">
+                <option value="all">Alla aktuella veckor</option>
+              </select>
+            </label>
+
+            <label class="field search-field">
+              <span>Sök i schemat</span>
+              <span class="search-input-wrap">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
+                <input id="search-filter" type="search" inputmode="search" autocomplete="off" placeholder="Moment, lokal, examination…">
+              </span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section id="schema" class="schedule-shell" aria-labelledby="schedule-heading" tabindex="-1">
+        <div class="schedule-summary">
+          <div>
+            <p class="section-kicker" id="today-label"></p>
+            <h2 id="schedule-heading">Ditt schema</h2>
+          </div>
+          <p id="result-count" class="result-count" aria-live="polite"></p>
+        </div>
+
+        <div id="active-filter-summary" class="active-filter-summary" aria-live="polite"></div>
+        <div id="schedule-list"></div>
+
+        <div id="empty-state" class="empty-state" hidden>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 3v3m10-3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm4 9h6"/></svg>
+          <h3>Inga schemaposter hittades</h3>
+          <p>Prova att ändra vecka, basgrupp eller sökord.</p>
+          <button id="empty-reset" class="button button-primary" type="button">Visa hela schemat</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p><strong id="footer-schedule-title">Schema T5 HT2026</strong> · <span id="footer-source">Källa: TimeEdit-export</span></p>
+      <p>Kontrollera alltid sena schemaändringar i den officiella schemakällan.</p>
+    </footer>
+
+    <dialog id="ios-install-dialog" aria-labelledby="ios-install-title">
+      <div class="dialog-content">
+        <button id="close-ios-dialog" class="icon-button" type="button" aria-label="Stäng">×</button>
+        <p class="section-kicker">iPhone och iPad</p>
+        <h2 id="ios-install-title">Lägg till på hemskärmen</h2>
+        <ol>
+          <li>Tryck på <strong>Dela</strong> i Safari.</li>
+          <li>Välj <strong>Lägg till på hemskärmen</strong>.</li>
+          <li>Bekräfta med <strong>Lägg till</strong>.</li>
+        </ol>
+      </div>
+    </dialog>
+
+    <noscript>
+      <div class="noscript">JavaScript måste vara aktiverat för att filtrera och visa schemat.</div>
+    </noscript>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

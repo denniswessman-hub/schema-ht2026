@@ -1,0 +1,11 @@
+# Lokala källunderlag – publiceras inte i webb-repositoryt
+*.xlsx
+*.xls
+*.pdf
+Inför hösten HT2026 Temin 5 T5.txt
+
+# Tillfälliga och lokala filer
+tmp/
+.DS_Store
+Thumbs.db
+
