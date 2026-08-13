@@ -1,6 +1,7 @@
 import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO } from "./schedule-data.js";
 
 const GROUP_STORAGE_KEY = "schemaHT26.baseGroup";
+const THEME_STORAGE_KEY = "schemaHT26.theme";
 const dateFormatter = new Intl.DateTimeFormat("sv-SE", { weekday: "long", day: "numeric", month: "long" });
 const shortDateFormatter = new Intl.DateTimeFormat("sv-SE", { day: "numeric", month: "short" });
 const fullTodayFormatter = new Intl.DateTimeFormat("sv-SE", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
@@ -22,9 +23,50 @@ const elements = {
   emptyReset: document.querySelector("#empty-reset"),
   quick: [...document.querySelectorAll(".quick-filter")],
   install: document.querySelector("#install-button"),
+  themeToggle: document.querySelector("#theme-toggle"),
+  themeColor: document.querySelector("#theme-color"),
   iosDialog: document.querySelector("#ios-install-dialog"),
   closeIosDialog: document.querySelector("#close-ios-dialog"),
 };
+
+function readStoredTheme() {
+  try {
+    const value = localStorage.getItem(THEME_STORAGE_KEY);
+    return value === "light" || value === "dark" ? value : null;
+  } catch {
+    return null;
+  }
+}
+
+function applyTheme(theme, persist = false) {
+  document.documentElement.dataset.theme = theme;
+  document.documentElement.style.colorScheme = theme;
+  elements.themeToggle.setAttribute("aria-checked", String(theme === "dark"));
+  elements.themeToggle.title = theme === "dark" ? "Byt till ljust läge" : "Byt till mörkt läge";
+  elements.themeColor.content = theme === "dark" ? "#101114" : "#e4022d";
+
+  if (persist) {
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, theme);
+    } catch {
+      // Valet gäller för den här visningen om lokal lagring är blockerad.
+    }
+  }
+}
+
+function initTheme() {
+  const systemTheme = matchMedia("(prefers-color-scheme: dark)");
+  const initialTheme = document.documentElement.dataset.theme || (systemTheme.matches ? "dark" : "light");
+  applyTheme(initialTheme);
+
+  elements.themeToggle.addEventListener("click", () => {
+    applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark", true);
+  });
+
+  systemTheme.addEventListener?.("change", (event) => {
+    if (!readStoredTheme()) applyTheme(event.matches ? "dark" : "light");
+  });
+}
 
 const today = startOfDay(new Date());
 const todayIso = localIsoDate(today);
@@ -456,6 +498,7 @@ if ("serviceWorker" in navigator && window.isSecureContext) {
   window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js"));
 }
 
+initTheme();
 initTermInfo();
 initFilters();
 render();

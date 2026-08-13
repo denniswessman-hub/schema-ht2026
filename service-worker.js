@@ -1,14 +1,17 @@
-const CACHE_NAME = "schema-ht26-v7";
+const CACHE_NAME = "schema-ht26-v9";
 const CORE_ASSETS = [
   "./",
   "./index.html",
   "./styles.css",
+  "./theme-init.js",
   "./app.js",
   "./schedule-data.js",
   "./manifest.json",
-  "./icons/favicon.svg",
+  "./icons/header-logo.png",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
+  "./icons/icon-maskable-192.png",
+  "./icons/icon-maskable-512.png",
   "./icons/apple-touch-icon.png"
 ];
 

@@ -9,7 +9,7 @@ En snabb, mobilanpassad och installerbar webbapp för schemat i TimeEdit-exporte
 - `Malmö University grafisk profil.pdf` styr färger och typografiska principer. Cherry Red `#E4022D` används som huvudfärg. Arial används som lokalt ersättningstypsnitt eftersom inga fristående webbfonter finns i projektet.
 - Den lokala filen `Inför hösten HT2026 Temin 5 T5.txt` är fortfarande tom. Terminsinformationen kommer därför från texten som lämnades direkt i uppgiften, inte från filens innehåll på disk.
 - De uttryckliga basgrupperna i den nya exporten är BG1, BG2, BG3 och BG4. Poster utan gruppsuffix behandlas som gemensamma och visas för alla fyra grupper.
-- Ingen fristående logotypfil finns i mappen. Appen använder därför en neutral kalenderikon i profilfärgen och försöker inte återskapa Malmö universitets logotyp.
+- `icons/logga.png` är källan till DPU1-loggan. En optimerad variant visas i sidhuvudet och samma motiv används för app-, favicon- och hemskärmsikoner.
 
 ## Schemadata
 
@@ -23,7 +23,7 @@ All data ligger i `schedule-data.js`. `SCHEDULE_DATA` är en lista av schemaobje
 2. Uppdatera objekten i `schedule-data.js` utan att ändra faktauppgifter eller gissa saknade värden.
 3. Behåll posterna sorterade på datum och starttid.
 4. Ändra `sourceFile`, `sourceExportedAt`, `sourcePeriod` och `eventCount` i `SCHEDULE_META`.
-5. Höj versionsnumret i `CACHE_NAME` i `service-worker.js`, till exempel från `schema-ht26-v7` till `schema-ht26-v8`. Då tas gammal cache bort när den nya versionen aktiveras.
+5. Höj versionsnumret i `CACHE_NAME` i `service-worker.js`, till exempel från `schema-ht26-v8` till `schema-ht26-v9`. Då tas gammal cache bort när den nya versionen aktiveras.
 6. Kör kvalitetskontrollerna igen före publicering.
 
 ## Funktioner
@@ -38,6 +38,7 @@ All data ligger i `schedule-data.js`. `SCHEDULE_DATA` är en lista av schemaobje
 - svensk datumvisning, tillgängliga formulär och tydliga fokusmarkeringar
 - mobil-först-layout utan breda tabeller
 - PWA-manifest, Android-installation, iOS-instruktion och offlinecache
+- väl synligt reglage för ljust och mörkt läge; systeminställningen används första gången och användarens val sparas lokalt
 - relativa sökvägar som fungerar under ett projektnamn på GitHub Pages
 
 ## Integritet och publiceringsbedömning

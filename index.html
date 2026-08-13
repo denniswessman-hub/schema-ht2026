@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="theme-color" content="#e4022d">
-    <meta name="color-scheme" content="light">
+    <meta id="theme-color" name="theme-color" content="#e4022d">
+    <meta name="color-scheme" content="light dark">
     <meta name="description" content="Mobilanpassat schema för Polisutbildningen vid Malmö universitet, höstterminen 2026.">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -12,8 +12,9 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; worker-src 'self'; manifest-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'">
     <title>Polisutbildningen Malmö – Schema HT2026</title>
     <link rel="manifest" href="./manifest.json">
-    <link rel="icon" href="./icons/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="./icons/icon-192.png" type="image/png">
     <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+    <script src="./theme-init.js"></script>
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
@@ -22,6 +23,14 @@
     <header class="app-header">
       <div class="header-rule" aria-hidden="true"></div>
       <div class="header-inner">
+        <div class="header-topbar">
+          <img class="brand-logo" src="./icons/header-logo.png" width="104" height="104" alt="DPU1 – Polisutbildningen, Malmö universitet">
+          <button id="theme-toggle" class="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Mörkt läge">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20.4 15.5A8.5 8.5 0 0 1 8.5 3.6 8.5 8.5 0 1 0 20.4 15.5Z"/></svg>
+            <span class="theme-toggle-label">Mörkt läge</span>
+            <span class="theme-switch" aria-hidden="true"><span></span></span>
+          </button>
+        </div>
         <div class="eyebrow">Malmö universitet · Polisutbildningen</div>
         <div class="header-title-row">
           <div>
