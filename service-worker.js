@@ -1,18 +1,18 @@
-const CACHE_NAME = "schema-ht26-v9";
+const CACHE_NAME = "schema-ht26-v10";
 const CORE_ASSETS = [
   "./",
   "./index.html",
-  "./styles.css",
-  "./theme-init.js",
-  "./app.js",
+  "./styles.css?v=10",
+  "./theme-init.js?v=10",
+  "./app.js?v=10",
   "./schedule-data.js",
-  "./manifest.json",
-  "./icons/header-logo.png",
-  "./icons/icon-192.png",
-  "./icons/icon-512.png",
-  "./icons/icon-maskable-192.png",
-  "./icons/icon-maskable-512.png",
-  "./icons/apple-touch-icon.png"
+  "./manifest.json?v=10",
+  "./icons/header-logo.png?v=10",
+  "./icons/icon-192.png?v=10",
+  "./icons/icon-512.png?v=10",
+  "./icons/icon-maskable-192.png?v=10",
+  "./icons/icon-maskable-512.png?v=10",
+  "./icons/apple-touch-icon.png?v=10"
 ];
 
 self.addEventListener("install", (event) => {
@@ -42,6 +42,18 @@ self.addEventListener("fetch", (event) => {
           return response;
         })
         .catch(() => caches.match("./index.html"))
+    );
+    return;
+  }
+
+  if (["script", "style", "worker", "manifest"].includes(event.request.destination)) {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          if (response.ok) caches.open(CACHE_NAME).then((cache) => cache.put(event.request, response.clone()));
+          return response;
+        })
+        .catch(() => caches.match(event.request))
     );
     return;
   }

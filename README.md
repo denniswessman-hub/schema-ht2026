@@ -23,7 +23,7 @@ All data ligger i `schedule-data.js`. `SCHEDULE_DATA` är en lista av schemaobje
 2. Uppdatera objekten i `schedule-data.js` utan att ändra faktauppgifter eller gissa saknade värden.
 3. Behåll posterna sorterade på datum och starttid.
 4. Ändra `sourceFile`, `sourceExportedAt`, `sourcePeriod` och `eventCount` i `SCHEDULE_META`.
-5. Höj versionsnumret i `CACHE_NAME` i `service-worker.js`, till exempel från `schema-ht26-v8` till `schema-ht26-v9`. Då tas gammal cache bort när den nya versionen aktiveras.
+5. Höj versionsnumret i `CACHE_NAME` och versionsparametern `?v=` i appens statiska länkar. Då hämtas ny CSS och JavaScript direkt samtidigt som gammal offlinecache tas bort kontrollerat.
 6. Kör kvalitetskontrollerna igen före publicering.
 
 ## Funktioner

@@ -115,24 +115,32 @@ footer {
 .header-inner { padding-block: 20px 34px; }
 .header-topbar {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 18px;
-  margin-bottom: 18px;
+  margin-bottom: 22px;
 }
 .brand-logo {
+  flex: 0 0 auto;
   display: block;
-  width: 92px;
-  height: 92px;
+  width: 118px;
+  height: 118px;
+  padding: 4px;
+  border: 3px solid white;
+  border-radius: 50%;
+  background: white;
   object-fit: contain;
-  filter: drop-shadow(0 7px 16px rgb(0 0 0 / 20%));
+  box-shadow: 0 0 0 5px rgb(255 255 255 / 24%), 0 12px 28px rgb(0 0 0 / 28%);
 }
 .theme-toggle {
+  margin-left: auto;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 142px;
   min-height: 44px;
-  padding: 7px 9px 7px 11px;
+  padding: 7px 8px 7px 14px;
   border: 1px solid rgb(255 255 255 / 65%);
   border-radius: 999px;
   color: #171717;
@@ -141,7 +149,6 @@ footer {
   font-weight: 800;
   box-shadow: 0 5px 18px rgb(0 0 0 / 14%);
 }
-.theme-toggle svg { width: 18px; height: 18px; fill: currentColor; }
 .theme-switch {
   display: flex;
   align-items: center;
@@ -563,7 +570,7 @@ dialog::backdrop { background: rgb(0 0 0 / 45%); }
 
 @media (min-width: 720px) {
   .header-inner { padding-block: 26px 46px; }
-  .brand-logo { width: 104px; height: 104px; }
+  .brand-logo { width: 132px; height: 132px; }
   .filter-grid { grid-template-columns: minmax(170px, .75fr) minmax(190px, .8fr) minmax(280px, 1.45fr); }
   .quick-filters { margin-inline: 0; padding-inline: 0; }
   .event-card { grid-template-columns: 105px minmax(0, 1fr); padding: 18px 20px; }
@@ -582,8 +589,8 @@ dialog::backdrop { background: rgb(0 0 0 / 45%); }
 @media (max-width: 470px) {
   .header-inner { padding-top: 16px; }
   .header-topbar { align-items: center; margin-bottom: 14px; }
-  .brand-logo { width: 76px; height: 76px; }
-  .theme-toggle { gap: 6px; padding-left: 9px; font-size: .78rem; }
+  .brand-logo { width: 94px; height: 94px; }
+  .theme-toggle { min-width: 136px; gap: 9px; padding-left: 12px; font-size: .78rem; }
   .header-title-row { align-items: flex-start; flex-direction: column; }
   .install-button { width: 100%; }
   .event-card { grid-template-columns: 68px minmax(0, 1fr); gap: 10px; padding: 14px 12px; }
