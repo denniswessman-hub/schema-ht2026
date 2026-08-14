@@ -3,17 +3,17 @@ export const SCHEDULE_META = {
   "appName": "Polisutbildningen Malmö – HT26",
   "scheduleTitle": "Schema T5 HT2026",
   "sourceFile": "TimeEdit_2026-08-12_13_40.xlsx",
-  "sourceExportedAt": "2026-08-12 13:40",
-  "sourcePeriod": "2026-08-12 - 2027-01-15",
-  "eventPeriod": "2026-08-25 - 2027-01-15",
-  "selectedObjects": "DP132A-HT2025-DP132, DP132A-HT2025-DP132-Bg1, DP132A-HT2025-DP132-Bg2, DP132A-HT2025-DP132-Bg3, DP132A-HT2025-DP132-Bg4, DP151A-HT2026-DT151, DP152A-HT2026-DP152",
+  "sourceExportedAt": "2026-08-14 08:03",
+  "sourcePeriod": "2026-08-31 - 2027-01-16",
+  "eventPeriod": "2026-08-31 - 2027-01-15",
+  "selectedObjects": "DP151A-HT2026-DT151, DP132A-HT2025-DP132-Bg1, DP132A-HT2025-DP132-Bg2, DP132A-HT2025-DP132-Bg3, DP132A-HT2025-DP132-Bg4, DP132A-HT2025-DP132, DP152A-HT2026-DP152, PO141C-HT2026-141CA, PO141C-HT2026-141DI",
   "groups": [
     "BG1",
     "BG2",
     "BG3",
     "BG4"
   ],
-  "eventCount": 122
+  "eventCount": 144
 };
 
 export const TERM_INFO = {
@@ -101,72 +101,6 @@ export const SCHEDULE_DATA = [
   {
     "id": "te-7",
     "sourceRow": 7,
-    "week": 35,
-    "weekday": "Tisdag",
-    "date": "2026-08-25",
-    "startTime": "10:15",
-    "endDate": "2026-08-25",
-    "endTime": "12:00",
-    "allDay": false,
-    "groups": [],
-    "audience": "DP132A-HT2025-DP132",
-    "title": "Dk1. Polkon FTM",
-    "course": "Dk1. Polkon FTM",
-    "locationIds": "KR:1029E1",
-    "locations": "Grepphall",
-    "type": "Resurslektion",
-    "momentText": "",
-    "momentNumber": "8",
-    "examInfo": "",
-    "category": "teaching"
-  },
-  {
-    "id": "te-8",
-    "sourceRow": 8,
-    "week": 35,
-    "weekday": "Onsdag",
-    "date": "2026-08-26",
-    "startTime": "10:15",
-    "endDate": "2026-08-26",
-    "endTime": "12:00",
-    "allDay": false,
-    "groups": [],
-    "audience": "DP132A-HT2025-DP132",
-    "title": "Dk1. Polkon FTM",
-    "course": "Dk1. Polkon FTM",
-    "locationIds": "KR:1029E1",
-    "locations": "Grepphall",
-    "type": "Omexamination 1",
-    "momentText": "",
-    "momentNumber": "8",
-    "examInfo": "",
-    "category": "examination"
-  },
-  {
-    "id": "te-9",
-    "sourceRow": 9,
-    "week": 35,
-    "weekday": "Fredag",
-    "date": "2026-08-28",
-    "startTime": "10:15",
-    "endDate": "2026-08-28",
-    "endTime": "12:00",
-    "allDay": false,
-    "groups": [],
-    "audience": "DP132A-HT2025-DP132",
-    "title": "Dk1. Polkon FTM",
-    "course": "Dk1. Polkon FTM",
-    "locationIds": "KR:1029E1",
-    "locations": "Grepphall",
-    "type": "Omexamination 2",
-    "momentText": "",
-    "momentNumber": "8",
-    "examInfo": "",
-    "category": "examination"
-  },
-  {
-    "id": "te-10",
-    "sourceRow": 10,
     "week": 36,
     "weekday": "Måndag",
     "date": "2026-08-31",
@@ -187,8 +121,30 @@ export const SCHEDULE_DATA = [
     "category": "notice"
   },
   {
-    "id": "te-11",
-    "sourceRow": 11,
+    "id": "te-8",
+    "sourceRow": 8,
+    "week": 36,
+    "weekday": "Måndag",
+    "date": "2026-08-31",
+    "startTime": "08:15",
+    "endDate": "2026-08-31",
+    "endTime": "10:00",
+    "allDay": false,
+    "groups": [],
+    "audience": "DP151A-HT2026-DT151",
+    "title": "Polismyndighetens strategi för trafik som metod",
+    "course": "",
+    "locationIds": "KR:1203E2",
+    "locations": "Lärosal",
+    "type": "Introduktion",
+    "momentText": "Polismyndighetens strategi för trafik som metod",
+    "momentNumber": "1",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-9",
+    "sourceRow": 9,
     "week": 36,
     "weekday": "Måndag",
     "date": "2026-08-31",
@@ -207,6 +163,56 @@ export const SCHEDULE_DATA = [
     "locations": "Skjutbana",
     "type": "Lektion",
     "momentText": "Målfokus",
+    "momentNumber": "5:1",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-10",
+    "sourceRow": 10,
+    "week": 36,
+    "weekday": "Måndag",
+    "date": "2026-08-31",
+    "startTime": "10:15",
+    "endDate": "2026-08-31",
+    "endTime": "12:00",
+    "allDay": false,
+    "groups": [
+      "BG3",
+      "BG4"
+    ],
+    "audience": "DP132A-HT2025-DP132-Bg3, DP132A-HT2025-DP132-Bg4",
+    "title": "Polkon FTM",
+    "course": "Polkon FTM",
+    "locationIds": "KR:1208J1, KR:1211G1",
+    "locations": "Grepphall, Öppen yta",
+    "type": "Lektion",
+    "momentText": "",
+    "momentNumber": "5:1",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-11",
+    "sourceRow": 11,
+    "week": 36,
+    "weekday": "Måndag",
+    "date": "2026-08-31",
+    "startTime": "13:15",
+    "endDate": "2026-08-31",
+    "endTime": "15:00",
+    "allDay": false,
+    "groups": [
+      "BG1",
+      "BG2"
+    ],
+    "audience": "DP132A-HT2025-DP132-Bg1, DP132A-HT2025-DP132-Bg2",
+    "title": "Polkon FTM",
+    "course": "Polkon FTM",
+    "locationIds": "KR:1208J1, KR:1211G1",
+    "locations": "Grepphall, Öppen yta",
+    "type": "Lektion",
+    "momentText": "",
     "momentNumber": "5:1",
     "examInfo": "",
     "category": "teaching"
@@ -217,56 +223,6 @@ export const SCHEDULE_DATA = [
     "week": 36,
     "weekday": "Måndag",
     "date": "2026-08-31",
-    "startTime": "10:15",
-    "endDate": "2026-08-31",
-    "endTime": "12:00",
-    "allDay": false,
-    "groups": [
-      "BG3",
-      "BG4"
-    ],
-    "audience": "DP132A-HT2025-DP132-Bg3, DP132A-HT2025-DP132-Bg4",
-    "title": "Polkon FTM",
-    "course": "Polkon FTM",
-    "locationIds": "KR:1208J1, KR:1211G1",
-    "locations": "Grepphall, Öppen yta",
-    "type": "Lektion",
-    "momentText": "",
-    "momentNumber": "5:1",
-    "examInfo": "",
-    "category": "teaching"
-  },
-  {
-    "id": "te-13",
-    "sourceRow": 13,
-    "week": 36,
-    "weekday": "Måndag",
-    "date": "2026-08-31",
-    "startTime": "13:15",
-    "endDate": "2026-08-31",
-    "endTime": "15:00",
-    "allDay": false,
-    "groups": [
-      "BG1",
-      "BG2"
-    ],
-    "audience": "DP132A-HT2025-DP132-Bg1, DP132A-HT2025-DP132-Bg2",
-    "title": "Polkon FTM",
-    "course": "Polkon FTM",
-    "locationIds": "KR:1208J1, KR:1211G1",
-    "locations": "Grepphall, Öppen yta",
-    "type": "Lektion",
-    "momentText": "",
-    "momentNumber": "5:1",
-    "examInfo": "",
-    "category": "teaching"
-  },
-  {
-    "id": "te-14",
-    "sourceRow": 14,
-    "week": 36,
-    "weekday": "Måndag",
-    "date": "2026-08-31",
     "startTime": "13:15",
     "endDate": "2026-08-31",
     "endTime": "15:00",
@@ -287,8 +243,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-15",
-    "sourceRow": 15,
+    "id": "te-13",
+    "sourceRow": 13,
     "week": 36,
     "weekday": "Måndag",
     "date": "2026-08-31",
@@ -312,8 +268,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-16",
-    "sourceRow": 16,
+    "id": "te-14",
+    "sourceRow": 14,
     "week": 36,
     "weekday": "Måndag",
     "date": "2026-08-31",
@@ -337,8 +293,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-17",
-    "sourceRow": 17,
+    "id": "te-15",
+    "sourceRow": 15,
     "week": 36,
     "weekday": "Tisdag",
     "date": "2026-09-01",
@@ -359,8 +315,8 @@ export const SCHEDULE_DATA = [
     "category": "notice"
   },
   {
-    "id": "te-18",
-    "sourceRow": 18,
+    "id": "te-16",
+    "sourceRow": 16,
     "week": 36,
     "weekday": "Tisdag",
     "date": "2026-09-01",
@@ -378,11 +334,11 @@ export const SCHEDULE_DATA = [
     "momentText": "",
     "momentNumber": "14",
     "examInfo": "",
-    "category": "examination"
+    "category": "teaching"
   },
   {
-    "id": "te-19",
-    "sourceRow": 19,
+    "id": "te-17",
+    "sourceRow": 17,
     "week": 36,
     "weekday": "Tisdag",
     "date": "2026-09-01",
@@ -401,6 +357,56 @@ export const SCHEDULE_DATA = [
     "locations": "Skjutbana",
     "type": "Lektion",
     "momentText": "Rörelse",
+    "momentNumber": "5:2",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-18",
+    "sourceRow": 18,
+    "week": 36,
+    "weekday": "Tisdag",
+    "date": "2026-09-01",
+    "startTime": "13:15",
+    "endDate": "2026-09-01",
+    "endTime": "15:00",
+    "allDay": false,
+    "groups": [
+      "BG3",
+      "BG4"
+    ],
+    "audience": "DP132A-HT2025-DP132-Bg3, DP132A-HT2025-DP132-Bg4",
+    "title": "Polkon FTM",
+    "course": "Polkon FTM",
+    "locationIds": "KR:1029E1",
+    "locations": "Grepphall",
+    "type": "Lektion",
+    "momentText": "",
+    "momentNumber": "5:2",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-19",
+    "sourceRow": 19,
+    "week": 36,
+    "weekday": "Tisdag",
+    "date": "2026-09-01",
+    "startTime": "15:15",
+    "endDate": "2026-09-01",
+    "endTime": "17:00",
+    "allDay": false,
+    "groups": [
+      "BG1",
+      "BG2"
+    ],
+    "audience": "DP132A-HT2025-DP132-Bg1, DP132A-HT2025-DP132-Bg2",
+    "title": "Polkon FTM",
+    "course": "Polkon FTM",
+    "locationIds": "KR:1029E1",
+    "locations": "Grepphall",
+    "type": "Lektion",
+    "momentText": "",
     "momentNumber": "5:2",
     "examInfo": "",
     "category": "teaching"
@@ -411,56 +417,6 @@ export const SCHEDULE_DATA = [
     "week": 36,
     "weekday": "Tisdag",
     "date": "2026-09-01",
-    "startTime": "13:15",
-    "endDate": "2026-09-01",
-    "endTime": "15:00",
-    "allDay": false,
-    "groups": [
-      "BG3",
-      "BG4"
-    ],
-    "audience": "DP132A-HT2025-DP132-Bg3, DP132A-HT2025-DP132-Bg4",
-    "title": "Polkon FTM",
-    "course": "Polkon FTM",
-    "locationIds": "KR:1029E1",
-    "locations": "Grepphall",
-    "type": "Lektion",
-    "momentText": "",
-    "momentNumber": "5:2",
-    "examInfo": "",
-    "category": "teaching"
-  },
-  {
-    "id": "te-21",
-    "sourceRow": 21,
-    "week": 36,
-    "weekday": "Tisdag",
-    "date": "2026-09-01",
-    "startTime": "15:15",
-    "endDate": "2026-09-01",
-    "endTime": "17:00",
-    "allDay": false,
-    "groups": [
-      "BG1",
-      "BG2"
-    ],
-    "audience": "DP132A-HT2025-DP132-Bg1, DP132A-HT2025-DP132-Bg2",
-    "title": "Polkon FTM",
-    "course": "Polkon FTM",
-    "locationIds": "KR:1029E1",
-    "locations": "Grepphall",
-    "type": "Lektion",
-    "momentText": "",
-    "momentNumber": "5:2",
-    "examInfo": "",
-    "category": "teaching"
-  },
-  {
-    "id": "te-22",
-    "sourceRow": 22,
-    "week": 36,
-    "weekday": "Tisdag",
-    "date": "2026-09-01",
     "startTime": "15:15",
     "endDate": "2026-09-01",
     "endTime": "17:00",
@@ -481,8 +437,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-23",
-    "sourceRow": 23,
+    "id": "te-21",
+    "sourceRow": 21,
     "week": 36,
     "weekday": "Onsdag",
     "date": "2026-09-02",
@@ -503,8 +459,8 @@ export const SCHEDULE_DATA = [
     "category": "notice"
   },
   {
-    "id": "te-24",
-    "sourceRow": 24,
+    "id": "te-22",
+    "sourceRow": 22,
     "week": 36,
     "weekday": "Onsdag",
     "date": "2026-09-02",
@@ -525,8 +481,30 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-25",
-    "sourceRow": 25,
+    "id": "te-23",
+    "sourceRow": 23,
+    "week": 36,
+    "weekday": "Onsdag",
+    "date": "2026-09-02",
+    "startTime": "10:15",
+    "endDate": "2026-09-02",
+    "endTime": "12:00",
+    "allDay": false,
+    "groups": [],
+    "audience": "DP151A-HT2026-DT151",
+    "title": "Stoppande av fordon",
+    "course": "",
+    "locationIds": "KR:1203E2",
+    "locations": "Lärosal",
+    "type": "Föreläsning",
+    "momentText": "Stoppande av fordon",
+    "momentNumber": "2",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-24",
+    "sourceRow": 24,
     "week": 36,
     "weekday": "Onsdag",
     "date": "2026-09-02",
@@ -550,8 +528,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-26",
-    "sourceRow": 26,
+    "id": "te-25",
+    "sourceRow": 25,
     "week": 36,
     "weekday": "Onsdag",
     "date": "2026-09-02",
@@ -564,6 +542,31 @@ export const SCHEDULE_DATA = [
       "BG4"
     ],
     "audience": "DP132A-HT2025-DP132-Bg3, DP132A-HT2025-DP132-Bg4",
+    "title": "Polkon Vapen",
+    "course": "Polkon Vapen",
+    "locationIds": "KR:1009F0",
+    "locations": "Skjutbana",
+    "type": "Lektion",
+    "momentText": "Sekundär hand",
+    "momentNumber": "5:3",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-26",
+    "sourceRow": 26,
+    "week": 36,
+    "weekday": "Onsdag",
+    "date": "2026-09-02",
+    "startTime": "15:15",
+    "endDate": "2026-09-02",
+    "endTime": "17:00",
+    "allDay": false,
+    "groups": [
+      "BG1",
+      "BG2"
+    ],
+    "audience": "DP132A-HT2025-DP132-Bg1, DP132A-HT2025-DP132-Bg2",
     "title": "Polkon Vapen",
     "course": "Polkon Vapen",
     "locationIds": "KR:1009F0",
@@ -585,31 +588,6 @@ export const SCHEDULE_DATA = [
     "endTime": "17:00",
     "allDay": false,
     "groups": [
-      "BG1",
-      "BG2"
-    ],
-    "audience": "DP132A-HT2025-DP132-Bg1, DP132A-HT2025-DP132-Bg2",
-    "title": "Polkon Vapen",
-    "course": "Polkon Vapen",
-    "locationIds": "KR:1009F0",
-    "locations": "Skjutbana",
-    "type": "Lektion",
-    "momentText": "Sekundär hand",
-    "momentNumber": "5:3",
-    "examInfo": "",
-    "category": "teaching"
-  },
-  {
-    "id": "te-28",
-    "sourceRow": 28,
-    "week": 36,
-    "weekday": "Onsdag",
-    "date": "2026-09-02",
-    "startTime": "15:15",
-    "endDate": "2026-09-02",
-    "endTime": "17:00",
-    "allDay": false,
-    "groups": [
       "BG3",
       "BG4"
     ],
@@ -625,8 +603,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-29",
-    "sourceRow": 29,
+    "id": "te-28",
+    "sourceRow": 28,
     "week": 36,
     "weekday": "Torsdag",
     "date": "2026-09-03",
@@ -647,8 +625,8 @@ export const SCHEDULE_DATA = [
     "category": "notice"
   },
   {
-    "id": "te-30",
-    "sourceRow": 30,
+    "id": "te-29",
+    "sourceRow": 29,
     "week": 36,
     "weekday": "Torsdag",
     "date": "2026-09-03",
@@ -669,8 +647,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-31",
-    "sourceRow": 31,
+    "id": "te-30",
+    "sourceRow": 30,
     "week": 36,
     "weekday": "Torsdag",
     "date": "2026-09-03",
@@ -694,8 +672,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-32",
-    "sourceRow": 32,
+    "id": "te-31",
+    "sourceRow": 31,
     "week": 36,
     "weekday": "Torsdag",
     "date": "2026-09-03",
@@ -708,6 +686,31 @@ export const SCHEDULE_DATA = [
       "BG4"
     ],
     "audience": "DP132A-HT2025-DP132-Bg3, DP132A-HT2025-DP132-Bg4",
+    "title": "Sambandstjänst",
+    "course": "Sambandstjänst",
+    "locationIds": "KR:1120N2",
+    "locations": "Radiosal",
+    "type": "Lektion",
+    "momentText": "",
+    "momentNumber": "5:3",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-32",
+    "sourceRow": 32,
+    "week": 36,
+    "weekday": "Torsdag",
+    "date": "2026-09-03",
+    "startTime": "15:15",
+    "endDate": "2026-09-03",
+    "endTime": "17:00",
+    "allDay": false,
+    "groups": [
+      "BG1",
+      "BG2"
+    ],
+    "audience": "DP132A-HT2025-DP132-Bg1, DP132A-HT2025-DP132-Bg2",
     "title": "Sambandstjänst",
     "course": "Sambandstjänst",
     "locationIds": "KR:1120N2",
@@ -729,31 +732,6 @@ export const SCHEDULE_DATA = [
     "endTime": "17:00",
     "allDay": false,
     "groups": [
-      "BG1",
-      "BG2"
-    ],
-    "audience": "DP132A-HT2025-DP132-Bg1, DP132A-HT2025-DP132-Bg2",
-    "title": "Sambandstjänst",
-    "course": "Sambandstjänst",
-    "locationIds": "KR:1120N2",
-    "locations": "Radiosal",
-    "type": "Lektion",
-    "momentText": "",
-    "momentNumber": "5:3",
-    "examInfo": "",
-    "category": "teaching"
-  },
-  {
-    "id": "te-34",
-    "sourceRow": 34,
-    "week": 36,
-    "weekday": "Torsdag",
-    "date": "2026-09-03",
-    "startTime": "15:15",
-    "endDate": "2026-09-03",
-    "endTime": "17:00",
-    "allDay": false,
-    "groups": [
       "BG3",
       "BG4"
     ],
@@ -769,8 +747,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-35",
-    "sourceRow": 35,
+    "id": "te-34",
+    "sourceRow": 34,
     "week": 36,
     "weekday": "Fredag",
     "date": "2026-09-04",
@@ -791,8 +769,8 @@ export const SCHEDULE_DATA = [
     "category": "notice"
   },
   {
-    "id": "te-36",
-    "sourceRow": 36,
+    "id": "te-35",
+    "sourceRow": 35,
     "week": 36,
     "weekday": "Fredag",
     "date": "2026-09-04",
@@ -809,6 +787,28 @@ export const SCHEDULE_DATA = [
     "type": "Lektion",
     "momentText": "Kropp, röst och makt",
     "momentNumber": "",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-36",
+    "sourceRow": 36,
+    "week": 36,
+    "weekday": "Fredag",
+    "date": "2026-09-04",
+    "startTime": "10:15",
+    "endDate": "2026-09-04",
+    "endTime": "12:00",
+    "allDay": false,
+    "groups": [],
+    "audience": "DP151A-HT2026-DT151",
+    "title": "Fordonslag/Trafikskadelag m.m",
+    "course": "",
+    "locationIds": "KR:1103N2",
+    "locations": "Lärosal",
+    "type": "Föreläsning",
+    "momentText": "Fordonslag/Trafikskadelag m.m",
+    "momentNumber": "3",
     "examInfo": "",
     "category": "teaching"
   },
@@ -882,6 +882,50 @@ export const SCHEDULE_DATA = [
     "id": "te-40",
     "sourceRow": 40,
     "week": 37,
+    "weekday": "Onsdag",
+    "date": "2026-09-09",
+    "startTime": "08:15",
+    "endDate": "2026-09-09",
+    "endTime": "12:00",
+    "allDay": false,
+    "groups": [],
+    "audience": "DP151A-HT2026-DT151",
+    "title": "Körkortslag/Förordning",
+    "course": "",
+    "locationIds": "",
+    "locations": "",
+    "type": "Föreläsning",
+    "momentText": "Körkortslag/Förordning",
+    "momentNumber": "4",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-41",
+    "sourceRow": 41,
+    "week": 37,
+    "weekday": "Onsdag",
+    "date": "2026-09-09",
+    "startTime": "13:15",
+    "endDate": "2026-09-09",
+    "endTime": "17:00",
+    "allDay": false,
+    "groups": [],
+    "audience": "DP151A-HT2026-DT151",
+    "title": "Trafikförordningen",
+    "course": "",
+    "locationIds": "",
+    "locations": "",
+    "type": "Föreläsning",
+    "momentText": "Trafikförordningen",
+    "momentNumber": "5",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-42",
+    "sourceRow": 42,
+    "week": 37,
     "weekday": "Torsdag",
     "date": "2026-09-10",
     "startTime": "08:00",
@@ -901,8 +945,8 @@ export const SCHEDULE_DATA = [
     "category": "notice"
   },
   {
-    "id": "te-41",
-    "sourceRow": 41,
+    "id": "te-43",
+    "sourceRow": 43,
     "week": 37,
     "weekday": "Fredag",
     "date": "2026-09-11",
@@ -923,8 +967,30 @@ export const SCHEDULE_DATA = [
     "category": "notice"
   },
   {
-    "id": "te-42",
-    "sourceRow": 42,
+    "id": "te-44",
+    "sourceRow": 44,
+    "week": 38,
+    "weekday": "Onsdag",
+    "date": "2026-09-16",
+    "startTime": "08:15",
+    "endDate": "2026-09-16",
+    "endTime": "12:00",
+    "allDay": false,
+    "groups": [],
+    "audience": "DP151A-HT2026-DT151",
+    "title": "Lag om straff för vissa trafikbrott",
+    "course": "",
+    "locationIds": "",
+    "locations": "",
+    "type": "Föreläsning",
+    "momentText": "Lag om straff för vissa trafikbrott",
+    "momentNumber": "6",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-45",
+    "sourceRow": 45,
     "week": 38,
     "weekday": "Onsdag",
     "date": "2026-09-16",
@@ -945,8 +1011,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-43",
-    "sourceRow": 43,
+    "id": "te-46",
+    "sourceRow": 46,
     "week": 39,
     "weekday": "Onsdag",
     "date": "2026-09-23",
@@ -967,8 +1033,74 @@ export const SCHEDULE_DATA = [
     "category": "examination"
   },
   {
-    "id": "te-44",
-    "sourceRow": 44,
+    "id": "te-47",
+    "sourceRow": 47,
+    "week": 39,
+    "weekday": "Onsdag",
+    "date": "2026-09-23",
+    "startTime": "13:15",
+    "endDate": "2026-09-23",
+    "endTime": "15:00",
+    "allDay": false,
+    "groups": [],
+    "audience": "DP151A-HT2026-DT151",
+    "title": "Samverkan trafikolycka",
+    "course": "",
+    "locationIds": "",
+    "locations": "",
+    "type": "Föreläsning",
+    "momentText": "Samverkan trafikolycka",
+    "momentNumber": "7",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-48",
+    "sourceRow": 48,
+    "week": 39,
+    "weekday": "Onsdag",
+    "date": "2026-09-23",
+    "startTime": "15:15",
+    "endDate": "2026-09-23",
+    "endTime": "17:00",
+    "allDay": false,
+    "groups": [],
+    "audience": "DP151A-HT2026-DT151",
+    "title": "OBOT, Samla, SLF",
+    "course": "",
+    "locationIds": "",
+    "locations": "",
+    "type": "Avrapportering",
+    "momentText": "OBOT, Samla, SLF",
+    "momentNumber": "8",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-49",
+    "sourceRow": 49,
+    "week": 40,
+    "weekday": "Måndag",
+    "date": "2026-09-28",
+    "startTime": "08:15",
+    "endDate": "2026-09-28",
+    "endTime": "09:00",
+    "allDay": false,
+    "groups": [],
+    "audience": "DP152A-HT2026-DP152",
+    "title": "Information om förberedelser inför uppsatsintro",
+    "course": "",
+    "locationIds": "KR:1103N2",
+    "locations": "Lärosal",
+    "type": "Informationsträff",
+    "momentText": "Information om förberedelser inför uppsatsintro",
+    "momentNumber": "",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-50",
+    "sourceRow": 50,
     "week": 40,
     "weekday": "Måndag",
     "date": "2026-09-28",
@@ -989,8 +1121,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-45",
-    "sourceRow": 45,
+    "id": "te-51",
+    "sourceRow": 51,
     "week": 40,
     "weekday": "Måndag",
     "date": "2026-09-28",
@@ -1011,8 +1143,30 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-46",
-    "sourceRow": 46,
+    "id": "te-52",
+    "sourceRow": 52,
+    "week": 40,
+    "weekday": "Tisdag",
+    "date": "2026-09-29",
+    "startTime": "08:15",
+    "endDate": "2026-09-29",
+    "endTime": "12:00",
+    "allDay": false,
+    "groups": [],
+    "audience": "DP151A-HT2026-DT151",
+    "title": "Trafikkontroll",
+    "course": "",
+    "locationIds": "KR:1222H1",
+    "locations": "Lärosal / ALC",
+    "type": "Praktisk övning",
+    "momentText": "Trafikkontroll",
+    "momentNumber": "9",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-53",
+    "sourceRow": 53,
     "week": 40,
     "weekday": "Tisdag",
     "date": "2026-09-29",
@@ -1033,8 +1187,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-47",
-    "sourceRow": 47,
+    "id": "te-54",
+    "sourceRow": 54,
     "week": 40,
     "weekday": "Tisdag",
     "date": "2026-09-29",
@@ -1055,8 +1209,30 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-48",
-    "sourceRow": 48,
+    "id": "te-55",
+    "sourceRow": 55,
+    "week": 40,
+    "weekday": "Onsdag",
+    "date": "2026-09-30",
+    "startTime": "08:15",
+    "endDate": "2026-09-30",
+    "endTime": "12:00",
+    "allDay": false,
+    "groups": [],
+    "audience": "DP151A-HT2026-DT151",
+    "title": "Trafikolycka",
+    "course": "",
+    "locationIds": "KR:1222H1",
+    "locations": "Lärosal / ALC",
+    "type": "Praktisk övning",
+    "momentText": "Trafikolycka",
+    "momentNumber": "10",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-56",
+    "sourceRow": 56,
     "week": 40,
     "weekday": "Onsdag",
     "date": "2026-09-30",
@@ -1080,8 +1256,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-49",
-    "sourceRow": 49,
+    "id": "te-57",
+    "sourceRow": 57,
     "week": 40,
     "weekday": "Onsdag",
     "date": "2026-09-30",
@@ -1105,8 +1281,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-50",
-    "sourceRow": 50,
+    "id": "te-58",
+    "sourceRow": 58,
     "week": 40,
     "weekday": "Onsdag",
     "date": "2026-09-30",
@@ -1130,8 +1306,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-51",
-    "sourceRow": 51,
+    "id": "te-59",
+    "sourceRow": 59,
     "week": 40,
     "weekday": "Onsdag",
     "date": "2026-09-30",
@@ -1155,8 +1331,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-52",
-    "sourceRow": 52,
+    "id": "te-60",
+    "sourceRow": 60,
     "week": 40,
     "weekday": "Torsdag",
     "date": "2026-10-01",
@@ -1180,8 +1356,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-53",
-    "sourceRow": 53,
+    "id": "te-61",
+    "sourceRow": 61,
     "week": 40,
     "weekday": "Torsdag",
     "date": "2026-10-01",
@@ -1205,8 +1381,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-54",
-    "sourceRow": 54,
+    "id": "te-62",
+    "sourceRow": 62,
     "week": 40,
     "weekday": "Torsdag",
     "date": "2026-10-01",
@@ -1230,8 +1406,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-55",
-    "sourceRow": 55,
+    "id": "te-63",
+    "sourceRow": 63,
     "week": 40,
     "weekday": "Torsdag",
     "date": "2026-10-01",
@@ -1255,8 +1431,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-56",
-    "sourceRow": 56,
+    "id": "te-64",
+    "sourceRow": 64,
     "week": 40,
     "weekday": "Torsdag",
     "date": "2026-10-01",
@@ -1280,8 +1456,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-57",
-    "sourceRow": 57,
+    "id": "te-65",
+    "sourceRow": 65,
     "week": 40,
     "weekday": "Torsdag",
     "date": "2026-10-01",
@@ -1305,8 +1481,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-58",
-    "sourceRow": 58,
+    "id": "te-66",
+    "sourceRow": 66,
     "week": 40,
     "weekday": "Torsdag",
     "date": "2026-10-01",
@@ -1330,8 +1506,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-59",
-    "sourceRow": 59,
+    "id": "te-67",
+    "sourceRow": 67,
     "week": 40,
     "weekday": "Torsdag",
     "date": "2026-10-01",
@@ -1355,8 +1531,30 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-60",
-    "sourceRow": 60,
+    "id": "te-68",
+    "sourceRow": 68,
+    "week": 40,
+    "weekday": "Fredag",
+    "date": "2026-10-02",
+    "startTime": "08:15",
+    "endDate": "2026-10-02",
+    "endTime": "12:15",
+    "allDay": false,
+    "groups": [],
+    "audience": "DP151A-HT2026-DT151",
+    "title": "Salstentamen",
+    "course": "",
+    "locationIds": "KR:Tentamen 1-6",
+    "locations": "Salstentamen",
+    "type": "Salstentamen med anmälan via Ladok",
+    "momentText": "Salstentamen",
+    "momentNumber": "",
+    "examInfo": "2601 Skriftlig tentamen     , Ordinarie , Papperstentamen",
+    "category": "examination"
+  },
+  {
+    "id": "te-69",
+    "sourceRow": 69,
     "week": 40,
     "weekday": "Fredag",
     "date": "2026-10-02",
@@ -1377,8 +1575,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-61",
-    "sourceRow": 61,
+    "id": "te-70",
+    "sourceRow": 70,
     "week": 40,
     "weekday": "Fredag",
     "date": "2026-10-02",
@@ -1402,8 +1600,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-62",
-    "sourceRow": 62,
+    "id": "te-71",
+    "sourceRow": 71,
     "week": 40,
     "weekday": "Fredag",
     "date": "2026-10-02",
@@ -1427,8 +1625,96 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-63",
-    "sourceRow": 63,
+    "id": "te-72",
+    "sourceRow": 72,
+    "week": 41,
+    "weekday": "Onsdag",
+    "date": "2026-10-07",
+    "startTime": "08:15",
+    "endDate": "2026-10-07",
+    "endTime": "12:00",
+    "allDay": false,
+    "groups": [],
+    "audience": "DP152A-HT2026-DP152",
+    "title": "Introduktion",
+    "course": "",
+    "locationIds": "",
+    "locations": "",
+    "type": "Introduktion",
+    "momentText": "",
+    "momentNumber": "1",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-73",
+    "sourceRow": 73,
+    "week": 42,
+    "weekday": "Onsdag",
+    "date": "2026-10-14",
+    "startTime": "09:15",
+    "endDate": "2026-10-14",
+    "endTime": "12:00",
+    "allDay": false,
+    "groups": [],
+    "audience": "DP152A-HT2026-DP152",
+    "title": "Genomgång av uppsatsmall",
+    "course": "",
+    "locationIds": "",
+    "locations": "",
+    "type": "Lektion",
+    "momentText": "Genomgång av uppsatsmall",
+    "momentNumber": "2",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-74",
+    "sourceRow": 74,
+    "week": 43,
+    "weekday": "Onsdag",
+    "date": "2026-10-21",
+    "startTime": "08:15",
+    "endDate": "2026-10-21",
+    "endTime": "12:00",
+    "allDay": false,
+    "groups": [],
+    "audience": "DP152A-HT2026-DP152",
+    "title": "Forskningsprocessen",
+    "course": "",
+    "locationIds": "",
+    "locations": "",
+    "type": "Lektion",
+    "momentText": "Forskningsprocessen",
+    "momentNumber": "3",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-75",
+    "sourceRow": 75,
+    "week": 44,
+    "weekday": "Onsdag",
+    "date": "2026-10-28",
+    "startTime": "08:15",
+    "endDate": "2026-10-28",
+    "endTime": "12:00",
+    "allDay": false,
+    "groups": [],
+    "audience": "DP152A-HT2026-DP152",
+    "title": "Syfte och frågeställning",
+    "course": "",
+    "locationIds": "",
+    "locations": "",
+    "type": "Workshop",
+    "momentText": "Syfte och frågeställning",
+    "momentNumber": "4",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-76",
+    "sourceRow": 76,
     "week": 44,
     "weekday": "Lördag",
     "date": "2026-10-31",
@@ -1449,8 +1735,8 @@ export const SCHEDULE_DATA = [
     "category": "holiday"
   },
   {
-    "id": "te-64",
-    "sourceRow": 64,
+    "id": "te-77",
+    "sourceRow": 77,
     "week": 45,
     "weekday": "Måndag",
     "date": "2026-11-02",
@@ -1474,8 +1760,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-65",
-    "sourceRow": 65,
+    "id": "te-78",
+    "sourceRow": 78,
     "week": 45,
     "weekday": "Måndag",
     "date": "2026-11-02",
@@ -1499,8 +1785,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-66",
-    "sourceRow": 66,
+    "id": "te-79",
+    "sourceRow": 79,
     "week": 45,
     "weekday": "Måndag",
     "date": "2026-11-02",
@@ -1518,11 +1804,11 @@ export const SCHEDULE_DATA = [
     "momentText": "Inför examination",
     "momentNumber": "16",
     "examInfo": "",
-    "category": "examination"
+    "category": "teaching"
   },
   {
-    "id": "te-67",
-    "sourceRow": 67,
+    "id": "te-80",
+    "sourceRow": 80,
     "week": 45,
     "weekday": "Tisdag",
     "date": "2026-11-03",
@@ -1546,8 +1832,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-68",
-    "sourceRow": 68,
+    "id": "te-81",
+    "sourceRow": 81,
     "week": 45,
     "weekday": "Tisdag",
     "date": "2026-11-03",
@@ -1571,8 +1857,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-69",
-    "sourceRow": 69,
+    "id": "te-82",
+    "sourceRow": 82,
     "week": 45,
     "weekday": "Tisdag",
     "date": "2026-11-03",
@@ -1593,8 +1879,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-70",
-    "sourceRow": 70,
+    "id": "te-83",
+    "sourceRow": 83,
     "week": 45,
     "weekday": "Onsdag",
     "date": "2026-11-04",
@@ -1618,8 +1904,8 @@ export const SCHEDULE_DATA = [
     "category": "examination"
   },
   {
-    "id": "te-71",
-    "sourceRow": 71,
+    "id": "te-84",
+    "sourceRow": 84,
     "week": 45,
     "weekday": "Onsdag",
     "date": "2026-11-04",
@@ -1643,8 +1929,8 @@ export const SCHEDULE_DATA = [
     "category": "examination"
   },
   {
-    "id": "te-72",
-    "sourceRow": 72,
+    "id": "te-85",
+    "sourceRow": 85,
     "week": 45,
     "weekday": "Onsdag",
     "date": "2026-11-04",
@@ -1668,8 +1954,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-73",
-    "sourceRow": 73,
+    "id": "te-86",
+    "sourceRow": 86,
     "week": 45,
     "weekday": "Onsdag",
     "date": "2026-11-04",
@@ -1693,8 +1979,8 @@ export const SCHEDULE_DATA = [
     "category": "examination"
   },
   {
-    "id": "te-74",
-    "sourceRow": 74,
+    "id": "te-87",
+    "sourceRow": 87,
     "week": 45,
     "weekday": "Onsdag",
     "date": "2026-11-04",
@@ -1718,8 +2004,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-75",
-    "sourceRow": 75,
+    "id": "te-88",
+    "sourceRow": 88,
     "week": 45,
     "weekday": "Onsdag",
     "date": "2026-11-04",
@@ -1743,8 +2029,8 @@ export const SCHEDULE_DATA = [
     "category": "examination"
   },
   {
-    "id": "te-76",
-    "sourceRow": 76,
+    "id": "te-89",
+    "sourceRow": 89,
     "week": 45,
     "weekday": "Torsdag",
     "date": "2026-11-05",
@@ -1765,8 +2051,8 @@ export const SCHEDULE_DATA = [
     "category": "examination"
   },
   {
-    "id": "te-77",
-    "sourceRow": 77,
+    "id": "te-90",
+    "sourceRow": 90,
     "week": 45,
     "weekday": "Torsdag",
     "date": "2026-11-05",
@@ -1790,8 +2076,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-78",
-    "sourceRow": 78,
+    "id": "te-91",
+    "sourceRow": 91,
     "week": 45,
     "weekday": "Torsdag",
     "date": "2026-11-05",
@@ -1815,8 +2101,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-79",
-    "sourceRow": 79,
+    "id": "te-92",
+    "sourceRow": 92,
     "week": 45,
     "weekday": "Torsdag",
     "date": "2026-11-05",
@@ -1840,8 +2126,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-80",
-    "sourceRow": 80,
+    "id": "te-93",
+    "sourceRow": 93,
     "week": 45,
     "weekday": "Torsdag",
     "date": "2026-11-05",
@@ -1865,8 +2151,30 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-81",
-    "sourceRow": 81,
+    "id": "te-94",
+    "sourceRow": 94,
+    "week": 45,
+    "weekday": "Fredag",
+    "date": "2026-11-06",
+    "startTime": "08:15",
+    "endDate": "2026-11-06",
+    "endTime": "12:00",
+    "allDay": false,
+    "groups": [],
+    "audience": "DP132A-HT2025-DP132",
+    "title": "Aspirantförberedande övningar",
+    "course": "",
+    "locationIds": "KR:1002H0, KR:1006N4, KR:101201, KR:101701, KR:102501",
+    "locations": "Utsättningsrum, Arrest, Pub, Lgh 2, Lgh 2",
+    "type": "Övning",
+    "momentText": "Aspirantförberedande övningar",
+    "momentNumber": "",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-95",
+    "sourceRow": 95,
     "week": 45,
     "weekday": "Fredag",
     "date": "2026-11-06",
@@ -1890,8 +2198,8 @@ export const SCHEDULE_DATA = [
     "category": "examination"
   },
   {
-    "id": "te-82",
-    "sourceRow": 82,
+    "id": "te-96",
+    "sourceRow": 96,
     "week": 45,
     "weekday": "Fredag",
     "date": "2026-11-06",
@@ -1915,8 +2223,30 @@ export const SCHEDULE_DATA = [
     "category": "examination"
   },
   {
-    "id": "te-83",
-    "sourceRow": 83,
+    "id": "te-97",
+    "sourceRow": 97,
+    "week": 45,
+    "weekday": "Lördag",
+    "date": "2026-11-07",
+    "startTime": "08:15",
+    "endDate": "2026-11-07",
+    "endTime": "12:15",
+    "allDay": false,
+    "groups": [],
+    "audience": "DP151A-HT2026-DT151",
+    "title": "Salstentamen med anmälan via Ladok",
+    "course": "",
+    "locationIds": "KR:Tentamen 1-6",
+    "locations": "Salstentamen",
+    "type": "Salstentamen med anmälan via Ladok",
+    "momentText": "",
+    "momentNumber": "",
+    "examInfo": "2601 Skriftlig tentamen     , Omtentamen 1, Papperstentamen",
+    "category": "examination"
+  },
+  {
+    "id": "te-98",
+    "sourceRow": 98,
     "week": 46,
     "weekday": "Måndag",
     "date": "2026-11-09",
@@ -1937,8 +2267,8 @@ export const SCHEDULE_DATA = [
     "category": "notice"
   },
   {
-    "id": "te-84",
-    "sourceRow": 84,
+    "id": "te-99",
+    "sourceRow": 99,
     "week": 46,
     "weekday": "Tisdag",
     "date": "2026-11-10",
@@ -1959,8 +2289,8 @@ export const SCHEDULE_DATA = [
     "category": "notice"
   },
   {
-    "id": "te-85",
-    "sourceRow": 85,
+    "id": "te-100",
+    "sourceRow": 100,
     "week": 46,
     "weekday": "Onsdag",
     "date": "2026-11-11",
@@ -1981,8 +2311,30 @@ export const SCHEDULE_DATA = [
     "category": "notice"
   },
   {
-    "id": "te-86",
-    "sourceRow": 86,
+    "id": "te-101",
+    "sourceRow": 101,
+    "week": 46,
+    "weekday": "Onsdag",
+    "date": "2026-11-11",
+    "startTime": "08:15",
+    "endDate": "2026-11-11",
+    "endTime": "12:00",
+    "allDay": false,
+    "groups": [],
+    "audience": "DP152A-HT2026-DP152",
+    "title": "1",
+    "course": "",
+    "locationIds": "",
+    "locations": "",
+    "type": "Handledning",
+    "momentText": "1",
+    "momentNumber": "5",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-102",
+    "sourceRow": 102,
     "week": 46,
     "weekday": "Torsdag",
     "date": "2026-11-12",
@@ -2003,8 +2355,8 @@ export const SCHEDULE_DATA = [
     "category": "notice"
   },
   {
-    "id": "te-87",
-    "sourceRow": 87,
+    "id": "te-103",
+    "sourceRow": 103,
     "week": 46,
     "weekday": "Fredag",
     "date": "2026-11-13",
@@ -2025,8 +2377,96 @@ export const SCHEDULE_DATA = [
     "category": "notice"
   },
   {
-    "id": "te-88",
-    "sourceRow": 88,
+    "id": "te-104",
+    "sourceRow": 104,
+    "week": 47,
+    "weekday": "Onsdag",
+    "date": "2026-11-18",
+    "startTime": "08:15",
+    "endDate": "2026-11-18",
+    "endTime": "12:00",
+    "allDay": false,
+    "groups": [],
+    "audience": "DP152A-HT2026-DP152",
+    "title": "2",
+    "course": "",
+    "locationIds": "",
+    "locations": "",
+    "type": "Handledning",
+    "momentText": "2",
+    "momentNumber": "6",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-105",
+    "sourceRow": 105,
+    "week": 48,
+    "weekday": "Onsdag",
+    "date": "2026-11-25",
+    "startTime": "08:15",
+    "endDate": "2026-11-25",
+    "endTime": "12:00",
+    "allDay": false,
+    "groups": [],
+    "audience": "DP152A-HT2026-DP152",
+    "title": "3",
+    "course": "",
+    "locationIds": "",
+    "locations": "",
+    "type": "Handledning",
+    "momentText": "3",
+    "momentNumber": "7",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-106",
+    "sourceRow": 106,
+    "week": 49,
+    "weekday": "Onsdag",
+    "date": "2026-12-02",
+    "startTime": "08:15",
+    "endDate": "2026-12-02",
+    "endTime": "17:00",
+    "allDay": false,
+    "groups": [],
+    "audience": "DP152A-HT2026-DP152",
+    "title": "Kritisk granskning av annan uppsats",
+    "course": "",
+    "locationIds": "",
+    "locations": "",
+    "type": "Lektion",
+    "momentText": "Kritisk granskning av annan uppsats",
+    "momentNumber": "8",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-107",
+    "sourceRow": 107,
+    "week": 50,
+    "weekday": "Onsdag",
+    "date": "2026-12-09",
+    "startTime": "08:15",
+    "endDate": "2026-12-09",
+    "endTime": "12:00",
+    "allDay": false,
+    "groups": [],
+    "audience": "DP152A-HT2026-DP152",
+    "title": "Oppositionsseminarium",
+    "course": "",
+    "locationIds": "",
+    "locations": "",
+    "type": "Oppositionsseminarium",
+    "momentText": "",
+    "momentNumber": "9",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-108",
+    "sourceRow": 108,
     "week": 50,
     "weekday": "Onsdag",
     "date": "2026-12-09",
@@ -2047,8 +2487,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-89",
-    "sourceRow": 89,
+    "id": "te-109",
+    "sourceRow": 109,
     "week": 51,
     "weekday": "Måndag",
     "date": "2026-12-14",
@@ -2069,8 +2509,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-90",
-    "sourceRow": 90,
+    "id": "te-110",
+    "sourceRow": 110,
     "week": 51,
     "weekday": "Måndag",
     "date": "2026-12-14",
@@ -2094,8 +2534,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-91",
-    "sourceRow": 91,
+    "id": "te-111",
+    "sourceRow": 111,
     "week": 51,
     "weekday": "Måndag",
     "date": "2026-12-14",
@@ -2119,8 +2559,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-92",
-    "sourceRow": 92,
+    "id": "te-112",
+    "sourceRow": 112,
     "week": 51,
     "weekday": "Måndag",
     "date": "2026-12-14",
@@ -2144,8 +2584,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-93",
-    "sourceRow": 93,
+    "id": "te-113",
+    "sourceRow": 113,
     "week": 51,
     "weekday": "Måndag",
     "date": "2026-12-14",
@@ -2169,8 +2609,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-94",
-    "sourceRow": 94,
+    "id": "te-114",
+    "sourceRow": 114,
     "week": 51,
     "weekday": "Tisdag",
     "date": "2026-12-15",
@@ -2191,8 +2631,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-95",
-    "sourceRow": 95,
+    "id": "te-115",
+    "sourceRow": 115,
     "week": 51,
     "weekday": "Tisdag",
     "date": "2026-12-15",
@@ -2213,8 +2653,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-96",
-    "sourceRow": 96,
+    "id": "te-116",
+    "sourceRow": 116,
     "week": 51,
     "weekday": "Tisdag",
     "date": "2026-12-15",
@@ -2235,8 +2675,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-97",
-    "sourceRow": 97,
+    "id": "te-117",
+    "sourceRow": 117,
     "week": 51,
     "weekday": "Onsdag",
     "date": "2026-12-16",
@@ -2257,8 +2697,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-98",
-    "sourceRow": 98,
+    "id": "te-118",
+    "sourceRow": 118,
     "week": 51,
     "weekday": "Onsdag",
     "date": "2026-12-16",
@@ -2279,8 +2719,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-99",
-    "sourceRow": 99,
+    "id": "te-119",
+    "sourceRow": 119,
     "week": 51,
     "weekday": "Onsdag",
     "date": "2026-12-16",
@@ -2301,8 +2741,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-100",
-    "sourceRow": 100,
+    "id": "te-120",
+    "sourceRow": 120,
     "week": 51,
     "weekday": "Torsdag",
     "date": "2026-12-17",
@@ -2323,8 +2763,8 @@ export const SCHEDULE_DATA = [
     "category": "examination"
   },
   {
-    "id": "te-101",
-    "sourceRow": 101,
+    "id": "te-121",
+    "sourceRow": 121,
     "week": 51,
     "weekday": "Torsdag",
     "date": "2026-12-17",
@@ -2345,8 +2785,8 @@ export const SCHEDULE_DATA = [
     "category": "examination"
   },
   {
-    "id": "te-102",
-    "sourceRow": 102,
+    "id": "te-122",
+    "sourceRow": 122,
     "week": 51,
     "weekday": "Torsdag",
     "date": "2026-12-17",
@@ -2367,8 +2807,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-103",
-    "sourceRow": 103,
+    "id": "te-123",
+    "sourceRow": 123,
     "week": 51,
     "weekday": "Fredag",
     "date": "2026-12-18",
@@ -2389,8 +2829,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-104",
-    "sourceRow": 104,
+    "id": "te-124",
+    "sourceRow": 124,
     "week": 51,
     "weekday": "Fredag",
     "date": "2026-12-18",
@@ -2411,8 +2851,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-105",
-    "sourceRow": 105,
+    "id": "te-125",
+    "sourceRow": 125,
     "week": 51,
     "weekday": "Fredag",
     "date": "2026-12-18",
@@ -2433,8 +2873,52 @@ export const SCHEDULE_DATA = [
     "category": "examination"
   },
   {
-    "id": "te-106",
-    "sourceRow": 106,
+    "id": "te-126",
+    "sourceRow": 126,
+    "week": 51,
+    "weekday": "Lördag",
+    "date": "2026-12-19",
+    "startTime": "09:15",
+    "endDate": "2026-12-19",
+    "endTime": "13:15",
+    "allDay": false,
+    "groups": [],
+    "audience": "DP151A-HT2026-DT151",
+    "title": "Salstentamen med anmälan via Ladok",
+    "course": "",
+    "locationIds": "KR:Tentamen 1-6",
+    "locations": "Salstentamen",
+    "type": "Salstentamen med anmälan via Ladok",
+    "momentText": "",
+    "momentNumber": "",
+    "examInfo": "2601 Skriftlig tentamen     , Omtentamen 2, Papperstentamen",
+    "category": "examination"
+  },
+  {
+    "id": "te-127",
+    "sourceRow": 127,
+    "week": 52,
+    "weekday": "Tisdag",
+    "date": "2026-12-22",
+    "startTime": "23:45",
+    "endDate": "2026-12-23",
+    "endTime": "00:00",
+    "allDay": false,
+    "groups": [],
+    "audience": "DP152A-HT2026-DP152",
+    "title": "Slutgiltig inlämning av uppsats",
+    "course": "",
+    "locationIds": "",
+    "locations": "",
+    "type": "Slutgiltig inlämning av uppsats",
+    "momentText": "",
+    "momentNumber": "10",
+    "examInfo": "",
+    "category": "teaching"
+  },
+  {
+    "id": "te-128",
+    "sourceRow": 128,
     "week": 52,
     "weekday": "Torsdag",
     "date": "2026-12-24",
@@ -2455,8 +2939,8 @@ export const SCHEDULE_DATA = [
     "category": "holiday"
   },
   {
-    "id": "te-107",
-    "sourceRow": 107,
+    "id": "te-129",
+    "sourceRow": 129,
     "week": 52,
     "weekday": "Fredag",
     "date": "2026-12-25",
@@ -2477,8 +2961,8 @@ export const SCHEDULE_DATA = [
     "category": "holiday"
   },
   {
-    "id": "te-108",
-    "sourceRow": 108,
+    "id": "te-130",
+    "sourceRow": 130,
     "week": 52,
     "weekday": "Lördag",
     "date": "2026-12-26",
@@ -2499,8 +2983,8 @@ export const SCHEDULE_DATA = [
     "category": "holiday"
   },
   {
-    "id": "te-109",
-    "sourceRow": 109,
+    "id": "te-131",
+    "sourceRow": 131,
     "week": 53,
     "weekday": "Torsdag",
     "date": "2026-12-31",
@@ -2521,8 +3005,8 @@ export const SCHEDULE_DATA = [
     "category": "holiday"
   },
   {
-    "id": "te-110",
-    "sourceRow": 110,
+    "id": "te-132",
+    "sourceRow": 132,
     "week": 53,
     "weekday": "Fredag",
     "date": "2027-01-01",
@@ -2543,8 +3027,8 @@ export const SCHEDULE_DATA = [
     "category": "holiday"
   },
   {
-    "id": "te-111",
-    "sourceRow": 111,
+    "id": "te-133",
+    "sourceRow": 133,
     "week": 1,
     "weekday": "Onsdag",
     "date": "2027-01-06",
@@ -2565,8 +3049,8 @@ export const SCHEDULE_DATA = [
     "category": "holiday"
   },
   {
-    "id": "te-112",
-    "sourceRow": 112,
+    "id": "te-134",
+    "sourceRow": 134,
     "week": 2,
     "weekday": "Måndag",
     "date": "2027-01-11",
@@ -2587,8 +3071,8 @@ export const SCHEDULE_DATA = [
     "category": "examination"
   },
   {
-    "id": "te-113",
-    "sourceRow": 113,
+    "id": "te-135",
+    "sourceRow": 135,
     "week": 2,
     "weekday": "Måndag",
     "date": "2027-01-11",
@@ -2612,8 +3096,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-114",
-    "sourceRow": 114,
+    "id": "te-136",
+    "sourceRow": 136,
     "week": 2,
     "weekday": "Måndag",
     "date": "2027-01-11",
@@ -2637,8 +3121,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-115",
-    "sourceRow": 115,
+    "id": "te-137",
+    "sourceRow": 137,
     "week": 2,
     "weekday": "Måndag",
     "date": "2027-01-11",
@@ -2662,8 +3146,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-116",
-    "sourceRow": 116,
+    "id": "te-138",
+    "sourceRow": 138,
     "week": 2,
     "weekday": "Måndag",
     "date": "2027-01-11",
@@ -2687,8 +3171,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-117",
-    "sourceRow": 117,
+    "id": "te-139",
+    "sourceRow": 139,
     "week": 2,
     "weekday": "Tisdag",
     "date": "2027-01-12",
@@ -2709,8 +3193,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-118",
-    "sourceRow": 118,
+    "id": "te-140",
+    "sourceRow": 140,
     "week": 2,
     "weekday": "Onsdag",
     "date": "2027-01-13",
@@ -2731,8 +3215,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-119",
-    "sourceRow": 119,
+    "id": "te-141",
+    "sourceRow": 141,
     "week": 2,
     "weekday": "Onsdag",
     "date": "2027-01-13",
@@ -2753,8 +3237,8 @@ export const SCHEDULE_DATA = [
     "category": "examination"
   },
   {
-    "id": "te-120",
-    "sourceRow": 120,
+    "id": "te-142",
+    "sourceRow": 142,
     "week": 2,
     "weekday": "Onsdag",
     "date": "2027-01-13",
@@ -2775,8 +3259,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-121",
-    "sourceRow": 121,
+    "id": "te-143",
+    "sourceRow": 143,
     "week": 2,
     "weekday": "Onsdag",
     "date": "2027-01-13",
@@ -2797,8 +3281,8 @@ export const SCHEDULE_DATA = [
     "category": "examination"
   },
   {
-    "id": "te-122",
-    "sourceRow": 122,
+    "id": "te-144",
+    "sourceRow": 144,
     "week": 2,
     "weekday": "Torsdag",
     "date": "2027-01-14",
@@ -2822,8 +3306,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-123",
-    "sourceRow": 123,
+    "id": "te-145",
+    "sourceRow": 145,
     "week": 2,
     "weekday": "Torsdag",
     "date": "2027-01-14",
@@ -2847,8 +3331,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-124",
-    "sourceRow": 124,
+    "id": "te-146",
+    "sourceRow": 146,
     "week": 2,
     "weekday": "Torsdag",
     "date": "2027-01-14",
@@ -2872,8 +3356,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-125",
-    "sourceRow": 125,
+    "id": "te-147",
+    "sourceRow": 147,
     "week": 2,
     "weekday": "Torsdag",
     "date": "2027-01-14",
@@ -2897,8 +3381,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-126",
-    "sourceRow": 126,
+    "id": "te-148",
+    "sourceRow": 148,
     "week": 2,
     "weekday": "Fredag",
     "date": "2027-01-15",
@@ -2919,8 +3403,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-127",
-    "sourceRow": 127,
+    "id": "te-149",
+    "sourceRow": 149,
     "week": 2,
     "weekday": "Fredag",
     "date": "2027-01-15",
@@ -2941,8 +3425,8 @@ export const SCHEDULE_DATA = [
     "category": "teaching"
   },
   {
-    "id": "te-128",
-    "sourceRow": 128,
+    "id": "te-150",
+    "sourceRow": 150,
     "week": 2,
     "weekday": "Fredag",
     "date": "2027-01-15",

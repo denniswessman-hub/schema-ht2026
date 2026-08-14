@@ -4,7 +4,7 @@ En snabb, mobilanpassad och installerbar webbapp för schemat i TimeEdit-exporte
 
 ## Källor och avgränsning
 
-- `TimeEdit_2026-08-12_13_40.xlsx` är aktuell schemakälla och innehåller 122 poster från 25 augusti 2026 till 15 januari 2027. Den har ersatt tidigare exporter helt.
+- `TimeEdit_2026-08-12_13_40.xlsx` är aktuell schemakälla och innehåller 144 poster från 31 augusti 2026 till 15 januari 2027. Filen uppdaterades den 14 augusti 2026 och har ersatt tidigare innehåll helt.
 - Informationen som användaren lämnade om terminens upplägg, närstudieveckor, kursansvariga och basgrupper finns i `TERM_INFO` i `schedule-data.js`. Närstudieveckorna är information och skapar inte schemahändelser som saknas i TimeEdit.
 - `Malmö University grafisk profil.pdf` styr färger och typografiska principer. Cherry Red `#E4022D` används som huvudfärg. Arial används som lokalt ersättningstypsnitt eftersom inga fristående webbfonter finns i projektet.
 - Den lokala filen `Inför hösten HT2026 Temin 5 T5.txt` är fortfarande tom. Terminsinformationen kommer därför från texten som lämnades direkt i uppgiften, inte från filens innehåll på disk.
