@@ -278,6 +278,7 @@ h3 { margin-bottom: 5px; font-size: 1.08rem; }
 .term-info-grid { display: grid; gap: 12px; margin-top: 12px; }
 .campus-weeks,
 .graduation-note,
+.ordinary-examinations,
 .group-info {
   padding: 17px;
   border-radius: 10px;
@@ -313,6 +314,21 @@ h3 { margin-bottom: 5px; font-size: 1.08rem; }
 .campus-week-button > span { display: grid; justify-items: end; line-height: 1.2; }
 .campus-week-button small { color: var(--muted); font-size: .7rem; font-weight: 600; }
 .graduation-note p:last-child { margin-bottom: 0; }
+.ordinary-examinations { margin-top: 12px; background: var(--blue-soft); }
+.ordinary-examinations .section-kicker { color: var(--blue); }
+.ordinary-examinations-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.ordinary-examinations-heading h3 { margin: 0; font-size: 1.05rem; }
+.examination-count { padding: 4px 9px; border-radius: 999px; color: var(--blue); background: var(--surface); font-size: .72rem; font-weight: 800; white-space: nowrap; }
+.ordinary-examinations-note { max-width: 760px; margin: 9px 0 13px; color: var(--text-secondary); font-size: .86rem; }
+.examination-card-grid { display: grid; gap: 9px; }
+.examination-card { padding: 14px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface); }
+.examination-card > time { display: block; margin-bottom: 5px; color: var(--cherry-dark); font-size: .75rem; font-weight: 800; }
+.examination-card h4 { margin: 0; font-size: .98rem; line-height: 1.3; }
+.examination-card > p { margin: 4px 0 0; color: var(--text-secondary); font-size: .82rem; }
+.examination-card ul { display: grid; gap: 5px; margin: 11px 0 0; padding: 0; list-style: none; }
+.examination-card li { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-top: 6px; border-top: 1px solid var(--line); font-size: .8rem; }
+.examination-card li strong { color: var(--ink); font-variant-numeric: tabular-nums; }
+.examination-card li span { color: var(--muted); text-align: right; }
 .group-info { margin-top: 12px; background: var(--soft-red); }
 .group-info-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .privacy-label { padding: 4px 8px; border-radius: 999px; color: var(--cherry-dark); background: var(--surface); font-size: .7rem; font-weight: 800; }
@@ -649,6 +665,7 @@ dialog::backdrop { background: rgb(0 0 0 / 45%); }
   .term-info-grid { grid-template-columns: 1fr 1fr; }
   .group-card-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .campus-weeks ul { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .examination-card-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .campus-moment-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -675,6 +692,7 @@ dialog::backdrop { background: rgb(0 0 0 / 45%); }
   .campus-teachers { text-align: left; }
   .summary-action { display: none; }
   .group-info-heading { align-items: flex-start; flex-direction: column; }
+  .ordinary-examinations-heading { align-items: flex-start; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,10 +1,11 @@
-import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO } from "./schedule-data.js?v=12";
+import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO } from "./schedule-data.js?v=13";
 
 const GROUP_STORAGE_KEY = "schemaHT26.baseGroup";
 const THEME_STORAGE_KEY = "schemaHT26.theme";
 const dateFormatter = new Intl.DateTimeFormat("sv-SE", { weekday: "long", day: "numeric", month: "long" });
 const shortDateFormatter = new Intl.DateTimeFormat("sv-SE", { day: "numeric", month: "short" });
 const fullTodayFormatter = new Intl.DateTimeFormat("sv-SE", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+const examinationDateFormatter = new Intl.DateTimeFormat("sv-SE", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
 
 const elements = {
   group: document.querySelector("#group-filter"),
@@ -138,6 +139,11 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
+function capitalizeFirst(value) {
+  const text = String(value ?? "");
+  return text ? text[0].toLocaleUpperCase("sv-SE") + text.slice(1) : text;
+}
+
 function readStoredGroup() {
   try {
     const value = localStorage.getItem(GROUP_STORAGE_KEY);
@@ -153,6 +159,47 @@ function saveGroup(value) {
   } catch {
     // Appen fungerar även om privat läge blockerar lokal lagring.
   }
+}
+
+function ordinaryExaminationOverview() {
+  const retakePattern = /omexamination|omtentamen/i;
+  const ordinaryEvents = SCHEDULE_DATA.filter((event) => {
+    const description = [event.type, event.title, event.momentText, event.examInfo].join(" ");
+    return event.category === "examination" && !retakePattern.test(description);
+  });
+
+  const examinations = new Map();
+  for (const event of ordinaryEvents) {
+    const key = [event.date, event.title, event.momentText, event.momentNumber].join("|");
+    if (!examinations.has(key)) {
+      examinations.set(key, {
+        date: event.date,
+        title: event.title,
+        momentText: event.momentText,
+        momentNumber: event.momentNumber,
+        slots: new Map(),
+      });
+    }
+
+    const groupLabel = event.groups.length ? event.groups.join(" + ") : "Alla basgrupper";
+    const examination = examinations.get(key);
+    if (!examination.slots.has(groupLabel)) examination.slots.set(groupLabel, []);
+    examination.slots.get(groupLabel).push({ startTime: event.startTime, endTime: event.endTime });
+  }
+
+  return [...examinations.values()].map((examination) => ({
+    ...examination,
+    slots: [...examination.slots.entries()].map(([groupLabel, times]) => {
+      const ordered = times.toSorted((a, b) => a.startTime.localeCompare(b.startTime));
+      const merged = [];
+      for (const time of ordered) {
+        const previous = merged.at(-1);
+        if (previous?.endTime === time.startTime) previous.endTime = time.endTime;
+        else merged.push({ ...time });
+      }
+      return { groupLabel, times: merged };
+    }),
+  })).toSorted((a, b) => a.date.localeCompare(b.date));
 }
 
 function initFilters() {
@@ -211,6 +258,26 @@ function initTermInfo() {
     </article>
   `).join("");
 
+  const examinations = ordinaryExaminationOverview().map((examination) => {
+    const detailParts = [];
+    if (examination.momentText && normalize(examination.momentText) !== normalize(examination.title)) detailParts.push(examination.momentText);
+    if (examination.momentNumber && !normalize(examination.title).includes(normalize(examination.momentNumber))) detailParts.push(`Moment ${examination.momentNumber}`);
+    const slots = examination.slots.flatMap(({ groupLabel, times }) => times.map((time) => `
+      <li>
+        <strong>${escapeHtml(time.startTime)}–${escapeHtml(time.endTime)}</strong>
+        <span>${escapeHtml(groupLabel)}</span>
+      </li>
+    `)).join("");
+    return `
+      <article class="examination-card">
+        <time datetime="${escapeHtml(examination.date)}">${escapeHtml(capitalizeFirst(examinationDateFormatter.format(parseLocalDate(examination.date))))}</time>
+        <h4>${escapeHtml(examination.title)}</h4>
+        ${detailParts.length ? `<p>${detailParts.map(escapeHtml).join(" · ")}</p>` : ""}
+        <ul>${slots}</ul>
+      </article>
+    `;
+  }).join("");
+
   elements.termInfo.innerHTML = `
     <p class="term-introduction">${escapeHtml(TERM_INFO.introduction)}</p>
     <div class="course-grid">${courseCards}</div>
@@ -226,6 +293,17 @@ function initTermInfo() {
         <p>${escapeHtml(TERM_INFO.graduation)}</p>
       </aside>
     </div>
+    <section class="ordinary-examinations" aria-labelledby="ordinary-examinations-heading">
+      <div class="ordinary-examinations-heading">
+        <div>
+          <p class="section-kicker">Ordinarie provtillfällen</p>
+          <h3 id="ordinary-examinations-heading">Tentor och examinationer</h3>
+        </div>
+        <span class="examination-count">${ordinaryExaminationOverview().length} datum</span>
+      </div>
+      <p class="ordinary-examinations-note">Dag, datum och tid enligt det aktuella TimeEdit-utdraget. Omexaminationer, omtentor och examensceremonin visas inte här.</p>
+      <div class="examination-card-grid">${examinations}</div>
+    </section>
     <section class="group-info" aria-labelledby="group-info-heading">
       <div class="group-info-heading">
         <div>
@@ -554,7 +632,7 @@ elements.iosDialog.addEventListener("click", (event) => {
 window.addEventListener("appinstalled", () => { elements.install.hidden = true; });
 
 if ("serviceWorker" in navigator && window.isSecureContext) {
-  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=12"));
+  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=13"));
 }
 
 initTheme();

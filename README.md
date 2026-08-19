@@ -6,6 +6,7 @@ En snabb, mobilanpassad och installerbar webbapp för schemat i TimeEdit-exporte
 
 - `TimeEdit_2026-08-12_13_40.xlsx` är aktuell schemakälla och innehåller 144 poster från 31 augusti 2026 till 15 januari 2027. Filen uppdaterades den 14 augusti 2026 och har ersatt tidigare innehåll helt.
 - Informationen som användaren lämnade om terminens upplägg, närstudieveckor, kursansvariga och basgrupper finns i `TERM_INFO` i `schedule-data.js`. Där finns också momentöversikter, förberedelser och ansvariga lärare från Canvas för samtliga fem närstudieveckor. Canvas-översikterna kompletterar schemat men skapar inte schemahändelser eller ersätter dagar, tider och lokaler från TimeEdit.
+- Under terminsinformationen skapas automatiskt en översikt över ordinarie tentor och examinationer från `SCHEDULE_DATA`, med veckodag, datum, tid och eventuell basgrupp. Omexaminationer, omtentor och examensceremonin ingår inte i översikten.
 - `Malmö University grafisk profil.pdf` styr färger och typografiska principer. Cherry Red `#E4022D` används som huvudfärg. Arial används som lokalt ersättningstypsnitt eftersom inga fristående webbfonter finns i projektet.
 - Den lokala filen `Inför hösten HT2026 Temin 5 T5.txt` är fortfarande tom. Terminsinformationen kommer därför från texten som lämnades direkt i uppgiften, inte från filens innehåll på disk.
 - De uttryckliga basgrupperna i den nya exporten är BG1, BG2, BG3 och BG4. Poster utan gruppsuffix behandlas som gemensamma och visas för alla fyra grupper.
