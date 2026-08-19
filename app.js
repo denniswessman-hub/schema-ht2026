@@ -1,4 +1,4 @@
-import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO } from "./schedule-data.js?v=11";
+import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO } from "./schedule-data.js?v=12";
 
 const GROUP_STORAGE_KEY = "schemaHT26.baseGroup";
 const THEME_STORAGE_KEY = "schemaHT26.theme";
@@ -81,6 +81,8 @@ const state = {
   range: "all",
   search: "",
 };
+
+const campusWeeksByKey = new Map(TERM_INFO.campusWeeks.map((item) => [item.key, item]));
 
 function parseLocalDate(dateString, time = "00:00") {
   return new Date(`${dateString}T${time || "00:00"}:00`);
@@ -194,7 +196,12 @@ function initTermInfo() {
   `).join("");
 
   const campusWeeks = TERM_INFO.campusWeeks.map((item) => `
-    <li><strong>${escapeHtml(item.label)}</strong><span>Vecka ${item.week}</span></li>
+    <li>
+      <button class="campus-week-button" type="button" data-campus-week="${escapeHtml(item.key)}">
+        <strong>${escapeHtml(item.label)}</strong>
+        <span>Vecka ${item.week}<small>${item.moments.length} moment</small></span>
+      </button>
+    </li>
   `).join("");
 
   const groups = Object.entries(TERM_INFO.groupMembers).map(([group, members]) => `
@@ -230,6 +237,21 @@ function initTermInfo() {
       <div class="group-card-grid">${groups}</div>
     </section>
   `;
+
+  elements.termInfo.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-campus-week]");
+    if (!button) return;
+    state.week = button.dataset.campusWeek;
+    state.range = "all";
+    elements.week.value = state.week;
+    for (const quickButton of elements.quick) {
+      const active = quickButton.dataset.range === "all";
+      quickButton.classList.toggle("is-active", active);
+      quickButton.setAttribute("aria-pressed", String(active));
+    }
+    render();
+    requestAnimationFrame(() => document.querySelector(`#heading-${CSS.escape(state.week)}`)?.scrollIntoView({ block: "start" }));
+  });
 }
 
 function eventMatches(event) {
@@ -342,6 +364,9 @@ function renderWeek(group, now, nextEvent) {
     </div>
   `);
 
+  const campusWeek = campusWeeksByKey.get(group.key);
+  if (campusWeek) section.append(renderCampusWeekPlan(campusWeek));
+
   const days = groupBy(group.events, (event) => event.date);
   for (const [date, events] of days) {
     const day = document.createElement("section");
@@ -356,6 +381,40 @@ function renderWeek(group, now, nextEvent) {
     section.append(day);
   }
   return section;
+}
+
+function renderCampusWeekPlan(campusWeek) {
+  const details = document.createElement("details");
+  details.className = "campus-week-plan";
+  details.open = state.week === campusWeek.key;
+
+  const teacherNames = [...new Set(campusWeek.moments.flatMap((item) => item.teachers))];
+  const momentCards = campusWeek.moments.map((item) => `
+    <article class="campus-moment">
+      <div class="campus-moment-meta">
+        <span class="campus-subject">${escapeHtml(item.subject)}</span>
+        ${item.teachers.length ? `<span class="campus-teachers"><strong>Lärare:</strong> ${item.teachers.map(escapeHtml).join(", ")}</span>` : `<span class="campus-teachers is-missing">Lärare anges inte i Canvas</span>`}
+      </div>
+      <h4>${escapeHtml(item.moment)}</h4>
+      ${item.preparation ? `<p class="campus-preparation"><strong>Förbered:</strong> ${escapeHtml(item.preparation)}</p>` : ""}
+    </article>
+  `).join("");
+
+  details.innerHTML = `
+    <summary>
+      <span>
+        <span class="section-kicker">Momentöversikt från Canvas</span>
+        <strong>${escapeHtml(campusWeek.label)} · Vecka ${campusWeek.week}${campusWeek.highlight ? ` · ${escapeHtml(campusWeek.highlight)}` : ""}</strong>
+      </span>
+      <span class="campus-week-count">${campusWeek.moments.length} moment · ${teacherNames.length} lärare</span>
+    </summary>
+    <div class="campus-week-content">
+      <p class="campus-week-note">${escapeHtml(TERM_INFO.campusWeekDisclaimer)}</p>
+      <div class="campus-moment-list">${momentCards}</div>
+      <a class="canvas-source-link" href="${escapeHtml(campusWeek.canvasUrl)}" target="_blank" rel="noopener noreferrer">Öppna originalet i Canvas</a>
+    </div>
+  `;
+  return details;
 }
 
 function renderEvent(event, now, nextEvent) {
@@ -495,7 +554,7 @@ elements.iosDialog.addEventListener("click", (event) => {
 window.addEventListener("appinstalled", () => { elements.install.hidden = true; });
 
 if ("serviceWorker" in navigator && window.isSecureContext) {
-  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=11"));
+  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=12"));
 }
 
 initTheme();

@@ -5,7 +5,7 @@ En snabb, mobilanpassad och installerbar webbapp för schemat i TimeEdit-exporte
 ## Källor och avgränsning
 
 - `TimeEdit_2026-08-12_13_40.xlsx` är aktuell schemakälla och innehåller 144 poster från 31 augusti 2026 till 15 januari 2027. Filen uppdaterades den 14 augusti 2026 och har ersatt tidigare innehåll helt.
-- Informationen som användaren lämnade om terminens upplägg, närstudieveckor, kursansvariga och basgrupper finns i `TERM_INFO` i `schedule-data.js`. Närstudieveckorna är information och skapar inte schemahändelser som saknas i TimeEdit.
+- Informationen som användaren lämnade om terminens upplägg, närstudieveckor, kursansvariga och basgrupper finns i `TERM_INFO` i `schedule-data.js`. Där finns också momentöversikter, förberedelser och ansvariga lärare från Canvas för samtliga fem närstudieveckor. Canvas-översikterna kompletterar schemat men skapar inte schemahändelser eller ersätter dagar, tider och lokaler från TimeEdit.
 - `Malmö University grafisk profil.pdf` styr färger och typografiska principer. Cherry Red `#E4022D` används som huvudfärg. Arial används som lokalt ersättningstypsnitt eftersom inga fristående webbfonter finns i projektet.
 - Den lokala filen `Inför hösten HT2026 Temin 5 T5.txt` är fortfarande tom. Terminsinformationen kommer därför från texten som lämnades direkt i uppgiften, inte från filens innehåll på disk.
 - De uttryckliga basgrupperna i den nya exporten är BG1, BG2, BG3 och BG4. Poster utan gruppsuffix behandlas som gemensamma och visas för alla fyra grupper.
@@ -13,7 +13,7 @@ En snabb, mobilanpassad och installerbar webbapp för schemat i TimeEdit-exporte
 
 ## Schemadata
 
-All data ligger i `schedule-data.js`. `SCHEDULE_DATA` är en lista av schemaobjekt och `TERM_INFO` innehåller terminens beskrivning, närstudieveckor, kursansvariga och basgruppsmedlemmar. Varje schemapost har bland annat datum, start-/sluttid, basgrupper, kurs/delkurs, lokal-id, lokalnamn, undervisningstyp, momenttext, momentnummer och tentamensinformation. Fält som saknas i TimeEdit visas inte i appen.
+All data ligger i `schedule-data.js`. `SCHEDULE_DATA` är en lista av schemaobjekt och `TERM_INFO` innehåller terminens beskrivning, närstudieveckor, Canvas-moment, förberedelser, ansvariga lärare, kursansvariga och basgruppsmedlemmar. Varje schemapost har bland annat datum, start-/sluttid, basgrupper, kurs/delkurs, lokal-id, lokalnamn, undervisningstyp, momenttext, momentnummer och tentamensinformation. Fält som saknas i TimeEdit visas inte i appen.
 
 `sourceRow` pekar på ursprungsraden i Excel-filen. Det gör det enklare att kontrollera en post mot källan. Kalenderposter som helgdagar och terminsmarkeringar finns kvar men får en egen visuell behandling.
 

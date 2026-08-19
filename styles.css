@@ -294,7 +294,24 @@ h3 { margin-bottom: 5px; font-size: 1.08rem; }
   padding: 0;
   list-style: none;
 }
-.campus-weeks li { display: flex; justify-content: space-between; gap: 7px; padding: 7px 9px; border-radius: 7px; background: var(--translucent-surface); font-size: .84rem; }
+.campus-weeks li { border-radius: 7px; background: var(--translucent-surface); font-size: .84rem; }
+.campus-week-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 9px;
+  width: 100%;
+  min-height: 48px;
+  padding: 7px 9px;
+  border: 1px solid transparent;
+  border-radius: inherit;
+  color: var(--ink);
+  background: transparent;
+  text-align: left;
+}
+.campus-week-button:hover { border-color: var(--jade); background: var(--surface); }
+.campus-week-button > span { display: grid; justify-items: end; line-height: 1.2; }
+.campus-week-button small { color: var(--muted); font-size: .7rem; font-weight: 600; }
 .graduation-note p:last-child { margin-bottom: 0; }
 .group-info { margin-top: 12px; background: var(--soft-red); }
 .group-info-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
@@ -417,6 +434,59 @@ h3 { margin-bottom: 5px; font-size: 1.08rem; }
 }
 .week-title { margin: 0; font-size: 1.28rem; }
 .week-range { color: var(--muted); font-size: .84rem; font-weight: 400; }
+
+.campus-week-plan {
+  overflow: hidden;
+  margin: 0 0 22px;
+  border: 1px solid color-mix(in srgb, var(--blue) 36%, var(--line));
+  border-left: 5px solid var(--blue);
+  border-radius: var(--radius);
+  background: var(--blue-soft);
+}
+.campus-week-plan > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: 76px;
+  padding: 14px 16px;
+  cursor: pointer;
+  list-style: none;
+}
+.campus-week-plan > summary::-webkit-details-marker { display: none; }
+.campus-week-plan > summary::after {
+  content: "+";
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: var(--contrast-text);
+  background: var(--contrast-bg);
+  font-size: 1.15rem;
+  line-height: 1;
+}
+.campus-week-plan[open] > summary::after { content: "−"; }
+.campus-week-plan .section-kicker { margin-bottom: 3px; color: var(--blue); }
+.campus-week-plan > summary strong { display: block; font-size: 1rem; }
+.campus-week-count { margin-left: auto; color: var(--muted); font-size: .78rem; font-weight: 700; white-space: nowrap; }
+.campus-week-content { padding: 0 16px 17px; border-top: 1px solid var(--line); }
+.campus-week-note { margin: 14px 0; color: var(--text-secondary); font-size: .86rem; }
+.campus-moment-list { display: grid; gap: 9px; }
+.campus-moment {
+  padding: 13px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+}
+.campus-moment-meta { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 7px; }
+.campus-subject { color: var(--blue); font-size: .74rem; font-weight: 800; letter-spacing: .035em; text-transform: uppercase; }
+.campus-teachers { color: var(--muted); font-size: .76rem; text-align: right; }
+.campus-teachers.is-missing { font-style: italic; }
+.campus-moment h4 { margin: 0; font-size: .98rem; line-height: 1.3; }
+.campus-preparation { margin: 9px 0 0; padding-top: 9px; border-top: 1px solid var(--line); color: var(--text-secondary); font-size: .84rem; }
+.canvas-source-link { display: inline-block; margin-top: 14px; color: var(--blue); font-size: .86rem; font-weight: 800; text-underline-offset: 3px; }
 
 .day-section { margin-top: 22px; }
 .day-heading {
@@ -579,6 +649,7 @@ dialog::backdrop { background: rgb(0 0 0 / 45%); }
   .term-info-grid { grid-template-columns: 1fr 1fr; }
   .group-card-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .campus-weeks ul { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .campus-moment-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (min-width: 980px) {
@@ -598,6 +669,10 @@ dialog::backdrop { background: rgb(0 0 0 / 45%); }
   .status-flag { position: static; grid-column: 1 / -1; width: fit-content; margin-bottom: 2px; }
   .week-label-wrap { flex-wrap: wrap; gap: 4px 9px; }
   .week-range { flex-basis: 100%; }
+  .campus-week-plan > summary { align-items: flex-start; flex-wrap: wrap; gap: 8px 12px; }
+  .campus-week-count { order: 3; width: 100%; margin-left: 0; }
+  .campus-moment-meta { align-items: flex-start; flex-direction: column; gap: 4px; }
+  .campus-teachers { text-align: left; }
   .summary-action { display: none; }
   .group-info-heading { align-items: flex-start; flex-direction: column; }
 }

@@ -43,27 +43,119 @@ export const TERM_INFO = {
     {
       "label": "NSV 1",
       "week": 36,
-      "year": 2026
+      "year": 2026,
+      "key": "2026-W36",
+      "canvasUrl": "https://mau.instructure.com/courses/19413/modules/items/886492",
+      "moments": [
+        { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 1 – Kursintroduktion. Polismyndighetens strategi för trafik som metod.", "preparation": "Du behöver inte förbereda något inför introduktionen. Titta gärna genom Canvasupplägget.", "teachers": ["Peter Hellqvist"] },
+        { "subject": "Polkon V", "moment": "5:1 – Målfokus", "preparation": "", "teachers": ["Michael Åhlander"] },
+        { "subject": "Polkon F", "moment": "5:1", "preparation": "", "teachers": ["Daniel Lundberg"] },
+        { "subject": "Sambandstjänst", "moment": "5:1", "preparation": "", "teachers": ["Charlotte Berg"] },
+        { "subject": "Rättssäker dokumentation / DurTvå", "moment": "Moment 14 Slutredovisning", "preparation": "Moment 14", "teachers": ["Kristina Windalen"] },
+        { "subject": "Polkon V", "moment": "5:2 – Rörelse", "preparation": "", "teachers": ["Michael Åhlander"] },
+        { "subject": "Polkon F", "moment": "5:2", "preparation": "", "teachers": ["Daniel Lundberg"] },
+        { "subject": "Polkon T", "moment": "5:1 Lektion – Vägspärr, grunder", "preparation": "", "teachers": ["Jan Peter Fredriksson"] },
+        { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 2 – Föreläsning: Stoppande av fordon", "preparation": "", "teachers": ["Peter Hellqvist"] },
+        { "subject": "Sambandstjänst", "moment": "M 5:2", "preparation": "", "teachers": ["Jenny Holtås"] },
+        { "subject": "Polkon V", "moment": "5:3 Sekundär hand", "preparation": "", "teachers": ["Michael Åhlander"] },
+        { "subject": "Akutsjukvård", "moment": "M 9 – Scenarioövningar", "preparation": "Läs boken Akut omhändertagande i PDF-format, sida 55–75 om S-CABCDE. Se instruktionsfilmerna om S-CABCDE. Den som vill repetera grunderna kan även se föreläsningarna från termin 2 om S-CABCDE, anatomi, fysiologi och sjukdomslära. Klädsel: uniform.", "teachers": ["Emma K Gavell"] },
+        { "subject": "Polkon F", "moment": "5:3", "preparation": "", "teachers": ["Daniel L"] },
+        { "subject": "Sambandstjänst", "moment": "5:3", "preparation": "", "teachers": ["Berit Andersson"] },
+        { "subject": "Professionsutveckling", "moment": "Kropp, röst och makt", "preparation": "", "teachers": ["Dawan R", "Johan P"] },
+        { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 3 – Föreläsning: Fordonslag / Trafikskadelag m.m.", "preparation": "", "teachers": ["Peter Hellqvist"] }
+      ]
     },
     {
       "label": "NSV 2",
       "week": 40,
-      "year": 2026
+      "year": 2026,
+      "key": "2026-W40",
+      "canvasUrl": "https://mau.instructure.com/courses/19413/modules/items/886493",
+      "moments": [
+        { "subject": "Examensarbete", "moment": "Information inför uppsatsintroduktionen", "preparation": "", "teachers": ["Malin Mc Glinn"] },
+        { "subject": "Polkon T", "moment": "5:2 Sök i terräng. Rek/Obs/Säk", "preparation": "Klädsel: uniform.", "teachers": ["Jan Peter Fredriksson"] },
+        { "subject": "Rättssäker dokumentation / DurTvå", "moment": "Moment 15 – Kapellskäret", "preparation": "Moment 15–17", "teachers": ["Fredrik Arvidsson"] },
+        { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 9 Praktisk övning – Trafikkontroll", "preparation": "", "teachers": ["Peter Hellqvist"] },
+        { "subject": "Polkon F", "moment": "5:4", "preparation": "", "teachers": ["Daniel Lundberg"] },
+        { "subject": "Akutsjukvård", "moment": "M 10 HLR – Barn", "preparation": "Steg 1: Anmäl dig till Barn-HLR DPU. Steg 2: Se materialet Barn-HLR och MSB:s film om att barn drunknar tyst. Steg 3: Genomför den digitala webbutbildningen och visa kursintyget för ansvarig lärare; namn och datum måste synas. Utan intyg får du inte delta utan tilldelas en annan examinationstid. Ta med giltigt ID-kort. Den praktiska lektionen är obligatorisk och examinerande.", "teachers": ["Emma K Gavell"] },
+        { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 10 – Praktisk övning: Trafikolycka", "preparation": "", "teachers": ["Peter Hellqvist"] },
+        { "subject": "Sambandstjänst", "moment": "5:4", "preparation": "", "teachers": ["Charlotte"] },
+        { "subject": "Polkon V", "moment": "5:4 Precision", "preparation": "", "teachers": ["Michael Åhlander"] },
+        { "subject": "PNF", "moment": "M 13 Lågfart Tätort", "preparation": "", "teachers": ["Peter Hellqvist"] },
+        { "subject": "Polkon V", "moment": "5:5 Precision", "preparation": "", "teachers": ["Michael Åhlander"] },
+        { "subject": "Polkon F", "moment": "5:5 Arrest", "preparation": "", "teachers": ["Daniel Lundberg"] },
+        { "subject": "Polisiärt arbete i trafikmiljö", "moment": "Skriftlig salstentamen – 4 timmar", "preparation": "", "teachers": ["Peter Hellqvist"] },
+        { "subject": "Polkon T", "moment": "AMF – Juridisk metod", "preparation": "", "teachers": ["Martin Persson"] },
+        { "subject": "Sambandstjänst", "moment": "5:5", "preparation": "", "teachers": ["Charlotte"] },
+        { "subject": "Polkon V", "moment": "5:6 Låg färdigställning/drag från hölster", "preparation": "", "teachers": ["Michael Åhlander"] }
+      ]
     },
     {
       "label": "NSV 3",
       "week": 45,
-      "year": 2026
+      "year": 2026,
+      "key": "2026-W45",
+      "canvasUrl": "https://mau.instructure.com/courses/19413/modules/items/886494",
+      "moments": [
+        { "subject": "Sambandstjänst", "moment": "5:6", "preparation": "", "teachers": ["Charlotte Berg"] },
+        { "subject": "Rättssäker dokumentation / DurTvå", "moment": "Moment 16 Inför examination", "preparation": "Moment 15–17", "teachers": ["Andreas Falk"] },
+        { "subject": "Sambandstjänst", "moment": "5:7", "preparation": "", "teachers": ["Charlotte Berg"] },
+        { "subject": "Polkon T", "moment": "AMF – Planspel", "preparation": "", "teachers": ["Martin Persson"] },
+        { "subject": "PNF", "moment": "M 14 Examination – Lågfart, tätort", "preparation": "", "teachers": ["Peter Hellqvist"] },
+        { "subject": "Polkon F", "moment": "5:6", "preparation": "", "teachers": ["Daniel Lundberg"] },
+        { "subject": "Sambandstjänst", "moment": "5:8 Examination", "preparation": "", "teachers": ["Charlotte Berg"] },
+        { "subject": "Polkon V", "moment": "5:7 Sammanfattning", "preparation": "", "teachers": ["Michael Åhlander"] },
+        { "subject": "Polkon F", "moment": "5:7", "preparation": "", "teachers": ["Daniel Lundberg"] },
+        { "subject": "Polkon T", "moment": "M 2:7 – Examination Teori & praktik, BG 1+2", "preparation": "Examinationen är en praktisk övning i lokaliseringssök och rörligt fordonsstopp med fokus på att motivera utförda handlingar utifrån de taktiska grundprinciperna och GTF.", "teachers": ["Jan Peter Fredriksson"] },
+        { "subject": "Polkon V", "moment": "5:8 Examination – Behörighetsprovet", "preparation": "", "teachers": ["Michael Åhlander"] }
+      ]
     },
     {
       "label": "NSV 4",
       "week": 51,
-      "year": 2026
+      "year": 2026,
+      "key": "2026-W51",
+      "canvasUrl": "https://mau.instructure.com/courses/19413/modules/items/886495",
+      "moments": [
+        { "subject": "Polkon T", "moment": "AMF – Praktisk övning", "preparation": "", "teachers": ["Martin Persson"] },
+        { "subject": "Polkon V", "moment": "5:9 Resurstid 1", "preparation": "", "teachers": ["Michael Åhlander"] },
+        { "subject": "Sambandstjänst", "moment": "5:9", "preparation": "", "teachers": ["Charlotte Berg"] },
+        { "subject": "Polkon T", "moment": "PDV Dag 1 – Introduktion", "preparation": "", "teachers": ["Martin Persson"] },
+        { "subject": "Polkon T", "moment": "PDV Dag 1 – Planspel", "preparation": "", "teachers": ["Martin Persson"] },
+        { "subject": "Polkon T", "moment": "PDV Dag 1 – Formell metodträning", "preparation": "", "teachers": ["Martin Persson"] },
+        { "subject": "Polkon T", "moment": "PDV Dag 2 – Begreppsteori", "preparation": "", "teachers": ["Martin Persson"] },
+        { "subject": "Polkon T", "moment": "PDV Dag 2 – Föreläsning Jokela", "preparation": "", "teachers": ["Martin Persson"] },
+        { "subject": "Polkon T", "moment": "PDV Dag 2 – Tillämpningsövning", "preparation": "", "teachers": ["Martin Persson"] },
+        { "subject": "Sambandstjänst", "moment": "Omexamination 1", "preparation": "", "teachers": ["Charlotte Berg"] },
+        { "subject": "Polkon V", "moment": "5:10 Omexamination 1", "preparation": "", "teachers": ["Michael Åhlander"] },
+        { "subject": "Professionsutveckling", "moment": "Dödsbudsövning", "preparation": "", "teachers": ["Peter Hellqvist"] },
+        { "subject": "Övrigt", "moment": "Brandövning", "preparation": "", "teachers": ["Christian Von Malmborg"] },
+        { "subject": "Rättssäker dokumentation / DurTvå", "moment": "Moment 17 Examination", "preparation": "Moment 15–17", "teachers": ["Marcus Darnhede"] }
+      ]
     },
     {
       "label": "NSV 5",
       "week": 2,
-      "year": 2027
+      "year": 2027,
+      "key": "2027-W02",
+      "canvasUrl": "https://mau.instructure.com/courses/19413/modules/items/886496",
+      "highlight": "Examensveckan",
+      "moments": [
+        { "subject": "Polkon V", "moment": "5:11 Resurs 2", "preparation": "", "teachers": ["Michael Åhlander"] },
+        { "subject": "Polkon V", "moment": "5:12 Omexamination 2", "preparation": "", "teachers": ["Michael Åhlander"] },
+        { "subject": "PNF", "moment": "M 15 Lågfart med minibuss och släp", "preparation": "", "teachers": ["Peter Hellqvist"] },
+        { "subject": "Polkon V", "moment": "5:13 Simulator", "preparation": "", "teachers": ["Michael Åhlander"] },
+        { "subject": "Professionsutveckling", "moment": "Slutövning", "preparation": "", "teachers": ["Markus Ingemarsson", "Anna Märta Rooth"] },
+        { "subject": "Professionsutveckling", "moment": "Avrapportering slutövning", "preparation": "", "teachers": ["Fredrik Arvidsson"] },
+        { "subject": "Rättssäker dokumentation / DurTvå", "moment": "Omexamination 1", "preparation": "", "teachers": ["Fredrik Arvidsson"] },
+        { "subject": "Polkon V", "moment": "5:14 Skydd / Skyl", "preparation": "", "teachers": ["Michael Åhlander"] },
+        { "subject": "Sambandstjänst", "moment": "Omexamination 2", "preparation": "", "teachers": ["Charlotte Berg"] },
+        { "subject": "Polkon F", "moment": "5:9", "preparation": "", "teachers": ["Daniel Lundberg"] },
+        { "subject": "PNF", "moment": "15 Lågfart med minibuss och släp", "preparation": "", "teachers": [] },
+        { "subject": "Polkon V", "moment": "5:12 Omexamination 2", "preparation": "", "teachers": [] },
+        { "subject": "Polkon V", "moment": "5:15 Dolt bärande", "preparation": "", "teachers": ["Michael Åhlander"] },
+        { "subject": "Övrigt", "moment": "Inlämning av uniformsutrustning. Utlämning av aspirantuniform", "preparation": "", "teachers": ["Pauline Nordén"] }
+      ]
     }
   ],
   "graduation": "Examen planeras till kalendervecka 2. Exakt dag är ännu inte fastställd eftersom den beror på tillgång till lokal för ceremonin.",
@@ -94,7 +186,9 @@ export const TERM_INFO = {
       "Johan"
     ]
   },
-  "sourceLabel": "Information inför termin 5, HT26"
+  "sourceLabel": "Information inför termin 5, HT26",
+  "campusWeekSourceLabel": "Momentöversikter i Canvas för termin 5, HT26",
+  "campusWeekDisclaimer": "Canvas visar veckans moment, förberedelser och ansvariga lärare. Exakta dagar, tider och platser hämtas även fortsättningsvis från TimeEdit. Innehållet kan ändras vid exempelvis sjukfrånvaro eller logistikproblem."
 };
 
 export const SCHEDULE_DATA = [
