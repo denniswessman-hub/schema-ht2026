@@ -1,7 +1,9 @@
-import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO } from "./schedule-data.js?v=13";
+import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO } from "./schedule-data.js?v=14";
 
 const GROUP_STORAGE_KEY = "schemaHT26.baseGroup";
 const THEME_STORAGE_KEY = "schemaHT26.theme";
+const EXAM_DATE = "2027-01-15";
+const DAY_IN_MILLISECONDS = 86_400_000;
 const dateFormatter = new Intl.DateTimeFormat("sv-SE", { weekday: "long", day: "numeric", month: "long" });
 const shortDateFormatter = new Intl.DateTimeFormat("sv-SE", { day: "numeric", month: "short" });
 const fullTodayFormatter = new Intl.DateTimeFormat("sv-SE", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
@@ -17,6 +19,9 @@ const elements = {
   empty: document.querySelector("#empty-state"),
   today: document.querySelector("#today-label"),
   termPeriod: document.querySelector("#term-period"),
+  examCountdown: document.querySelector("#exam-countdown"),
+  examCountdownNumber: document.querySelector("#exam-countdown-number"),
+  examCountdownLabel: document.querySelector("#exam-countdown-label"),
   termInfo: document.querySelector("#term-info-content"),
   footerTitle: document.querySelector("#footer-schedule-title"),
   footerSource: document.querySelector("#footer-source"),
@@ -67,6 +72,42 @@ function initTheme() {
   systemTheme.addEventListener?.("change", (event) => {
     if (!readStoredTheme()) applyTheme(event.matches ? "dark" : "light");
   });
+}
+
+function daysUntilExam(referenceDate = new Date()) {
+  const referenceDay = startOfDay(referenceDate);
+  const examDay = parseLocalDate(EXAM_DATE);
+  return Math.round((examDay - referenceDay) / DAY_IN_MILLISECONDS);
+}
+
+function updateExamCountdown() {
+  const days = daysUntilExam();
+  if (days > 0) {
+    elements.examCountdownNumber.textContent = String(days);
+    elements.examCountdownLabel.textContent = `${days === 1 ? "dag" : "dagar"} kvar till`;
+    elements.examCountdown.setAttribute("aria-label", `${days} ${days === 1 ? "dag" : "dagar"} kvar till examen den 15 januari 2027`);
+  } else if (days === 0) {
+    elements.examCountdownNumber.textContent = "I dag";
+    elements.examCountdownLabel.textContent = "är det dags för";
+    elements.examCountdown.setAttribute("aria-label", "I dag är det examen");
+  } else {
+    elements.examCountdownNumber.textContent = "Klart";
+    elements.examCountdownLabel.textContent = "examen genomfördes";
+    elements.examCountdown.setAttribute("aria-label", "Examen genomfördes den 15 januari 2027");
+  }
+}
+
+function initExamCountdown() {
+  updateExamCountdown();
+  const scheduleNextUpdate = () => {
+    const now = new Date();
+    const nextMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 1);
+    window.setTimeout(() => {
+      updateExamCountdown();
+      scheduleNextUpdate();
+    }, nextMidnight - now);
+  };
+  scheduleNextUpdate();
 }
 
 const today = startOfDay(new Date());
@@ -632,10 +673,11 @@ elements.iosDialog.addEventListener("click", (event) => {
 window.addEventListener("appinstalled", () => { elements.install.hidden = true; });
 
 if ("serviceWorker" in navigator && window.isSecureContext) {
-  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=13"));
+  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=14"));
 }
 
 initTheme();
+initExamCountdown();
 initTermInfo();
 initFilters();
 render();

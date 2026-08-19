@@ -112,7 +112,43 @@ footer {
   margin-inline: auto;
 }
 
-.header-inner { padding-block: 20px 34px; }
+.header-inner { padding-block: 18px 34px; }
+.exam-countdown {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
+  padding: 12px 17px;
+  border: 2px solid rgb(255 255 255 / 78%);
+  border-radius: 18px;
+  color: #171717;
+  background: white;
+  box-shadow: 0 9px 28px rgb(0 0 0 / 18%);
+}
+.exam-countdown-number {
+  min-width: 1.65em;
+  color: var(--cherry);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(2.8rem, 7vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: -.065em;
+  line-height: .9;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.exam-countdown-copy { display: grid; align-content: center; line-height: 1.05; }
+.exam-countdown-copy > span { font-size: clamp(.82rem, 2vw, 1rem); font-weight: 700; }
+.exam-countdown-copy strong { color: #171717; font-size: clamp(1.35rem, 4vw, 2.2rem); letter-spacing: .1em; }
+.exam-countdown time {
+  padding: 7px 11px;
+  border-radius: 999px;
+  color: white;
+  background: #171717;
+  font-size: .82rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
 .header-topbar {
   display: flex;
   align-items: center;
@@ -676,6 +712,10 @@ dialog::backdrop { background: rgb(0 0 0 / 45%); }
 
 @media (max-width: 470px) {
   .header-inner { padding-top: 16px; }
+  .exam-countdown { grid-template-columns: auto minmax(0, 1fr); gap: 10px 13px; margin-bottom: 18px; padding: 12px 13px; }
+  .exam-countdown-number { min-width: 1.5em; font-size: 3.25rem; }
+  .exam-countdown-copy strong { font-size: 1.45rem; }
+  .exam-countdown time { grid-column: 1 / -1; justify-self: stretch; padding-block: 6px; text-align: center; }
   .header-topbar { align-items: center; margin-bottom: 14px; }
   .brand-logo { width: 94px; height: 94px; }
   .theme-toggle { min-width: 136px; gap: 9px; padding-left: 12px; font-size: .78rem; }
