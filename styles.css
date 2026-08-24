@@ -55,9 +55,13 @@
 html {
   scroll-behavior: smooth;
   background: var(--canvas);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
+  min-height: 100vh;
+  min-height: 100dvh;
   margin: 0;
   color: var(--ink);
   background: var(--canvas);
@@ -69,6 +73,7 @@ body {
 
 button, input, select { font: inherit; }
 button, select { cursor: pointer; }
+button, summary { touch-action: manipulation; }
 
 button:focus-visible,
 input:focus-visible,
@@ -108,8 +113,10 @@ a:focus-visible {
 .controls-inner,
 .schedule-shell,
 footer {
-  width: min(100% - 32px, var(--content));
+  width: min(100%, calc(var(--content) + 32px));
   margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
 }
 
 .header-inner { padding-block: 18px 34px; }
@@ -398,8 +405,8 @@ h3 { margin-bottom: 5px; font-size: 1.08rem; }
 .quick-filters {
   display: flex;
   gap: 8px;
-  margin: 18px -16px 16px;
-  padding-inline: 16px;
+  margin: 18px 0 16px;
+  padding-inline: 0;
   overflow-x: auto;
   overscroll-behavior-inline: contain;
   scrollbar-width: none;
@@ -435,6 +442,7 @@ h3 { margin-bottom: 5px; font-size: 1.08rem; }
   border-radius: 9px;
   color: var(--ink);
   background: var(--surface);
+  font-size: 16px;
 }
 
 .field select { padding: 10px 38px 10px 12px; }
@@ -466,7 +474,12 @@ h3 { margin-bottom: 5px; font-size: 1.08rem; }
   font-size: .92rem;
 }
 
-.week-section { margin-top: 30px; }
+.week-section {
+  margin-top: 30px;
+  scroll-margin-top: 18px;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 720px;
+}
 .week-heading {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -490,6 +503,7 @@ h3 { margin-bottom: 5px; font-size: 1.08rem; }
 .campus-week-plan {
   overflow: hidden;
   margin: 0 0 22px;
+  border: 1px solid var(--line);
   border: 1px solid color-mix(in srgb, var(--blue) 36%, var(--line));
   border-left: 5px solid var(--blue);
   border-radius: var(--radius);
@@ -538,7 +552,7 @@ h3 { margin-bottom: 5px; font-size: 1.08rem; }
 .campus-teachers.is-missing { font-style: italic; }
 .campus-moment h4 { margin: 0; font-size: .98rem; line-height: 1.3; }
 .campus-preparation { margin: 9px 0 0; padding-top: 9px; border-top: 1px solid var(--line); color: var(--text-secondary); font-size: .84rem; }
-.canvas-source-link { display: inline-block; margin-top: 14px; color: var(--blue); font-size: .86rem; font-weight: 800; text-underline-offset: 3px; }
+.canvas-source-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: 8px; color: var(--blue); font-size: .86rem; font-weight: 800; text-underline-offset: 3px; }
 
 .day-section { margin-top: 22px; }
 .day-heading {
@@ -612,7 +626,7 @@ h3 { margin-bottom: 5px; font-size: 1.08rem; }
 .location strong { font-weight: 700; }
 .location-id { display: block; color: var(--muted); font-size: .8rem; overflow-wrap: anywhere; }
 .event-extra { margin-top: 10px; color: var(--muted); font-size: .86rem; }
-.event-extra summary { width: fit-content; color: var(--cherry-dark); font-weight: 700; cursor: pointer; }
+.event-extra summary { display: inline-flex; align-items: center; width: fit-content; min-height: 44px; padding-block: 8px; color: var(--cherry-dark); font-weight: 700; cursor: pointer; }
 .event-extra dl { display: grid; grid-template-columns: max-content 1fr; gap: 5px 10px; margin-bottom: 0; }
 .event-extra dt { font-weight: 700; }
 .event-extra dd { margin: 0; overflow-wrap: anywhere; }
@@ -670,6 +684,7 @@ dialog {
   background: var(--surface);
   box-shadow: 0 20px 80px rgb(0 0 0 / 30%);
 }
+dialog[open] { position: fixed; inset: 0; margin: auto; max-height: min(86vh, 560px); }
 dialog::backdrop { background: rgb(0 0 0 / 45%); }
 .dialog-content { position: relative; padding: 28px; }
 .dialog-content .section-kicker { color: var(--cherry-dark); }
@@ -708,6 +723,7 @@ dialog::backdrop { background: rgb(0 0 0 / 45%); }
 @media (min-width: 980px) {
   .controls-shell { position: sticky; }
   .schedule-shell { padding-top: 44px; }
+  .week-section { scroll-margin-top: 190px; }
 }
 
 @media (max-width: 470px) {
@@ -721,6 +737,8 @@ dialog::backdrop { background: rgb(0 0 0 / 45%); }
   .theme-toggle { min-width: 136px; gap: 9px; padding-left: 12px; font-size: .78rem; }
   .header-title-row { align-items: flex-start; flex-direction: column; }
   .install-button { width: 100%; }
+  .quick-filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; }
+  .quick-filter { width: 100%; padding-inline: 10px; }
   .event-card { grid-template-columns: 68px minmax(0, 1fr); gap: 10px; padding: 14px 12px; }
   .event-content h4 { margin-right: 0; padding-right: 0; }
   .status-flag { position: static; grid-column: 1 / -1; width: fit-content; margin-bottom: 2px; }
@@ -745,5 +763,6 @@ dialog::backdrop { background: rgb(0 0 0 / 45%); }
   body { background: white; }
   .app-header { color: black; background: white; border-bottom: 5px solid var(--cherry); }
   .event-card { break-inside: avoid; box-shadow: none; }
+  .week-section { content-visibility: visible; contain-intrinsic-size: none; }
   .past-weeks { background: white; }
 }

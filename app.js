@@ -1,4 +1,4 @@
-import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO } from "./schedule-data.js?v=14";
+import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO } from "./schedule-data.js?v=15";
 
 const GROUP_STORAGE_KEY = "schemaHT26.baseGroup";
 const THEME_STORAGE_KEY = "schemaHT26.theme";
@@ -69,9 +69,11 @@ function initTheme() {
     applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark", true);
   });
 
-  systemTheme.addEventListener?.("change", (event) => {
+  const handleSystemThemeChange = (event) => {
     if (!readStoredTheme()) applyTheme(event.matches ? "dark" : "light");
-  });
+  };
+  if (systemTheme.addEventListener) systemTheme.addEventListener("change", handleSystemThemeChange);
+  else systemTheme.addListener?.(handleSystemThemeChange);
 }
 
 function daysUntilExam(referenceDate = new Date()) {
@@ -97,25 +99,50 @@ function updateExamCountdown() {
   }
 }
 
+let today;
+let todayIso;
+let currentWeekKey;
+let nextWeekKey;
+
+function refreshDateContext(referenceDate = new Date()) {
+  today = startOfDay(referenceDate);
+  todayIso = localIsoDate(today);
+  currentWeekKey = isoWeekKey(today);
+  const nextWeekDate = new Date(today);
+  nextWeekDate.setDate(nextWeekDate.getDate() + 7);
+  nextWeekKey = isoWeekKey(nextWeekDate);
+}
+
+function updateCurrentDateLabel() {
+  elements.today.textContent = `Idag · ${fullTodayFormatter.format(today)}`;
+}
+
+function syncDailyState() {
+  const previousToday = todayIso;
+  refreshDateContext();
+  updateExamCountdown();
+  updateCurrentDateLabel();
+  if (previousToday && previousToday !== todayIso) render();
+}
+
 function initExamCountdown() {
   updateExamCountdown();
   const scheduleNextUpdate = () => {
     const now = new Date();
     const nextMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 1);
     window.setTimeout(() => {
-      updateExamCountdown();
+      syncDailyState();
       scheduleNextUpdate();
     }, nextMidnight - now);
   };
   scheduleNextUpdate();
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") syncDailyState();
+  });
 }
 
-const today = startOfDay(new Date());
-const todayIso = localIsoDate(today);
-const currentWeekKey = isoWeekKey(today);
-const nextWeekDate = new Date(today);
-nextWeekDate.setDate(nextWeekDate.getDate() + 7);
-const nextWeekKey = isoWeekKey(nextWeekDate);
+refreshDateContext();
 
 const state = {
   group: readStoredGroup(),
@@ -231,16 +258,16 @@ function ordinaryExaminationOverview() {
   return [...examinations.values()].map((examination) => ({
     ...examination,
     slots: [...examination.slots.entries()].map(([groupLabel, times]) => {
-      const ordered = times.toSorted((a, b) => a.startTime.localeCompare(b.startTime));
+      const ordered = [...times].sort((a, b) => a.startTime.localeCompare(b.startTime));
       const merged = [];
       for (const time of ordered) {
-        const previous = merged.at(-1);
+        const previous = merged[merged.length - 1];
         if (previous?.endTime === time.startTime) previous.endTime = time.endTime;
         else merged.push({ ...time });
       }
       return { groupLabel, times: merged };
     }),
-  })).toSorted((a, b) => a.date.localeCompare(b.date));
+  })).sort((a, b) => a.date.localeCompare(b.date));
 }
 
 function initFilters() {
@@ -266,7 +293,7 @@ function initFilters() {
   }
 
   elements.termPeriod.textContent = `${SCHEDULE_META.eventPeriod.replace(" - ", "–")} · aktuellt utdrag`;
-  elements.today.textContent = `Idag · ${fullTodayFormatter.format(today)}`;
+  updateCurrentDateLabel();
   elements.footerTitle.textContent = SCHEDULE_META.scheduleTitle;
   elements.footerSource.textContent = `Källa: ${SCHEDULE_META.sourceFile}, exporterad ${SCHEDULE_META.sourceExportedAt}`;
 }
@@ -299,7 +326,8 @@ function initTermInfo() {
     </article>
   `).join("");
 
-  const examinations = ordinaryExaminationOverview().map((examination) => {
+  const examinationOverview = ordinaryExaminationOverview();
+  const examinations = examinationOverview.map((examination) => {
     const detailParts = [];
     if (examination.momentText && normalize(examination.momentText) !== normalize(examination.title)) detailParts.push(examination.momentText);
     if (examination.momentNumber && !normalize(examination.title).includes(normalize(examination.momentNumber))) detailParts.push(`Moment ${examination.momentNumber}`);
@@ -340,7 +368,7 @@ function initTermInfo() {
           <p class="section-kicker">Ordinarie provtillfällen</p>
           <h3 id="ordinary-examinations-heading">Tentor och examinationer</h3>
         </div>
-        <span class="examination-count">${ordinaryExaminationOverview().length} datum</span>
+        <span class="examination-count">${examinationOverview.length} datum</span>
       </div>
       <p class="ordinary-examinations-note">Dag, datum och tid enligt det aktuella TimeEdit-utdraget. Omexaminationer, omtentor och examensceremonin visas inte här.</p>
       <div class="examination-card-grid">${examinations}</div>
@@ -649,7 +677,7 @@ window.addEventListener("beforeinstallprompt", (event) => {
   elements.install.textContent = "Installera app";
 });
 
-const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
+const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 const isStandalone = window.matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
 if (isIos && !isStandalone) {
   elements.install.hidden = false;
@@ -663,17 +691,22 @@ elements.install.addEventListener("click", async () => {
     installPrompt = null;
     elements.install.hidden = true;
   } else if (isIos) {
-    elements.iosDialog.showModal();
+    if (typeof elements.iosDialog.showModal === "function") elements.iosDialog.showModal();
+    else elements.iosDialog.setAttribute("open", "");
   }
 });
-elements.closeIosDialog.addEventListener("click", () => elements.iosDialog.close());
+function closeIosInstallDialog() {
+  if (typeof elements.iosDialog.close === "function") elements.iosDialog.close();
+  else elements.iosDialog.removeAttribute("open");
+}
+elements.closeIosDialog.addEventListener("click", closeIosInstallDialog);
 elements.iosDialog.addEventListener("click", (event) => {
-  if (event.target === elements.iosDialog) elements.iosDialog.close();
+  if (event.target === elements.iosDialog) closeIosInstallDialog();
 });
 window.addEventListener("appinstalled", () => { elements.install.hidden = true; });
 
 if ("serviceWorker" in navigator && window.isSecureContext) {
-  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=14"));
+  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=15"));
 }
 
 initTheme();

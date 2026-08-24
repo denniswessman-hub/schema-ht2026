@@ -1,18 +1,18 @@
-const CACHE_NAME = "schema-ht26-v14";
+const CACHE_NAME = "schema-ht26-v15";
 const CORE_ASSETS = [
   "./",
   "./index.html",
-  "./styles.css?v=14",
-  "./theme-init.js?v=14",
-  "./app.js?v=14",
-  "./schedule-data.js?v=14",
-  "./manifest.json?v=14",
-  "./icons/header-logo.png?v=14",
-  "./icons/icon-192.png?v=14",
-  "./icons/icon-512.png?v=14",
-  "./icons/icon-maskable-192.png?v=14",
-  "./icons/icon-maskable-512.png?v=14",
-  "./icons/apple-touch-icon.png?v=14"
+  "./styles.css?v=15",
+  "./theme-init.js?v=15",
+  "./app.js?v=15",
+  "./schedule-data.js?v=15",
+  "./manifest.json?v=15",
+  "./icons/header-logo.png?v=15",
+  "./icons/icon-192.png?v=15",
+  "./icons/icon-512.png?v=15",
+  "./icons/icon-maskable-192.png?v=15",
+  "./icons/icon-maskable-512.png?v=15",
+  "./icons/apple-touch-icon.png?v=15"
 ];
 
 self.addEventListener("install", (event) => {
