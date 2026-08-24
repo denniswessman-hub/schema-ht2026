@@ -5,7 +5,7 @@ En snabb, mobilanpassad och installerbar webbapp för schemat i TimeEdit-exporte
 ## Källor och avgränsning
 
 - `TimeEdit_2026-08-12_13_40.xlsx` är aktuell schemakälla och innehåller 144 poster från 31 augusti 2026 till 15 januari 2027. Filen uppdaterades den 14 augusti 2026 och har ersatt tidigare innehåll helt.
-- Informationen som användaren lämnade om terminens upplägg, närstudieveckor, kursansvariga och basgrupper finns i `TERM_INFO` i `schedule-data.js`. Där finns också momentöversikter, förberedelser och ansvariga lärare från Canvas för samtliga fem närstudieveckor. Canvas-översikterna kompletterar schemat men skapar inte schemahändelser eller ersätter dagar, tider och lokaler från TimeEdit.
+- Informationen som användaren lämnade om terminens upplägg, närstudieveckor, kursansvariga och basgrupper finns i `TERM_INFO` i `schedule-data.js`. Där finns också momentöversikter, förberedelser och ansvariga lärare från Canvas för samtliga fem närstudieveckor samt utfällbara lektionsdetaljer för Vapen V 5:1–V 5:15. Canvas-översikterna kompletterar schemat men skapar inte schemahändelser eller ersätter dagar, tider och lokaler från TimeEdit.
 - Under terminsinformationen skapas automatiskt en översikt över ordinarie tentor och examinationer från `SCHEDULE_DATA`, med veckodag, datum, tid och eventuell basgrupp. Omexaminationer, omtentor och examensceremonin ingår inte i översikten.
 - Högst upp i sidhuvudet finns en dynamisk nedräkning till examen den 15 januari 2027. Antalet dagar räknas om lokalt vid varje sidvisning och uppdateras automatiskt efter midnatt.
 - Mobilvyn är anpassad för iPhone och Samsung/Android med 16-pixels formulärtext för att undvika iOS-zoom, tvåkolumners snabbfilter på smala skärmar, stöd för skärmarnas safe areas och daglig uppdatering när en installerad app återupptas. Långa schemalistor använder progressiv renderingsoptimering i moderna webbläsare.
@@ -37,6 +37,7 @@ All data ligger i `schedule-data.js`. `SCHEDULE_DATA` är en lista av schemaobje
 - direkt fritextsökning i samtliga schemafält
 - snabbval för idag, denna vecka, nästa vecka och alla poster
 - dynamisk sortering där tidigare veckor fälls ihop automatiskt
+- utfällbart kursupplägg och lektionsinformation för vapenmomenten V 5:1–V 5:15, inklusive mål, förberedelser, provkrav och materialnamn i Canvas
 - markering av avslutad, pågående och nästa aktivitet
 - svensk datumvisning, tillgängliga formulär och tydliga fokusmarkeringar
 - mobil-först-layout utan breda tabeller

@@ -48,16 +48,16 @@ export const TERM_INFO = {
       "canvasUrl": "https://mau.instructure.com/courses/19413/modules/items/886492",
       "moments": [
         { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 1 – Kursintroduktion. Polismyndighetens strategi för trafik som metod.", "preparation": "Du behöver inte förbereda något inför introduktionen. Titta gärna genom Canvasupplägget.", "teachers": ["Peter Hellqvist"] },
-        { "subject": "Polkon V", "moment": "5:1 – Målfokus", "preparation": "", "teachers": ["Michael Åhlander"] },
+        { "subject": "Polkon V", "moment": "5:1 – Målfokus", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:1" },
         { "subject": "Polkon F", "moment": "5:1", "preparation": "", "teachers": ["Daniel Lundberg"] },
         { "subject": "Sambandstjänst", "moment": "5:1", "preparation": "", "teachers": ["Charlotte Berg"] },
         { "subject": "Rättssäker dokumentation / DurTvå", "moment": "Moment 14 Slutredovisning", "preparation": "Moment 14", "teachers": ["Kristina Windalen"] },
-        { "subject": "Polkon V", "moment": "5:2 – Rörelse", "preparation": "", "teachers": ["Michael Åhlander"] },
+        { "subject": "Polkon V", "moment": "5:2 – Rörelse", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:2" },
         { "subject": "Polkon F", "moment": "5:2", "preparation": "", "teachers": ["Daniel Lundberg"] },
         { "subject": "Polkon T", "moment": "5:1 Lektion – Vägspärr, grunder", "preparation": "", "teachers": ["Jan Peter Fredriksson"] },
         { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 2 – Föreläsning: Stoppande av fordon", "preparation": "", "teachers": ["Peter Hellqvist"] },
         { "subject": "Sambandstjänst", "moment": "M 5:2", "preparation": "", "teachers": ["Jenny Holtås"] },
-        { "subject": "Polkon V", "moment": "5:3 Sekundär hand", "preparation": "", "teachers": ["Michael Åhlander"] },
+        { "subject": "Polkon V", "moment": "5:3 Sekundär hand", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:3" },
         { "subject": "Akutsjukvård", "moment": "M 9 – Scenarioövningar", "preparation": "Läs boken Akut omhändertagande i PDF-format, sida 55–75 om S-CABCDE. Se instruktionsfilmerna om S-CABCDE. Den som vill repetera grunderna kan även se föreläsningarna från termin 2 om S-CABCDE, anatomi, fysiologi och sjukdomslära. Klädsel: uniform.", "teachers": ["Emma K Gavell"] },
         { "subject": "Polkon F", "moment": "5:3", "preparation": "", "teachers": ["Daniel L"] },
         { "subject": "Sambandstjänst", "moment": "5:3", "preparation": "", "teachers": ["Berit Andersson"] },
@@ -80,14 +80,14 @@ export const TERM_INFO = {
         { "subject": "Akutsjukvård", "moment": "M 10 HLR – Barn", "preparation": "Steg 1: Anmäl dig till Barn-HLR DPU. Steg 2: Se materialet Barn-HLR och MSB:s film om att barn drunknar tyst. Steg 3: Genomför den digitala webbutbildningen och visa kursintyget för ansvarig lärare; namn och datum måste synas. Utan intyg får du inte delta utan tilldelas en annan examinationstid. Ta med giltigt ID-kort. Den praktiska lektionen är obligatorisk och examinerande.", "teachers": ["Emma K Gavell"] },
         { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 10 – Praktisk övning: Trafikolycka", "preparation": "", "teachers": ["Peter Hellqvist"] },
         { "subject": "Sambandstjänst", "moment": "5:4", "preparation": "", "teachers": ["Charlotte"] },
-        { "subject": "Polkon V", "moment": "5:4 Precision", "preparation": "", "teachers": ["Michael Åhlander"] },
+        { "subject": "Polkon V", "moment": "5:4 Precision", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:4" },
         { "subject": "PNF", "moment": "M 13 Lågfart Tätort", "preparation": "", "teachers": ["Peter Hellqvist"] },
-        { "subject": "Polkon V", "moment": "5:5 Precision", "preparation": "", "teachers": ["Michael Åhlander"] },
+        { "subject": "Polkon V", "moment": "5:5 Precision", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:5" },
         { "subject": "Polkon F", "moment": "5:5 Arrest", "preparation": "", "teachers": ["Daniel Lundberg"] },
         { "subject": "Polisiärt arbete i trafikmiljö", "moment": "Skriftlig salstentamen – 4 timmar", "preparation": "", "teachers": ["Peter Hellqvist"] },
         { "subject": "Polkon T", "moment": "AMF – Juridisk metod", "preparation": "", "teachers": ["Martin Persson"] },
         { "subject": "Sambandstjänst", "moment": "5:5", "preparation": "", "teachers": ["Charlotte"] },
-        { "subject": "Polkon V", "moment": "5:6 Låg färdigställning/drag från hölster", "preparation": "", "teachers": ["Michael Åhlander"] }
+        { "subject": "Polkon V", "moment": "5:6 Låg färdigställning/drag från hölster", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:6" }
       ]
     },
     {
@@ -104,10 +104,10 @@ export const TERM_INFO = {
         { "subject": "PNF", "moment": "M 14 Examination – Lågfart, tätort", "preparation": "", "teachers": ["Peter Hellqvist"] },
         { "subject": "Polkon F", "moment": "5:6", "preparation": "", "teachers": ["Daniel Lundberg"] },
         { "subject": "Sambandstjänst", "moment": "5:8 Examination", "preparation": "", "teachers": ["Charlotte Berg"] },
-        { "subject": "Polkon V", "moment": "5:7 Sammanfattning", "preparation": "", "teachers": ["Michael Åhlander"] },
+        { "subject": "Polkon V", "moment": "5:7 Sammanfattning", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:7" },
         { "subject": "Polkon F", "moment": "5:7", "preparation": "", "teachers": ["Daniel Lundberg"] },
         { "subject": "Polkon T", "moment": "M 2:7 – Examination Teori & praktik, BG 1+2", "preparation": "Examinationen är en praktisk övning i lokaliseringssök och rörligt fordonsstopp med fokus på att motivera utförda handlingar utifrån de taktiska grundprinciperna och GTF.", "teachers": ["Jan Peter Fredriksson"] },
-        { "subject": "Polkon V", "moment": "5:8 Examination – Behörighetsprovet", "preparation": "", "teachers": ["Michael Åhlander"] }
+        { "subject": "Polkon V", "moment": "5:8 Examination – Behörighetsprovet", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:8" }
       ]
     },
     {
@@ -118,7 +118,7 @@ export const TERM_INFO = {
       "canvasUrl": "https://mau.instructure.com/courses/19413/modules/items/886495",
       "moments": [
         { "subject": "Polkon T", "moment": "AMF – Praktisk övning", "preparation": "", "teachers": ["Martin Persson"] },
-        { "subject": "Polkon V", "moment": "5:9 Resurstid 1", "preparation": "", "teachers": ["Michael Åhlander"] },
+        { "subject": "Polkon V", "moment": "5:9 Resurstid 1", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:9" },
         { "subject": "Sambandstjänst", "moment": "5:9", "preparation": "", "teachers": ["Charlotte Berg"] },
         { "subject": "Polkon T", "moment": "PDV Dag 1 – Introduktion", "preparation": "", "teachers": ["Martin Persson"] },
         { "subject": "Polkon T", "moment": "PDV Dag 1 – Planspel", "preparation": "", "teachers": ["Martin Persson"] },
@@ -127,7 +127,7 @@ export const TERM_INFO = {
         { "subject": "Polkon T", "moment": "PDV Dag 2 – Föreläsning Jokela", "preparation": "", "teachers": ["Martin Persson"] },
         { "subject": "Polkon T", "moment": "PDV Dag 2 – Tillämpningsövning", "preparation": "", "teachers": ["Martin Persson"] },
         { "subject": "Sambandstjänst", "moment": "Omexamination 1", "preparation": "", "teachers": ["Charlotte Berg"] },
-        { "subject": "Polkon V", "moment": "5:10 Omexamination 1", "preparation": "", "teachers": ["Michael Åhlander"] },
+        { "subject": "Polkon V", "moment": "5:10 Omexamination 1", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:10" },
         { "subject": "Professionsutveckling", "moment": "Dödsbudsövning", "preparation": "", "teachers": ["Peter Hellqvist"] },
         { "subject": "Övrigt", "moment": "Brandövning", "preparation": "", "teachers": ["Christian Von Malmborg"] },
         { "subject": "Rättssäker dokumentation / DurTvå", "moment": "Moment 17 Examination", "preparation": "Moment 15–17", "teachers": ["Marcus Darnhede"] }
@@ -141,23 +141,144 @@ export const TERM_INFO = {
       "canvasUrl": "https://mau.instructure.com/courses/19413/modules/items/886496",
       "highlight": "Examensveckan",
       "moments": [
-        { "subject": "Polkon V", "moment": "5:11 Resurs 2", "preparation": "", "teachers": ["Michael Åhlander"] },
-        { "subject": "Polkon V", "moment": "5:12 Omexamination 2", "preparation": "", "teachers": ["Michael Åhlander"] },
+        { "subject": "Polkon V", "moment": "5:11 Resurs 2", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:11" },
+        { "subject": "Polkon V", "moment": "5:12 Omexamination 2", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:12" },
         { "subject": "PNF", "moment": "M 15 Lågfart med minibuss och släp", "preparation": "", "teachers": ["Peter Hellqvist"] },
-        { "subject": "Polkon V", "moment": "5:13 Simulator", "preparation": "", "teachers": ["Michael Åhlander"] },
+        { "subject": "Polkon V", "moment": "5:13 Simulator", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:13" },
         { "subject": "Professionsutveckling", "moment": "Slutövning", "preparation": "", "teachers": ["Markus Ingemarsson", "Anna Märta Rooth"] },
         { "subject": "Professionsutveckling", "moment": "Avrapportering slutövning", "preparation": "", "teachers": ["Fredrik Arvidsson"] },
         { "subject": "Rättssäker dokumentation / DurTvå", "moment": "Omexamination 1", "preparation": "", "teachers": ["Fredrik Arvidsson"] },
-        { "subject": "Polkon V", "moment": "5:14 Skydd / Skyl", "preparation": "", "teachers": ["Michael Åhlander"] },
+        { "subject": "Polkon V", "moment": "5:14 Skydd / Skyl", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:14" },
         { "subject": "Sambandstjänst", "moment": "Omexamination 2", "preparation": "", "teachers": ["Charlotte Berg"] },
         { "subject": "Polkon F", "moment": "5:9", "preparation": "", "teachers": ["Daniel Lundberg"] },
         { "subject": "PNF", "moment": "15 Lågfart med minibuss och släp", "preparation": "", "teachers": [] },
         { "subject": "Polkon V", "moment": "5:12 Omexamination 2", "preparation": "", "teachers": [] },
-        { "subject": "Polkon V", "moment": "5:15 Dolt bärande", "preparation": "", "teachers": ["Michael Åhlander"] },
+        { "subject": "Polkon V", "moment": "5:15 Dolt bärande", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:15" },
         { "subject": "Övrigt", "moment": "Inlämning av uniformsutrustning. Utlämning av aspirantuniform", "preparation": "", "teachers": ["Pauline Nordén"] }
       ]
     }
   ],
+  "weaponCourse": {
+    "introduction": "Välkommen till termin 5.",
+    "focus": "Under terminen ligger fokus på det nationella Behörighetsprovet och träning inför detta. Ett godkänt resultat behöver därefter uppvisas årligen för behörighet att bära pistol inom Polismyndigheten.",
+    "examination": "Terminens examination är Behörighetsprovet.",
+    "responsible": {
+      "name": "Michael Åhlander",
+      "role": "Ämnesansvarig Vapen"
+    },
+    "lessons": {
+      "5:1": {
+        "title": "Målfokus",
+        "content": "Skytte med målfokus.",
+        "goal": "Kunna verka med sin pistol och träffa på avsedd riktpunkt på korta avstånd utan att använda riktmedel.",
+        "preparation": "Läs dokumentet i Canvas.",
+        "resources": ["Målfokus-1.pdf"]
+      },
+      "5:2": {
+        "title": "Rörelse",
+        "content": "Skytte i rörelse.",
+        "goal": "Efter lektionen ska studenten kunna hantera sin pistol på ett säkert sätt under rörelse samt kunna skjuta och träffa i avsedd riktpunkt.",
+        "preparation": "Inga förberedelser."
+      },
+      "5:3": {
+        "title": "Sekundär hand",
+        "content": "Enhandsskytte med primär och sekundär hand, åtgärda vapenstörning med primär och sekundär hand samt frigöra vapnet med sekundär hand.",
+        "goal": "Studenten ska uppvisa en säker vapenhantering med primär och sekundär hand samt träffa i avsedd riktpunkt.",
+        "preparation": "Inga förberedelser."
+      },
+      "5:4": {
+        "title": "Precision",
+        "content": "Skjutteknik precision 20 meter.",
+        "goal": "Efter lektionen ska studenten klara kraven för precisionsskytte, 2 av 3 träffar i cirkeln från 20 meter, enligt Behörighetsprovet.",
+        "preparation": "Läs dokumentet i Canvas.",
+        "resources": ["Korn och sikte.pdf"]
+      },
+      "5:5": {
+        "title": "Precision",
+        "content": "Skjutteknik precision 20 meter.",
+        "goal": "Efter lektionen ska studenten klara kraven för precisionsskytte, 2 av 3 träffar i cirkeln från 20 meter, enligt Behörighetsprovet.",
+        "preparation": "Läs dokumentet i Canvas.",
+        "resources": ["Korn och sikte.pdf"]
+      },
+      "5:6": {
+        "title": "Låg färdigställning / Drag från hölster",
+        "content": "Repetition av låg färdigställning och drag från hölster med två händer.",
+        "goal": "Efter lektionen ska studenten kunna klara kraven för låg färdigställning och drag från hölster enligt Behörighetsprovet.",
+        "preparation": "Mental inställning och visualisering av momentet. Se filmerna via de externa verktygen i Canvas."
+      },
+      "5:7": {
+        "title": "Repetition Behörighetsprov",
+        "content": "Repetition av Behörighetsprovet.",
+        "goal": "Efter lektionen ska studenten klara kraven för godkänt på Behörighetsprovet.",
+        "preparation": "Arbeta med den mentala inställningen och visualisera momentet.",
+        "examParts": [
+          "Låg färdigställning, två händer, 7 meter: 1 skott i stora cirkeln inom 2 sekunder. Totalt 5 tavelvisningar.",
+          "Drag från hölster, två händer, 7 meter: 1 skott i stora cirkeln inom 3 sekunder. Totalt 5 tavelvisningar.",
+          "Precision, 20 meter: 3 skott i stora cirkeln inom 60 sekunder.",
+          "Samtliga moment genomförs 3 gånger."
+        ],
+        "passCriteria": "En träff utanför cirkeln per moment är godkänt. Träffen utanför cirkeln måste dock vara i tavlan innanför den yttre kantlinjen."
+      },
+      "5:8": {
+        "title": "Examination",
+        "content": "Behörighetsprovet.",
+        "goal": "Efter lektionen ska studenten vara godkänd på Behörighetsprovet.",
+        "preparation": "Arbeta med den mentala inställningen och visualisera momentet.",
+        "examParts": [
+          "Låg färdigställning, två händer, 7 meter: 1 skott i stora cirkeln inom 2 sekunder. Totalt 5 tavelvisningar.",
+          "Drag från hölster, två händer, 7 meter: 1 skott i stora cirkeln inom 3 sekunder. Totalt 5 tavelvisningar.",
+          "Precision, 20 meter: 3 skott i stora cirkeln inom 60 sekunder.",
+          "Samtliga moment genomförs 3 gånger."
+        ],
+        "passCriteria": "En träff utanför cirkeln per moment är godkänt. Träffen utanför cirkeln måste dock vara i tavlan innanför den yttre kantlinjen."
+      },
+      "5:9": {
+        "title": "Resurs 1",
+        "content": "Resurstillfälle för studenter som inte är godkända på Behörighetsprovet.",
+        "audience": "Endast studenter som underkändes på V 4:5 Behörighetsprovet."
+      },
+      "5:10": {
+        "title": "Behörighetsprov 2",
+        "content": "Omprov för studenter som inte är godkända på Behörighetsprovet.",
+        "audience": "Endast studenter som underkändes på V 4:5 Behörighetsprovet."
+      },
+      "5:11": {
+        "title": "Resurs 2",
+        "content": "Resurstillfälle för studenter som inte är godkända på Behörighetsprovet.",
+        "audience": "Endast studenter som underkändes på V 4:7 Behörighetsprov 2."
+      },
+      "5:12": {
+        "title": "Behörighetsprov 3",
+        "content": "Omprov för studenter som inte är godkända på Behörighetsprovet.",
+        "audience": "Endast studenter som underkändes på V 4:7 Behörighetsprov 2."
+      },
+      "5:13": {
+        "title": "Simulator",
+        "content": "Scenarioträning i simulator i form av praktisk övning samt reflektion.",
+        "goal": "Studenten ska kunna redogöra för och reflektera över sitt agerande.",
+        "preparation": "Läs BrB 24:1, 24:2 och 24:4, PL 10 §, FAP 104-2 §, Skjutkungörelsen 1, 2 och 7 §§ samt PMY handbok kap. 9.7 höjd beredskap, 12.3 betvingande, 12.4 varningsrop, 12.5 kontroll över skottfältet, 12.6 varningsskott, 12.7 verkansled och 12.7.1 verkansled mot ben. Läs även frågorna i dokumentet som är kopplade till angiven juridik, inte konstruktion och funktion.",
+        "resources": [
+          "Frågor polisens tjänstevapen avseende juridik[53]-3.docx",
+          "Rapport särskilt hjälpmedel vid våldsanvändning-2.pdf",
+          "FAP 104-2 PMFS 2023_2-3.pdf",
+          "PMY handbok hantering o användning skjutvapen i polisverksamhet-3.pdf"
+        ]
+      },
+      "5:14": {
+        "title": "Skydd/skyl",
+        "content": "Skytte från skydd/skyl och olika skjutställningar.",
+        "goal": "Skytte i olika skjutställningar med användande av skydd och skyl, förstå skillnaden mellan skydd och skyl och förstå framgångsfaktorerna med skydd/skyl vid en eventuell konfrontation.",
+        "preparation": "Kunna verka säkert och effektivt från skydd/skyl och med varierande skjutställningar samt förstå hur skydd/skyl kan användas."
+      },
+      "5:15": {
+        "title": "Dolt bärande",
+        "content": "Skytte med dolt bärande i form av tröja, jacka samt sommar- och vinterhandskar.",
+        "goal": "Efter lektionen ska studenten på ett säkert och effektivt sätt kunna dra sitt vapen med både tröja och öppen och stängd jacka.",
+        "preparation": "Klädsel för lektionen är civila kläder. Ta med tröja, jacka, sommar- och vinterhandskar samt en livrem. Läs dokumentet i Canvas.",
+        "resources": ["4-6--Dolt bärande.pdf"]
+      }
+    }
+  },
   "graduation": "Examen planeras till kalendervecka 2. Exakt dag är ännu inte fastställd eftersom den beror på tillgång till lokal för ceremonin.",
   "groupMembers": {
     "BG1": [

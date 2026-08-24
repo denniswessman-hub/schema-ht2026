@@ -1,4 +1,4 @@
-import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO } from "./schedule-data.js?v=15";
+import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO } from "./schedule-data.js?v=16";
 
 const GROUP_STORAGE_KEY = "schemaHT26.baseGroup";
 const THEME_STORAGE_KEY = "schemaHT26.theme";
@@ -530,6 +530,71 @@ function renderWeek(group, now, nextEvent) {
   return section;
 }
 
+function renderWeaponCourseIntro(campusWeek) {
+  if (campusWeek.key !== "2026-W36" || !TERM_INFO.weaponCourse) return "";
+
+  const course = TERM_INFO.weaponCourse;
+  return `
+    <details class="weapon-course-intro">
+      <summary>
+        <span>
+          <span class="weapon-summary-kicker">Vapen · Termin 5</span>
+          <strong>Kursupplägg och examination</strong>
+        </span>
+      </summary>
+      <div class="weapon-course-intro-content">
+        <p><strong>${escapeHtml(course.introduction)}</strong></p>
+        <p>${escapeHtml(course.focus)}</p>
+        <p class="weapon-examination-note">${escapeHtml(course.examination)}</p>
+        <p class="weapon-responsible"><strong>${escapeHtml(course.responsible.name)}</strong><span>${escapeHtml(course.responsible.role)}</span></p>
+      </div>
+    </details>
+  `;
+}
+
+function renderWeaponLessonDetails(item) {
+  const lesson = TERM_INFO.weaponCourse?.lessons?.[item.lessonId];
+  if (!lesson) return "";
+
+  const textSection = (heading, content) => content ? `
+    <section class="weapon-detail-section">
+      <h5>${escapeHtml(heading)}</h5>
+      <p>${escapeHtml(content)}</p>
+    </section>
+  ` : "";
+  const examParts = lesson.examParts?.length ? `
+    <section class="weapon-detail-section">
+      <h5>Behörighetsprovet</h5>
+      <ul>${lesson.examParts.map((part) => `<li>${escapeHtml(part)}</li>`).join("")}</ul>
+    </section>
+  ` : "";
+  const resources = lesson.resources?.length ? `
+    <section class="weapon-detail-section weapon-resources">
+      <h5>Material i Canvas</h5>
+      <ul>${lesson.resources.map((resource) => `<li>${escapeHtml(resource)}</li>`).join("")}</ul>
+    </section>
+  ` : "";
+
+  return `
+    <details class="weapon-lesson-details">
+      <summary>
+        <span class="weapon-lesson-summary-text">Läs mer om lektionen</span>
+        <span class="weapon-lesson-badge">V ${escapeHtml(item.lessonId)}</span>
+      </summary>
+      <div class="weapon-lesson-content">
+        <p class="weapon-lesson-detail-title">V ${escapeHtml(item.lessonId)} · ${escapeHtml(lesson.title)}</p>
+        ${textSection("Innehåll", lesson.content)}
+        ${textSection("Mål", lesson.goal)}
+        ${textSection("Förberedelser", lesson.preparation)}
+        ${textSection("Målgrupp", lesson.audience)}
+        ${examParts}
+        ${textSection("Godkänt resultat", lesson.passCriteria)}
+        ${resources}
+      </div>
+    </details>
+  `;
+}
+
 function renderCampusWeekPlan(campusWeek) {
   const details = document.createElement("details");
   details.className = "campus-week-plan";
@@ -544,6 +609,7 @@ function renderCampusWeekPlan(campusWeek) {
       </div>
       <h4>${escapeHtml(item.moment)}</h4>
       ${item.preparation ? `<p class="campus-preparation"><strong>Förbered:</strong> ${escapeHtml(item.preparation)}</p>` : ""}
+      ${renderWeaponLessonDetails(item)}
     </article>
   `).join("");
 
@@ -557,6 +623,7 @@ function renderCampusWeekPlan(campusWeek) {
     </summary>
     <div class="campus-week-content">
       <p class="campus-week-note">${escapeHtml(TERM_INFO.campusWeekDisclaimer)}</p>
+      ${renderWeaponCourseIntro(campusWeek)}
       <div class="campus-moment-list">${momentCards}</div>
       <a class="canvas-source-link" href="${escapeHtml(campusWeek.canvasUrl)}" target="_blank" rel="noopener noreferrer">Öppna originalet i Canvas</a>
     </div>
@@ -706,7 +773,7 @@ elements.iosDialog.addEventListener("click", (event) => {
 window.addEventListener("appinstalled", () => { elements.install.hidden = true; });
 
 if ("serviceWorker" in navigator && window.isSecureContext) {
-  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=15"));
+  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=16"));
 }
 
 initTheme();
