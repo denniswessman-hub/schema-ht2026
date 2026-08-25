@@ -1,4 +1,4 @@
-import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO } from "./schedule-data.js?v=16";
+import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO } from "./schedule-data.js?v=17";
 
 const GROUP_STORAGE_KEY = "schemaHT26.baseGroup";
 const THEME_STORAGE_KEY = "schemaHT26.theme";
@@ -205,6 +205,15 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+
+function safeExternalUrl(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" ? url.href : "";
+  } catch {
+    return "";
+  }
 }
 
 function capitalizeFirst(value) {
@@ -552,47 +561,97 @@ function renderWeaponCourseIntro(campusWeek) {
   `;
 }
 
-function renderWeaponLessonDetails(item) {
-  const lesson = TERM_INFO.weaponCourse?.lessons?.[item.lessonId];
+function renderCampusLessonDetails(item, options = {}) {
+  const weaponLesson = TERM_INFO.weaponCourse?.lessons?.[item.lessonId];
+  const supplementalLesson = TERM_INFO.campusLessonDetails?.[item.detailId];
+  const lesson = weaponLesson || supplementalLesson;
   if (!lesson) return "";
 
+  const badge = weaponLesson ? `V ${item.lessonId}` : lesson.badge;
   const textSection = (heading, content) => content ? `
-    <section class="weapon-detail-section">
+    <section class="campus-detail-section">
       <h5>${escapeHtml(heading)}</h5>
       <p>${escapeHtml(content)}</p>
     </section>
   ` : "";
+  const listSection = (heading, items) => items?.length ? `
+    <section class="campus-detail-section">
+      <h5>${escapeHtml(heading)}</h5>
+      <ul>${items.map((entry) => `<li>${escapeHtml(entry)}</li>`).join("")}</ul>
+    </section>
+  ` : "";
   const examParts = lesson.examParts?.length ? `
-    <section class="weapon-detail-section">
+    <section class="campus-detail-section">
       <h5>Behörighetsprovet</h5>
       <ul>${lesson.examParts.map((part) => `<li>${escapeHtml(part)}</li>`).join("")}</ul>
     </section>
   ` : "";
   const resources = lesson.resources?.length ? `
-    <section class="weapon-detail-section weapon-resources">
+    <section class="campus-detail-section campus-resources">
       <h5>Material i Canvas</h5>
       <ul>${lesson.resources.map((resource) => `<li>${escapeHtml(resource)}</li>`).join("")}</ul>
     </section>
   ` : "";
+  const externalResources = lesson.externalResources?.length ? `
+    <section class="campus-detail-section campus-external-resources">
+      <h5>Länkar och filmer</h5>
+      <ul>${lesson.externalResources.map((resource) => {
+        const url = safeExternalUrl(resource.url);
+        return url ? `<li><a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(resource.label)}</a></li>` : "";
+      }).join("")}</ul>
+    </section>
+  ` : "";
 
   return `
-    <details class="weapon-lesson-details">
+    <details class="campus-lesson-details${options.unplaced ? " is-unplaced" : ""}">
       <summary>
-        <span class="weapon-lesson-summary-text">Läs mer om lektionen</span>
-        <span class="weapon-lesson-badge">V ${escapeHtml(item.lessonId)}</span>
+        <span class="campus-lesson-summary-text">${escapeHtml(options.summaryText || "Läs mer om lektionen")}</span>
+        <span class="campus-lesson-badge">${escapeHtml(badge)}</span>
       </summary>
-      <div class="weapon-lesson-content">
-        <p class="weapon-lesson-detail-title">V ${escapeHtml(item.lessonId)} · ${escapeHtml(lesson.title)}</p>
+      <div class="campus-lesson-content">
+        <p class="campus-lesson-detail-title">${escapeHtml(badge)} · ${escapeHtml(lesson.title)}</p>
         ${textSection("Innehåll", lesson.content)}
         ${textSection("Mål", lesson.goal)}
+        ${listSection("Det här ingår", lesson.activities)}
+        ${textSection("Plats och samling", lesson.location)}
+        ${textSection("Tidsåtgång", lesson.duration)}
+        ${textSection("Utrustning och klädsel", lesson.equipment)}
         ${textSection("Förberedelser", lesson.preparation)}
+        ${listSection("Förberedelser – steg för steg", lesson.preparationSteps)}
         ${textSection("Målgrupp", lesson.audience)}
         ${examParts}
+        ${textSection("Viktigt", lesson.requirement)}
         ${textSection("Godkänt resultat", lesson.passCriteria)}
+        ${textSection("Vid frånvaro", lesson.absence)}
         ${resources}
+        ${externalResources}
+        ${textSection("Notering om Canvas-källan", lesson.sourceNote)}
       </div>
     </details>
   `;
+}
+
+function renderCampusCourseIntros(campusWeek) {
+  return (TERM_INFO.campusCourseIntros || [])
+    .filter((intro) => intro.weekKey === campusWeek.key)
+    .map((intro) => `
+      <details class="campus-course-intro">
+        <summary>
+          <span>
+            <span class="campus-course-kicker">${escapeHtml(intro.kicker)}</span>
+            <strong>${escapeHtml(intro.title)}</strong>
+          </span>
+        </summary>
+        <div class="campus-course-intro-content">
+          ${(intro.paragraphs || []).map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
+          ${intro.plan?.length ? `<section><h5>Lektionsplan</h5><ul>${intro.plan.map((entry) => `<li>${escapeHtml(entry)}</li>`).join("")}</ul></section>` : ""}
+          ${intro.requirements?.length ? `<section><h5>Att tänka på</h5><ul>${intro.requirements.map((entry) => `<li>${escapeHtml(entry)}</li>`).join("")}</ul></section>` : ""}
+          ${intro.note ? `<p class="campus-course-note">${escapeHtml(intro.note)}</p>` : ""}
+          ${intro.responsibles?.length ? `<div class="campus-course-responsibles">${intro.responsibles.map((person) => `<p><strong>${escapeHtml(person.name)}</strong><span>${escapeHtml(person.role)}</span></p>`).join("")}</div>` : ""}
+          ${intro.unplacedDetailId ? renderCampusLessonDetails({ detailId: intro.unplacedDetailId }, { unplaced: true, summaryText: "Läs om lektion 5:8 · saknar veckokoppling" }) : ""}
+        </div>
+      </details>
+    `).join("");
 }
 
 function renderCampusWeekPlan(campusWeek) {
@@ -609,7 +668,7 @@ function renderCampusWeekPlan(campusWeek) {
       </div>
       <h4>${escapeHtml(item.moment)}</h4>
       ${item.preparation ? `<p class="campus-preparation"><strong>Förbered:</strong> ${escapeHtml(item.preparation)}</p>` : ""}
-      ${renderWeaponLessonDetails(item)}
+      ${renderCampusLessonDetails(item)}
     </article>
   `).join("");
 
@@ -624,6 +683,7 @@ function renderCampusWeekPlan(campusWeek) {
     <div class="campus-week-content">
       <p class="campus-week-note">${escapeHtml(TERM_INFO.campusWeekDisclaimer)}</p>
       ${renderWeaponCourseIntro(campusWeek)}
+      ${renderCampusCourseIntros(campusWeek)}
       <div class="campus-moment-list">${momentCards}</div>
       <a class="canvas-source-link" href="${escapeHtml(campusWeek.canvasUrl)}" target="_blank" rel="noopener noreferrer">Öppna originalet i Canvas</a>
     </div>
@@ -773,7 +833,7 @@ elements.iosDialog.addEventListener("click", (event) => {
 window.addEventListener("appinstalled", () => { elements.install.hidden = true; });
 
 if ("serviceWorker" in navigator && window.isSecureContext) {
-  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=16"));
+  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=17"));
 }
 
 initTheme();

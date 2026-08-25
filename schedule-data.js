@@ -49,17 +49,17 @@ export const TERM_INFO = {
       "moments": [
         { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 1 – Kursintroduktion. Polismyndighetens strategi för trafik som metod.", "preparation": "Du behöver inte förbereda något inför introduktionen. Titta gärna genom Canvasupplägget.", "teachers": ["Peter Hellqvist"] },
         { "subject": "Polkon V", "moment": "5:1 – Målfokus", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:1" },
-        { "subject": "Polkon F", "moment": "5:1", "preparation": "", "teachers": ["Daniel Lundberg"] },
+        { "subject": "Polkon F", "moment": "5:1", "preparation": "", "teachers": ["Daniel Lundberg"], "detailId": "ftm-5:1" },
         { "subject": "Sambandstjänst", "moment": "5:1", "preparation": "", "teachers": ["Charlotte Berg"] },
         { "subject": "Rättssäker dokumentation / DurTvå", "moment": "Moment 14 Slutredovisning", "preparation": "Moment 14", "teachers": ["Kristina Windalen"] },
         { "subject": "Polkon V", "moment": "5:2 – Rörelse", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:2" },
-        { "subject": "Polkon F", "moment": "5:2", "preparation": "", "teachers": ["Daniel Lundberg"] },
+        { "subject": "Polkon F", "moment": "5:2", "preparation": "", "teachers": ["Daniel Lundberg"], "detailId": "ftm-5:2" },
         { "subject": "Polkon T", "moment": "5:1 Lektion – Vägspärr, grunder", "preparation": "", "teachers": ["Jan Peter Fredriksson"] },
         { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 2 – Föreläsning: Stoppande av fordon", "preparation": "", "teachers": ["Peter Hellqvist"] },
         { "subject": "Sambandstjänst", "moment": "M 5:2", "preparation": "", "teachers": ["Jenny Holtås"] },
         { "subject": "Polkon V", "moment": "5:3 Sekundär hand", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:3" },
-        { "subject": "Akutsjukvård", "moment": "M 9 – Scenarioövningar", "preparation": "Läs boken Akut omhändertagande i PDF-format, sida 55–75 om S-CABCDE. Se instruktionsfilmerna om S-CABCDE. Den som vill repetera grunderna kan även se föreläsningarna från termin 2 om S-CABCDE, anatomi, fysiologi och sjukdomslära. Klädsel: uniform.", "teachers": ["Emma K Gavell"] },
-        { "subject": "Polkon F", "moment": "5:3", "preparation": "", "teachers": ["Daniel L"] },
+        { "subject": "Akutsjukvård", "moment": "M 9 – Scenarioövningar", "preparation": "Läs boken Akut omhändertagande i PDF-format, sida 55–75 om S-CABCDE. Se instruktionsfilmerna om S-CABCDE. Den som vill repetera grunderna kan även se föreläsningarna från termin 2 om S-CABCDE, anatomi, fysiologi och sjukdomslära. Klädsel: uniform.", "teachers": ["Emma K Gavell"], "detailId": "acute-9" },
+        { "subject": "Polkon F", "moment": "5:3", "preparation": "", "teachers": ["Daniel L"], "detailId": "ftm-5:3" },
         { "subject": "Sambandstjänst", "moment": "5:3", "preparation": "", "teachers": ["Berit Andersson"] },
         { "subject": "Professionsutveckling", "moment": "Kropp, röst och makt", "preparation": "", "teachers": ["Dawan R", "Johan P"] },
         { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 3 – Föreläsning: Fordonslag / Trafikskadelag m.m.", "preparation": "", "teachers": ["Peter Hellqvist"] }
@@ -76,14 +76,14 @@ export const TERM_INFO = {
         { "subject": "Polkon T", "moment": "5:2 Sök i terräng. Rek/Obs/Säk", "preparation": "Klädsel: uniform.", "teachers": ["Jan Peter Fredriksson"] },
         { "subject": "Rättssäker dokumentation / DurTvå", "moment": "Moment 15 – Kapellskäret", "preparation": "Moment 15–17", "teachers": ["Fredrik Arvidsson"] },
         { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 9 Praktisk övning – Trafikkontroll", "preparation": "", "teachers": ["Peter Hellqvist"] },
-        { "subject": "Polkon F", "moment": "5:4", "preparation": "", "teachers": ["Daniel Lundberg"] },
-        { "subject": "Akutsjukvård", "moment": "M 10 HLR – Barn", "preparation": "Steg 1: Anmäl dig till Barn-HLR DPU. Steg 2: Se materialet Barn-HLR och MSB:s film om att barn drunknar tyst. Steg 3: Genomför den digitala webbutbildningen och visa kursintyget för ansvarig lärare; namn och datum måste synas. Utan intyg får du inte delta utan tilldelas en annan examinationstid. Ta med giltigt ID-kort. Den praktiska lektionen är obligatorisk och examinerande.", "teachers": ["Emma K Gavell"] },
+        { "subject": "Polkon F", "moment": "5:4", "preparation": "", "teachers": ["Daniel Lundberg"], "detailId": "ftm-5:4" },
+        { "subject": "Akutsjukvård", "moment": "M 10 HLR – Barn", "preparation": "Steg 1: Anmäl dig till Barn-HLR DPU. Steg 2: Se materialet Barn-HLR och MSB:s film om att barn drunknar tyst. Steg 3: Genomför den digitala webbutbildningen och visa kursintyget för ansvarig lärare; namn och datum måste synas. Utan intyg får du inte delta utan tilldelas en annan examinationstid. Ta med giltigt ID-kort. Den praktiska lektionen är obligatorisk och examinerande.", "teachers": ["Emma K Gavell"], "detailId": "acute-10" },
         { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 10 – Praktisk övning: Trafikolycka", "preparation": "", "teachers": ["Peter Hellqvist"] },
         { "subject": "Sambandstjänst", "moment": "5:4", "preparation": "", "teachers": ["Charlotte"] },
         { "subject": "Polkon V", "moment": "5:4 Precision", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:4" },
-        { "subject": "PNF", "moment": "M 13 Lågfart Tätort", "preparation": "", "teachers": ["Peter Hellqvist"] },
+        { "subject": "PNF", "moment": "M 13 Lågfart Tätort", "preparation": "", "teachers": ["Peter Hellqvist"], "detailId": "pnf-13" },
         { "subject": "Polkon V", "moment": "5:5 Precision", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:5" },
-        { "subject": "Polkon F", "moment": "5:5 Arrest", "preparation": "", "teachers": ["Daniel Lundberg"] },
+        { "subject": "Polkon F", "moment": "5:5 Arrest", "preparation": "", "teachers": ["Daniel Lundberg"], "detailId": "ftm-5:5" },
         { "subject": "Polisiärt arbete i trafikmiljö", "moment": "Skriftlig salstentamen – 4 timmar", "preparation": "", "teachers": ["Peter Hellqvist"] },
         { "subject": "Polkon T", "moment": "AMF – Juridisk metod", "preparation": "", "teachers": ["Martin Persson"] },
         { "subject": "Sambandstjänst", "moment": "5:5", "preparation": "", "teachers": ["Charlotte"] },
@@ -101,11 +101,11 @@ export const TERM_INFO = {
         { "subject": "Rättssäker dokumentation / DurTvå", "moment": "Moment 16 Inför examination", "preparation": "Moment 15–17", "teachers": ["Andreas Falk"] },
         { "subject": "Sambandstjänst", "moment": "5:7", "preparation": "", "teachers": ["Charlotte Berg"] },
         { "subject": "Polkon T", "moment": "AMF – Planspel", "preparation": "", "teachers": ["Martin Persson"] },
-        { "subject": "PNF", "moment": "M 14 Examination – Lågfart, tätort", "preparation": "", "teachers": ["Peter Hellqvist"] },
-        { "subject": "Polkon F", "moment": "5:6", "preparation": "", "teachers": ["Daniel Lundberg"] },
+        { "subject": "PNF", "moment": "M 14 Examination – Lågfart, tätort", "preparation": "", "teachers": ["Peter Hellqvist"], "detailId": "pnf-14" },
+        { "subject": "Polkon F", "moment": "5:6", "preparation": "", "teachers": ["Daniel Lundberg"], "detailId": "ftm-5:6" },
         { "subject": "Sambandstjänst", "moment": "5:8 Examination", "preparation": "", "teachers": ["Charlotte Berg"] },
         { "subject": "Polkon V", "moment": "5:7 Sammanfattning", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:7" },
-        { "subject": "Polkon F", "moment": "5:7", "preparation": "", "teachers": ["Daniel Lundberg"] },
+        { "subject": "Polkon F", "moment": "5:7", "preparation": "", "teachers": ["Daniel Lundberg"], "detailId": "ftm-5:7" },
         { "subject": "Polkon T", "moment": "M 2:7 – Examination Teori & praktik, BG 1+2", "preparation": "Examinationen är en praktisk övning i lokaliseringssök och rörligt fordonsstopp med fokus på att motivera utförda handlingar utifrån de taktiska grundprinciperna och GTF.", "teachers": ["Jan Peter Fredriksson"] },
         { "subject": "Polkon V", "moment": "5:8 Examination – Behörighetsprovet", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:8" }
       ]
@@ -143,14 +143,14 @@ export const TERM_INFO = {
       "moments": [
         { "subject": "Polkon V", "moment": "5:11 Resurs 2", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:11" },
         { "subject": "Polkon V", "moment": "5:12 Omexamination 2", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:12" },
-        { "subject": "PNF", "moment": "M 15 Lågfart med minibuss och släp", "preparation": "", "teachers": ["Peter Hellqvist"] },
+        { "subject": "PNF", "moment": "M 15 Lågfart med minibuss och släp", "preparation": "", "teachers": ["Peter Hellqvist"], "detailId": "pnf-15" },
         { "subject": "Polkon V", "moment": "5:13 Simulator", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:13" },
         { "subject": "Professionsutveckling", "moment": "Slutövning", "preparation": "", "teachers": ["Markus Ingemarsson", "Anna Märta Rooth"] },
         { "subject": "Professionsutveckling", "moment": "Avrapportering slutövning", "preparation": "", "teachers": ["Fredrik Arvidsson"] },
         { "subject": "Rättssäker dokumentation / DurTvå", "moment": "Omexamination 1", "preparation": "", "teachers": ["Fredrik Arvidsson"] },
         { "subject": "Polkon V", "moment": "5:14 Skydd / Skyl", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:14" },
         { "subject": "Sambandstjänst", "moment": "Omexamination 2", "preparation": "", "teachers": ["Charlotte Berg"] },
-        { "subject": "Polkon F", "moment": "5:9", "preparation": "", "teachers": ["Daniel Lundberg"] },
+        { "subject": "Polkon F", "moment": "5:9", "preparation": "", "teachers": ["Daniel Lundberg"], "detailId": "ftm-5:9" },
         { "subject": "PNF", "moment": "15 Lågfart med minibuss och släp", "preparation": "", "teachers": [] },
         { "subject": "Polkon V", "moment": "5:12 Omexamination 2", "preparation": "", "teachers": [] },
         { "subject": "Polkon V", "moment": "5:15 Dolt bärande", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:15" },
@@ -279,6 +279,189 @@ export const TERM_INFO = {
       }
     }
   },
+  "campusCourseIntros": [
+    {
+      "weekKey": "2026-W36",
+      "kicker": "Polkon F · Termin 5",
+      "title": "Fysiska tekniker och metoder",
+      "paragraphs": [
+        "FTM är ett delmoment inom polisiär konflikthantering. Det omfattar metoder och principer både vid tjänsteåtgärder med laga befogenhet och vid nödvärnssituationer.",
+        "Under termin 5 ligger fokus på försvar mot hugg-, stick- och skärvapen, skyddande av tjänstevapen, arrest, scenarier, positionsasfyxi och en avslutande FTM-övning.",
+        "Lektionerna är huvudsakligen praktiska med inslag av teori. Aktuellt material och filmer finns på kurssidan i Canvas."
+      ],
+      "requirements": [
+        "Kom i rätt tid, till rätt plats och med rätt utrustning. Meddela ansvarig lärare vid försening eller frånvaro.",
+        "Använd träningskläder, t-shirt som täcker axlarna och träningsskor för inomhusbruk. Ta med vattenflaska och vid behov enkel förtäring.",
+        "Ta av smycken och klockor, undvik långa naglar och ta alltid med utrustningsbältet när det har delats ut. Uniform används vid vissa lektioner.",
+        "Följ lärarens instruktioner och meddela läraren innan du lämnar undervisningen."
+      ],
+      "responsibles": [
+        { "name": "Johan Larsson", "role": "Ämnesansvarig" },
+        { "name": "Daniel Lundberg", "role": "Kontaktlärare DPU" }
+      ],
+      "plan": [
+        "Lektion 5:1–5:3: försvar mot hugg-, stick- och skärvapen samt skyddande av tjänstevapen",
+        "Lektion 5:4: repetition laga befogenhet",
+        "Lektion 5:5: arrest",
+        "Lektion 5:6–5:7: scenarier",
+        "Lektion 5:8: upplevelseövning positionsasfyxi",
+        "Lektion 5:9: slutövning FTM, 4 timmar"
+      ],
+      "note": "Canvas listar lektion 5:8 i kursplanen, men den saknar ett matchande moment i de fem närstudieveckornas momentöversikter och i TimeEdit-exporten. Den har därför inte tilldelats en vecka här.",
+      "unplacedDetailId": "ftm-5:8"
+    },
+    {
+      "weekKey": "2026-W40",
+      "kicker": "PNF · Termin 5",
+      "title": "Polistaktisk bilkörning",
+      "paragraphs": [
+        "Termin 5 omfattar ett examinerande digitalt quiz om trafikförordningen samt körning och examination i tätort, släpkörning och minibuss."
+      ],
+      "plan": [
+        "Moment 12: examinerande digitalt quiz som bygger på kompendiet från moment 10",
+        "Moment 13: körning med polisbil i tätort",
+        "Moment 14: examination i tätortskörning",
+        "Moment 15: körning och backning med släp samt körning med minibuss"
+      ],
+      "note": "Moment 12 är schemalagt den 23 september 2026, vecka 39, och ligger därför utanför närstudieveckornas momentpaneler. Moment 13–15 har detaljer vid respektive närstudievecka."
+    }
+  ],
+  "campusLessonDetails": {
+    "ftm-5:1": {
+      "badge": "F 5:1",
+      "title": "Försvar mot hugg-, stick- och skärvapen samt skyddande av tjänstevapen",
+      "content": "Lektion 5:1–5:3 behandlar försvar mot hugg-, stick- och skärvapen samt skyddande av tjänstevapen.",
+      "equipment": "Ta med skyddsväst och handskar."
+    },
+    "ftm-5:2": {
+      "badge": "F 5:2",
+      "title": "Försvar mot hugg-, stick- och skärvapen samt skyddande av tjänstevapen",
+      "content": "Lektion 5:1–5:3 behandlar försvar mot hugg-, stick- och skärvapen samt skyddande av tjänstevapen.",
+      "equipment": "Ta med skyddsväst och handskar."
+    },
+    "ftm-5:3": {
+      "badge": "F 5:3",
+      "title": "Försvar mot hugg-, stick- och skärvapen samt skyddande av tjänstevapen",
+      "content": "Lektion 5:1–5:3 behandlar försvar mot hugg-, stick- och skärvapen samt skyddande av tjänstevapen.",
+      "equipment": "Ta med skyddsväst och handskar."
+    },
+    "ftm-5:4": {
+      "badge": "F 5:4",
+      "title": "Repetition laga befogenhet",
+      "content": "Repetition med fokus på laga befogenhet. Canvas anger inga särskilda förberedelser för lektionen."
+    },
+    "ftm-5:5": {
+      "badge": "F 5:5",
+      "title": "Arrest",
+      "content": "Praktisk FTM-lektion i arrestmiljö.",
+      "location": "Samling utanför arresten.",
+      "equipment": "Ta med skyddsväst och handskar."
+    },
+    "ftm-5:6": {
+      "badge": "F 5:6",
+      "title": "Scenarier",
+      "content": "Scenariolektion inom fysiska tekniker och metoder.",
+      "equipment": "Ta med skyddsväst, handskar och laddad tjänstemobil."
+    },
+    "ftm-5:7": {
+      "badge": "F 5:7",
+      "title": "Scenarier",
+      "content": "Scenariolektion inom fysiska tekniker och metoder.",
+      "equipment": "Ta med skyddsväst, handskar och laddad tjänstemobil."
+    },
+    "ftm-5:8": {
+      "badge": "F 5:8",
+      "title": "Upplevelseövning positionsasfyxi",
+      "content": "Upplevelseövning om lägesbetingad syrebrist vid polisingripanden. Deltagarna arbetar upp pulsen och får därefter uppleva tyngd eller tryck över bröstryggen i en kontrollerad övning med kurskamrater.",
+      "preparation": "Läs de tre namngivna PDF-underlagen i Canvas samt sida 12 i det fjärde dokument som sidan länkar till.",
+      "resources": [
+        "Rättsmedicin_Ubildningsmaterial_Plötslig död vid myndighetsingripanden i samband med fasthållning 1.0.pdf",
+        "Studie - Därför dör människor när de grips av polis.pdf",
+        "Journal of Forensic Sciences - 2025 - Tyr - Incidents of sudden death during restraint of agitated individuals in Sweden (1).pdf",
+        "Dokument i Canvas, fil-id 3361619 – läs sida 12"
+      ],
+      "sourceNote": "Canvas-sidan använder internt benämningen Polkon F 4:8, medan termin 5-modulen listar den som lektion 5:8. Ingen närstudievecka eller TimeEdit-post anger momentet."
+    },
+    "ftm-5:9": {
+      "badge": "F 5:9",
+      "title": "Slutövning FTM",
+      "content": "Terminens sista FTM-lektion består av scenarier där ett urval av utbildningens samlade kunskaper används.",
+      "duration": "4 timmar.",
+      "location": "Samling utanför ingången till garaget.",
+      "equipment": "Utrustning för yttre tjänst, inklusive laddad tjänstemobil, anteckningsmaterial, radiofäste, körkort och huvudbonad.",
+      "requirement": "Övningen kräver tillräckligt deltagarantal. Kontakta ansvarig lärare om gruppen blir färre än 7 personer."
+    },
+    "pnf-13": {
+      "badge": "PNF M13",
+      "title": "Körning med polisbil i tätort",
+      "content": "Fokus ligger på säker och föredömlig körning med viss effektivitet. Läraren sitter i baksätet, eleverna fram och föraren kör efter noter som meddelas av bisittaren.",
+      "equipment": "Tilldelad uniform och utrustningsbälte."
+    },
+    "pnf-14": {
+      "badge": "PNF M14",
+      "title": "Examination – körning i tätort",
+      "content": "Examination i tätortskörning.",
+      "passCriteria": "Körningen ska vara säker, föredömlig och ha en viss effektivitet.",
+      "equipment": "Uniform och utrustningsbälte."
+    },
+    "pnf-15": {
+      "badge": "PNF M15",
+      "title": "Körning med släp och minibuss",
+      "content": "Övning i körning och backning med släp, först i körsimulator och därefter i verklig miljö. Momentet omfattar även körning med minibuss på körgården.",
+      "preparation": "Se de tre filmerna från Polisutbildningen i Borås före lektionen.",
+      "equipment": "Uniform och utrustningsbälte.",
+      "externalResources": [
+        { "label": "Film: Montera släp", "url": "https://play.hb.se/media/Montera+Sla%CC%88p/0_vr6cbe0x" },
+        { "label": "Film: Rak backning med släp", "url": "https://play.hb.se/media/Rak+backning+med+sla%CC%88p.mp4/0_k0yspt9b" },
+        { "label": "Film: Sidoförflyttning med släp", "url": "https://play.hb.se/media/Sidofo%CC%88rflyttning+med+sla%CC%88p/0_3afunsrg" }
+      ]
+    },
+    "acute-9": {
+      "badge": "Akut M9",
+      "title": "S-CABCDE – En dag på jobbet",
+      "content": "Verklighetsnära scenarioövningar där tidigare kunskaper används i praktisk och taktisk kontext. Lektionen inleds med repetition av S-CABCDE, SBAR och avsnörande förband samt övning i att tamponera skador på attrapper.",
+      "activities": [
+        "Basgruppsvisa case där deltagarna agerar polispatrull, figurant och vid behov observatör.",
+        "Gemensam reflektion efter varje case.",
+        "Repetition och fördjupning av kunskaper från den första kursen i akutsjukvård."
+      ],
+      "preparation": "Repetera de moment du känner dig osäker på. Läs Akut omhändertagande, sida 55–75 om S-CABCDE, och ta del av instruktionsfilmerna. Föreläsningarna från termin 2 kan användas för repetition av S-CABCDE, anatomi, fysiologi och sjukdomslära.",
+      "equipment": "Uniform och full utrustning. RAKEL och redguns delas ut under lektionen. Den laminerade lathunden för S-CABCDE får gärna tas med.",
+      "resources": [
+        "Akut omhändertagande för räddningstjänstpersonal, sida 55–75 S-CABCDE",
+        "Instruktionsfilmer S-CABCDE",
+        "Föreläsningar termin 2: S-CABCDE, anatomi, fysiologi och sjukdomslära"
+      ]
+    },
+    "acute-10": {
+      "badge": "Akut M10",
+      "title": "Barn-HLR",
+      "content": "Praktisk och examinerande lektion i hjärt- och lungräddning för barn.",
+      "activities": [
+        "Kompressioner och inblåsningar för barn 0–1 år och 1–18 år.",
+        "Hantering av hjärtstartare, AED.",
+        "Åtgärder vid luftvägsstopp.",
+        "Handlingsplan vid drunkning.",
+        "Samverkan med SOS, ambulans och räddningstjänst."
+      ],
+      "goal": "Efter avslutad kurs ska studenten kunna tillämpa barn-HLR.",
+      "preparationSteps": [
+        "Anmäl dig till lektionen och webbkursen via länken i Canvas.",
+        "Ta del av materialet Barn-HLR och filmen om att barn drunknar tyst.",
+        "Genomför den digitala webbutbildningen och ta med kursintyget. Namn och datum ska synas.",
+        "Ta med giltigt ID-kort. Uniform behövs inte vid lektionen eller examinationen."
+      ],
+      "requirement": "Momentet är obligatoriskt och examinerande. Utan intyg från webbutbildningen får studenten inte delta vid det aktuella tillfället utan tilldelas en annan examinationstid.",
+      "passCriteria": "Var aktiv under den praktiska lektionen, uppvisa korrekt teknik efter övning och visa ett godkänt intyg från webbtestet.",
+      "absence": "Försök i första hand byta tillfälle med en kurskamrat från en annan basgrupp. Byten ska förankras med kursansvarig eftersom antalet deltagare är begränsat. Två uppsamlingstillfällen finns i schemat.",
+      "externalResources": [
+        { "label": "Anmälan till Barn-HLR DPU", "url": "https://utbildningsportal.hlr.nu/min-sida/hitta-en-kurs?course_id=299351" },
+        { "label": "Barn-HLR", "url": "https://www.hlr.nu/sa-har-gor-du-barn-hlr/" },
+        { "label": "Film: barn drunknar tyst", "url": "https://vimeo.com/210407484" }
+      ],
+      "sourceNote": "Canvas benämner förberedelseavsnittet Moment 9, medan närstudieöversikten och TimeEdit placerar Barn-HLR som M 10 i vecka 40."
+    }
+  },
   "graduation": "Examen planeras till kalendervecka 2. Exakt dag är ännu inte fastställd eftersom den beror på tillgång till lokal för ceremonin.",
   "groupMembers": {
     "BG1": [
@@ -309,7 +492,8 @@ export const TERM_INFO = {
   },
   "sourceLabel": "Information inför termin 5, HT26",
   "campusWeekSourceLabel": "Momentöversikter i Canvas för termin 5, HT26",
-  "campusWeekDisclaimer": "Canvas visar veckans moment, förberedelser och ansvariga lärare. Exakta dagar, tider och platser hämtas även fortsättningsvis från TimeEdit. Innehållet kan ändras vid exempelvis sjukfrånvaro eller logistikproblem."
+  "campusLessonSourceLabel": "Lektionssidor i Canvas för FTM, PNF och Akutsjukvård, termin 5",
+  "campusWeekDisclaimer": "Canvas visar veckans moment, förberedelser, ansvariga lärare och kompletterande lektionsinformation. Exakta dagar, tider och platser hämtas även fortsättningsvis från TimeEdit. Innehållet kan ändras vid exempelvis sjukfrånvaro eller logistikproblem."
 };
 
 export const SCHEDULE_DATA = [

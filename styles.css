@@ -554,14 +554,16 @@ h3 { margin-bottom: 5px; font-size: 1.08rem; }
 .campus-preparation { margin: 9px 0 0; padding-top: 9px; border-top: 1px solid var(--line); color: var(--text-secondary); font-size: .84rem; }
 .canvas-source-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: 8px; color: var(--blue); font-size: .86rem; font-weight: 800; text-underline-offset: 3px; }
 
-.weapon-course-intro {
+.weapon-course-intro,
+.campus-course-intro {
   margin: 0 0 12px;
   border: 1px solid color-mix(in srgb, var(--cherry) 30%, var(--line));
   border-radius: 10px;
   background: var(--surface);
 }
 .weapon-course-intro > summary,
-.weapon-lesson-details > summary {
+.campus-course-intro > summary,
+.campus-lesson-details > summary {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -570,11 +572,14 @@ h3 { margin-bottom: 5px; font-size: 1.08rem; }
   cursor: pointer;
   list-style: none;
 }
-.weapon-course-intro > summary { padding: 10px 13px; }
+.weapon-course-intro > summary,
+.campus-course-intro > summary { padding: 10px 13px; }
 .weapon-course-intro > summary::-webkit-details-marker,
-.weapon-lesson-details > summary::-webkit-details-marker { display: none; }
+.campus-course-intro > summary::-webkit-details-marker,
+.campus-lesson-details > summary::-webkit-details-marker { display: none; }
 .weapon-course-intro > summary::after,
-.weapon-lesson-details > summary::after {
+.campus-course-intro > summary::after,
+.campus-lesson-details > summary::after {
   content: "+";
   flex: 0 0 auto;
   display: grid;
@@ -588,7 +593,8 @@ h3 { margin-bottom: 5px; font-size: 1.08rem; }
   line-height: 1;
 }
 .weapon-course-intro[open] > summary::after,
-.weapon-lesson-details[open] > summary::after { content: "−"; }
+.campus-course-intro[open] > summary::after,
+.campus-lesson-details[open] > summary::after { content: "−"; }
 .weapon-summary-kicker {
   display: block;
   margin-bottom: 2px;
@@ -598,7 +604,8 @@ h3 { margin-bottom: 5px; font-size: 1.08rem; }
   letter-spacing: .06em;
   text-transform: uppercase;
 }
-.weapon-course-intro > summary strong { display: block; font-size: .92rem; }
+.weapon-course-intro > summary strong,
+.campus-course-intro > summary strong { display: block; font-size: .92rem; }
 .weapon-course-intro-content {
   padding: 1px 13px 13px;
   border-top: 1px solid var(--line);
@@ -618,24 +625,72 @@ h3 { margin-bottom: 5px; font-size: 1.08rem; }
 .weapon-responsible { display: flex; align-items: baseline; flex-wrap: wrap; gap: 3px 8px; }
 .weapon-responsible span { color: var(--muted); }
 
-.weapon-lesson-details {
+.campus-course-intro { border-color: color-mix(in srgb, var(--blue) 34%, var(--line)); }
+.campus-course-kicker {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--blue);
+  font-size: .69rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.campus-course-intro-content {
+  padding: 1px 13px 13px;
+  border-top: 1px solid var(--line);
+  color: var(--text-secondary);
+  font-size: .86rem;
+  line-height: 1.55;
+}
+.campus-course-intro-content > p { margin: 11px 0 0; }
+.campus-course-intro-content section { margin-top: 12px; }
+.campus-course-intro-content h5 {
+  margin: 0 0 4px;
+  color: var(--ink);
+  font-size: .72rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.campus-course-intro-content ul { margin: 0; padding-left: 20px; }
+.campus-course-intro-content li + li { margin-top: 5px; }
+.campus-course-note {
+  padding: 9px 10px;
+  border-left: 3px solid var(--blue);
+  border-radius: 0 7px 7px 0;
+  color: var(--ink);
+  background: var(--blue-soft);
+}
+.campus-course-responsibles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 12px;
+}
+.campus-course-responsibles p { display: grid; gap: 1px; margin: 0; }
+.campus-course-responsibles span { color: var(--muted); font-size: .78rem; }
+
+.campus-lesson-details {
   margin-top: 11px;
   border-top: 1px solid var(--line);
 }
-.weapon-lesson-details > summary {
+.campus-lesson-details.is-unplaced {
+  margin-top: 13px;
+  padding-top: 2px;
+}
+.campus-lesson-details > summary {
   padding: 5px 0 0;
   color: var(--blue);
   font-size: .82rem;
   font-weight: 800;
 }
-.weapon-lesson-details > summary::after {
+.campus-lesson-details > summary::after {
   width: 24px;
   height: 24px;
   color: var(--blue);
   background: var(--blue-soft);
 }
-.weapon-lesson-summary-text { min-width: 0; }
-.weapon-lesson-badge {
+.campus-lesson-summary-text { min-width: 0; }
+.campus-lesson-badge {
   margin-left: auto;
   padding: 3px 7px;
   border: 1px solid color-mix(in srgb, var(--blue) 32%, transparent);
@@ -645,7 +700,7 @@ h3 { margin-bottom: 5px; font-size: 1.08rem; }
   font-size: .68rem;
   white-space: nowrap;
 }
-.weapon-lesson-content {
+.campus-lesson-content {
   margin-top: 5px;
   padding: 2px 10px 10px;
   border: 1px solid color-mix(in srgb, var(--blue) 24%, var(--line));
@@ -655,25 +710,33 @@ h3 { margin-bottom: 5px; font-size: 1.08rem; }
   font-size: .82rem;
   line-height: 1.5;
 }
-.weapon-lesson-detail-title {
+.campus-lesson-detail-title {
   margin: 8px 0 0;
   color: var(--blue);
   font-size: .86rem;
   font-weight: 800;
 }
-.weapon-detail-section { padding: 9px 0 0; }
-.weapon-detail-section + .weapon-detail-section { margin-top: 9px; border-top: 1px solid var(--line); }
-.weapon-detail-section h5 {
+.campus-detail-section { padding: 9px 0 0; }
+.campus-detail-section + .campus-detail-section { margin-top: 9px; border-top: 1px solid var(--line); }
+.campus-detail-section h5 {
   margin: 0 0 3px;
   color: var(--ink);
   font-size: .72rem;
   letter-spacing: .035em;
   text-transform: uppercase;
 }
-.weapon-detail-section p { margin: 0; }
-.weapon-detail-section ul { margin: 3px 0 0; padding-left: 19px; }
-.weapon-detail-section li + li { margin-top: 5px; }
-.weapon-resources li { overflow-wrap: anywhere; }
+.campus-detail-section p { margin: 0; }
+.campus-detail-section ul { margin: 3px 0 0; padding-left: 19px; }
+.campus-detail-section li + li { margin-top: 5px; }
+.campus-resources li { overflow-wrap: anywhere; }
+.campus-external-resources a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--blue);
+  font-weight: 800;
+  text-underline-offset: 3px;
+}
 
 .day-section { margin-top: 22px; }
 .day-heading {
