@@ -50,17 +50,17 @@ export const TERM_INFO = {
         { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 1 – Kursintroduktion. Polismyndighetens strategi för trafik som metod.", "preparation": "Du behöver inte förbereda något inför introduktionen. Titta gärna genom Canvasupplägget.", "teachers": ["Peter Hellqvist"] },
         { "subject": "Polkon V", "moment": "5:1 – Målfokus", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:1" },
         { "subject": "Polkon F", "moment": "5:1", "preparation": "", "teachers": ["Daniel Lundberg"], "detailId": "ftm-5:1" },
-        { "subject": "Sambandstjänst", "moment": "5:1", "preparation": "", "teachers": ["Charlotte Berg"] },
+        { "subject": "Sambandstjänst", "moment": "5:1", "preparation": "", "teachers": ["Charlotte Berg"], "detailId": "samband-5:1" },
         { "subject": "Rättssäker dokumentation / DurTvå", "moment": "Moment 14 Slutredovisning", "preparation": "Moment 14", "teachers": ["Kristina Windalen"] },
         { "subject": "Polkon V", "moment": "5:2 – Rörelse", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:2" },
         { "subject": "Polkon F", "moment": "5:2", "preparation": "", "teachers": ["Daniel Lundberg"], "detailId": "ftm-5:2" },
         { "subject": "Polkon T", "moment": "5:1 Lektion – Vägspärr, grunder", "preparation": "", "teachers": ["Jan Peter Fredriksson"] },
         { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 2 – Föreläsning: Stoppande av fordon", "preparation": "", "teachers": ["Peter Hellqvist"] },
-        { "subject": "Sambandstjänst", "moment": "M 5:2", "preparation": "", "teachers": ["Jenny Holtås"] },
+        { "subject": "Sambandstjänst", "moment": "M 5:2", "preparation": "", "teachers": ["Jenny Holtås"], "detailId": "samband-5:2" },
         { "subject": "Polkon V", "moment": "5:3 Sekundär hand", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:3" },
         { "subject": "Akutsjukvård", "moment": "M 9 – Scenarioövningar", "preparation": "Läs boken Akut omhändertagande i PDF-format, sida 55–75 om S-CABCDE. Se instruktionsfilmerna om S-CABCDE. Den som vill repetera grunderna kan även se föreläsningarna från termin 2 om S-CABCDE, anatomi, fysiologi och sjukdomslära. Klädsel: uniform.", "teachers": ["Emma K Gavell"], "detailId": "acute-9" },
         { "subject": "Polkon F", "moment": "5:3", "preparation": "", "teachers": ["Daniel L"], "detailId": "ftm-5:3" },
-        { "subject": "Sambandstjänst", "moment": "5:3", "preparation": "", "teachers": ["Berit Andersson"] },
+        { "subject": "Sambandstjänst", "moment": "5:3", "preparation": "", "teachers": ["Berit Andersson"], "detailId": "samband-5:3" },
         { "subject": "Professionsutveckling", "moment": "Kropp, röst och makt", "preparation": "", "teachers": ["Dawan R", "Johan P"] },
         { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 3 – Föreläsning: Fordonslag / Trafikskadelag m.m.", "preparation": "", "teachers": ["Peter Hellqvist"] }
       ]
@@ -119,7 +119,7 @@ export const TERM_INFO = {
       "moments": [
         { "subject": "Polkon T", "moment": "AMF – Praktisk övning", "preparation": "", "teachers": ["Martin Persson"] },
         { "subject": "Polkon V", "moment": "5:9 Resurstid 1", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:9" },
-        { "subject": "Sambandstjänst", "moment": "5:9", "preparation": "", "teachers": ["Charlotte Berg"] },
+        { "subject": "Sambandstjänst", "moment": "5:9 inför aspiranten", "preparation": "", "teachers": ["Charlotte Berg"] },
         { "subject": "Polkon T", "moment": "PDV Dag 1 – Introduktion", "preparation": "", "teachers": ["Martin Persson"] },
         { "subject": "Polkon T", "moment": "PDV Dag 1 – Planspel", "preparation": "", "teachers": ["Martin Persson"] },
         { "subject": "Polkon T", "moment": "PDV Dag 1 – Formell metodträning", "preparation": "", "teachers": ["Martin Persson"] },
@@ -327,6 +327,56 @@ export const TERM_INFO = {
     }
   ],
   "campusLessonDetails": {
+    "samband-5:1": {
+      "badge": "Samband 5:1",
+      "title": "Samband och mobilitet",
+      "content": "Överblick över termin 5, bisittarens uppgifter samt samband vid stopp eller kontroll av person och fordon.",
+      "activities": [
+        "Mobil-HR.",
+        "Övningar med Polman.",
+        "Sambandsövning 24."
+      ],
+      "preparation": "Se filmerna om samband och mobilitet samt genomgången av Titan före lektionen.",
+      "externalResources": [
+        { "label": "Film: Samband och mobilitet", "url": "https://play.mau.se/media/t/0_nocmmdk3" },
+        { "label": "Film: Genomgång av Titan", "url": "https://play.mau.se/media/t/0_tmf25qle" }
+      ]
+    },
+    "samband-5:2": {
+      "badge": "Samband 5:2",
+      "title": "Samband vid trafikolycka",
+      "content": "Återkoppling kring filmen om Titan och arbete med samband vid trafikolycka.",
+      "activities": [
+        "Insatsövning och prioriterat samband vid en nyss inträffad händelse.",
+        "Övningar med HBC 3 och handterminal."
+      ],
+      "preparation": "Lyssna på ljudklippen om arbete på insatstalgrupp, trafikolycka med rapstalgrupp och avrapportering av trafikolycka. Genomför gruppuppgiften om trafikolycka och ta del av dokumenten i Canvas.",
+      "resources": [
+        "T5.2 Gruppuppgift trafikolycka..pdf",
+        "Vindruterapport.pdf",
+        "Trafikolycka avrapp struktur.pdf"
+      ],
+      "externalResources": [
+        { "label": "Ljudklipp: Arbete på insatstalgrupp", "url": "https://play.mau.se/media/t/0_fgal85dg" },
+        { "label": "Ljudklipp: Trafikolycka med rapstalgrupp", "url": "https://play.mau.se/media/t/0_84zy4bbu" },
+        { "label": "Ljudklipp: Avrapportering trafikolycka", "url": "https://play.mau.se/media/t/0_iuyw9l1o" }
+      ]
+    },
+    "samband-5:3": {
+      "badge": "Samband 5:3",
+      "title": "Förtursanrop och begäran om förstärkning",
+      "content": "Genomgång av gruppuppgiften Vi behöver förstärkning, förtursanrop och Status 16, begäran om förstärkning samt insatsövning.",
+      "preparation": "Ta del av scenarierna i gruppuppgiften Vi behöver förstärkning. Diskutera hur ni skulle få hjälp till platsen och motivera valet med stöd av dokument, ljud och video om förtursbegäran och Status 16. Uppgiften redovisas muntligt på lektionen.",
+      "resources": [
+        "Vi behöver förstärkning.pdf",
+        "Förtursbegäran.pdf",
+        "Status.pdf"
+      ],
+      "externalResources": [
+        { "label": "Ljudklipp: Förtursbegäran biträde", "url": "https://play.mau.se/media/t/0_gk7z8p40" },
+        { "label": "Ljudklipp: Förtursbegäran av misstag", "url": "https://play.mau.se/media/t/0_gf9okvxz" }
+      ]
+    },
     "ftm-5:1": {
       "badge": "F 5:1",
       "title": "Försvar mot hugg-, stick- och skärvapen samt skyddande av tjänstevapen",
@@ -492,7 +542,7 @@ export const TERM_INFO = {
   },
   "sourceLabel": "Information inför termin 5, HT26",
   "campusWeekSourceLabel": "Momentöversikter i Canvas för termin 5, HT26",
-  "campusLessonSourceLabel": "Lektionssidor i Canvas för FTM, PNF och Akutsjukvård, termin 5",
+  "campusLessonSourceLabel": "Lektionssidor i Canvas för Samband, FTM, PNF och Akutsjukvård, termin 5",
   "campusWeekDisclaimer": "Canvas visar veckans moment, förberedelser, ansvariga lärare och kompletterande lektionsinformation. Exakta dagar, tider och platser hämtas även fortsättningsvis från TimeEdit. Innehållet kan ändras vid exempelvis sjukfrånvaro eller logistikproblem."
 };
 
