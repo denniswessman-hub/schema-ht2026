@@ -789,6 +789,7 @@ h3 { margin-bottom: 5px; font-size: 1.08rem; }
 .event-time { font-size: .92rem; font-weight: 800; line-height: 1.25; font-variant-numeric: tabular-nums; }
 .event-time span { display: block; color: var(--muted); font-size: .78rem; font-weight: 400; }
 .event-content { min-width: 0; }
+.event-card > .campus-lesson-details { grid-column: 1 / -1; min-width: 0; margin-top: 0; }
 .event-content h4 { margin: 0 70px 5px 0; font-size: 1.08rem; line-height: 1.3; }
 .event-moment { margin: 0 0 9px; color: var(--text-secondary); }
 .badge-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 9px; }

@@ -1,4 +1,4 @@
-import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO } from "./schedule-data.js?v=18";
+import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO } from "./schedule-data.js?v=19";
 
 const GROUP_STORAGE_KEY = "schemaHT26.baseGroup";
 const THEME_STORAGE_KEY = "schemaHT26.theme";
@@ -420,6 +420,7 @@ function eventMatches(event) {
   if (state.range === "next" && eventWeekKey !== nextWeekKey) return false;
 
   if (state.search) {
+    const lesson = TERM_INFO.campusLessonDetails?.[getScheduleLessonDetailId(event)];
     const haystack = normalize([
       event.weekday,
       event.date,
@@ -435,6 +436,11 @@ function eventMatches(event) {
       event.momentText,
       event.momentNumber,
       event.examInfo,
+      lesson?.badge,
+      lesson?.title,
+      lesson?.content,
+      lesson?.preparation,
+      ...(lesson?.resources || []),
     ].join(" "));
     if (!haystack.includes(normalize(state.search))) return false;
   }
@@ -568,6 +574,7 @@ function renderCampusLessonDetails(item, options = {}) {
   if (!lesson) return "";
 
   const badge = weaponLesson ? `V ${item.lessonId}` : lesson.badge;
+  const sourceUrl = safeExternalUrl(lesson.sourceUrl);
   const textSection = (heading, content) => content ? `
     <section class="campus-detail-section">
       <h5>${escapeHtml(heading)}</h5>
@@ -603,7 +610,7 @@ function renderCampusLessonDetails(item, options = {}) {
   ` : "";
 
   return `
-    <details class="campus-lesson-details${options.unplaced ? " is-unplaced" : ""}">
+    <details class="campus-lesson-details${options.unplaced ? " is-unplaced" : ""}" data-detail-id="${escapeHtml(item.detailId || `weapon-${item.lessonId}`)}">
       <summary>
         <span class="campus-lesson-summary-text">${escapeHtml(options.summaryText || "Läs mer om lektionen")}</span>
         <span class="campus-lesson-badge">${escapeHtml(badge)}</span>
@@ -618,6 +625,7 @@ function renderCampusLessonDetails(item, options = {}) {
         ${textSection("Utrustning och klädsel", lesson.equipment)}
         ${textSection("Förberedelser", lesson.preparation)}
         ${listSection("Förberedelser – steg för steg", lesson.preparationSteps)}
+        ${listSection("Basgruppsuppgift", lesson.groupAssignments)}
         ${textSection("Målgrupp", lesson.audience)}
         ${examParts}
         ${textSection("Viktigt", lesson.requirement)}
@@ -626,6 +634,7 @@ function renderCampusLessonDetails(item, options = {}) {
         ${resources}
         ${externalResources}
         ${textSection("Notering om Canvas-källan", lesson.sourceNote)}
+        ${sourceUrl ? `<a class="canvas-source-link" href="${escapeHtml(sourceUrl)}" target="_blank" rel="noopener noreferrer">Öppna lektionsmaterialet i Canvas</a>` : ""}
       </div>
     </details>
   `;
@@ -649,6 +658,7 @@ function renderCampusCourseIntros(campusWeek) {
           ${intro.note ? `<p class="campus-course-note">${escapeHtml(intro.note)}</p>` : ""}
           ${intro.responsibles?.length ? `<div class="campus-course-responsibles">${intro.responsibles.map((person) => `<p><strong>${escapeHtml(person.name)}</strong><span>${escapeHtml(person.role)}</span></p>`).join("")}</div>` : ""}
           ${intro.unplacedDetailId ? renderCampusLessonDetails({ detailId: intro.unplacedDetailId }, { unplaced: true, summaryText: "Läs om lektion 5:8 · saknar veckokoppling" }) : ""}
+          ${safeExternalUrl(intro.sourceUrl) ? `<a class="canvas-source-link" href="${escapeHtml(safeExternalUrl(intro.sourceUrl))}" target="_blank" rel="noopener noreferrer">Öppna kursen i Canvas</a>` : ""}
         </div>
       </details>
     `).join("");
@@ -691,6 +701,14 @@ function renderCampusWeekPlan(campusWeek) {
   return details;
 }
 
+function getScheduleLessonDetailId(event) {
+  if (event.category !== "teaching") return "";
+  const rule = (TERM_INFO.scheduleLessonRules || []).find((entry) => entry.audience === event.audience);
+  if (!rule || !/^\d+$/.test(event.momentNumber)) return "";
+  const detailId = `${rule.detailPrefix}${event.momentNumber}`;
+  return TERM_INFO.campusLessonDetails?.[detailId] ? detailId : "";
+}
+
 function renderEvent(event, now, nextEvent) {
   const article = document.createElement("article");
   const start = eventStart(event);
@@ -731,6 +749,7 @@ function renderEvent(event, now, nextEvent) {
       ${location}
       ${extra}
     </div>
+    ${renderCampusLessonDetails({ detailId: getScheduleLessonDetailId(event) })}
   `;
   return article;
 }
@@ -833,7 +852,7 @@ elements.iosDialog.addEventListener("click", (event) => {
 window.addEventListener("appinstalled", () => { elements.install.hidden = true; });
 
 if ("serviceWorker" in navigator && window.isSecureContext) {
-  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=18"));
+  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=19"));
 }
 
 initTheme();

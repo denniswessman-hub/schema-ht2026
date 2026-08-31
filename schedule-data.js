@@ -47,7 +47,7 @@ export const TERM_INFO = {
       "key": "2026-W36",
       "canvasUrl": "https://mau.instructure.com/courses/19413/modules/items/886492",
       "moments": [
-        { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 1 – Kursintroduktion. Polismyndighetens strategi för trafik som metod.", "preparation": "Du behöver inte förbereda något inför introduktionen. Titta gärna genom Canvasupplägget.", "teachers": ["Peter Hellqvist"] },
+        { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 1 – Kursintroduktion. Polismyndighetens strategi för trafik som metod.", "preparation": "Ta del av Nollvisionen och Polismyndighetens strategi för trafikarbetet enligt den uppdaterade momentbeskrivningen i Canvas.", "teachers": ["Peter Hellqvist"], "detailId": "traffic-1" },
         { "subject": "Polkon V", "moment": "5:1 – Målfokus", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:1" },
         { "subject": "Polkon F", "moment": "5:1", "preparation": "", "teachers": ["Daniel Lundberg"], "detailId": "ftm-5:1" },
         { "subject": "Sambandstjänst", "moment": "5:1", "preparation": "", "teachers": ["Charlotte Berg"], "detailId": "samband-5:1" },
@@ -55,14 +55,14 @@ export const TERM_INFO = {
         { "subject": "Polkon V", "moment": "5:2 – Rörelse", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:2" },
         { "subject": "Polkon F", "moment": "5:2", "preparation": "", "teachers": ["Daniel Lundberg"], "detailId": "ftm-5:2" },
         { "subject": "Polkon T", "moment": "5:1 Lektion – Vägspärr, grunder", "preparation": "", "teachers": ["Jan Peter Fredriksson"] },
-        { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 2 – Föreläsning: Stoppande av fordon", "preparation": "", "teachers": ["Peter Hellqvist"] },
+        { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 2 – Föreläsning: Stoppande av fordon", "preparation": "", "teachers": ["Peter Hellqvist"], "detailId": "traffic-2" },
         { "subject": "Sambandstjänst", "moment": "M 5:2", "preparation": "", "teachers": ["Jenny Holtås"], "detailId": "samband-5:2" },
         { "subject": "Polkon V", "moment": "5:3 Sekundär hand", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:3" },
         { "subject": "Akutsjukvård", "moment": "M 9 – Scenarioövningar", "preparation": "Läs boken Akut omhändertagande i PDF-format, sida 55–75 om S-CABCDE. Se instruktionsfilmerna om S-CABCDE. Den som vill repetera grunderna kan även se föreläsningarna från termin 2 om S-CABCDE, anatomi, fysiologi och sjukdomslära. Klädsel: uniform.", "teachers": ["Emma K Gavell"], "detailId": "acute-9" },
         { "subject": "Polkon F", "moment": "5:3", "preparation": "", "teachers": ["Daniel L"], "detailId": "ftm-5:3" },
         { "subject": "Sambandstjänst", "moment": "5:3", "preparation": "", "teachers": ["Berit Andersson"], "detailId": "samband-5:3" },
         { "subject": "Professionsutveckling", "moment": "Kropp, röst och makt", "preparation": "", "teachers": ["Dawan R", "Johan P"] },
-        { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 3 – Föreläsning: Fordonslag / Trafikskadelag m.m.", "preparation": "", "teachers": ["Peter Hellqvist"] }
+        { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 3 – Föreläsning: Fordonslag / Trafikskadelag m.m.", "preparation": "", "teachers": ["Peter Hellqvist"], "detailId": "traffic-3" }
       ]
     },
     {
@@ -75,10 +75,10 @@ export const TERM_INFO = {
         { "subject": "Examensarbete", "moment": "Information inför uppsatsintroduktionen", "preparation": "", "teachers": ["Malin Mc Glinn"] },
         { "subject": "Polkon T", "moment": "5:2 Sök i terräng. Rek/Obs/Säk", "preparation": "Klädsel: uniform.", "teachers": ["Jan Peter Fredriksson"] },
         { "subject": "Rättssäker dokumentation / DurTvå", "moment": "Moment 15 – Kapellskäret", "preparation": "Moment 15–17", "teachers": ["Fredrik Arvidsson"] },
-        { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 9 Praktisk övning – Trafikkontroll", "preparation": "", "teachers": ["Peter Hellqvist"] },
+        { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 9 Praktisk övning – Trafikkontroll", "preparation": "", "teachers": ["Peter Hellqvist"], "detailId": "traffic-9" },
         { "subject": "Polkon F", "moment": "5:4", "preparation": "", "teachers": ["Daniel Lundberg"], "detailId": "ftm-5:4" },
         { "subject": "Akutsjukvård", "moment": "M 10 HLR – Barn", "preparation": "Steg 1: Anmäl dig till Barn-HLR DPU. Steg 2: Se materialet Barn-HLR och MSB:s film om att barn drunknar tyst. Steg 3: Genomför den digitala webbutbildningen och visa kursintyget för ansvarig lärare; namn och datum måste synas. Utan intyg får du inte delta utan tilldelas en annan examinationstid. Ta med giltigt ID-kort. Den praktiska lektionen är obligatorisk och examinerande.", "teachers": ["Emma K Gavell"], "detailId": "acute-10" },
-        { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 10 – Praktisk övning: Trafikolycka", "preparation": "", "teachers": ["Peter Hellqvist"] },
+        { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 10 – Praktisk övning: Trafikolycka", "preparation": "", "teachers": ["Peter Hellqvist"], "detailId": "traffic-10" },
         { "subject": "Sambandstjänst", "moment": "5:4", "preparation": "", "teachers": ["Charlotte"] },
         { "subject": "Polkon V", "moment": "5:4 Precision", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:4" },
         { "subject": "PNF", "moment": "M 13 Lågfart Tätort", "preparation": "", "teachers": ["Peter Hellqvist"], "detailId": "pnf-13" },
@@ -282,6 +282,26 @@ export const TERM_INFO = {
   "campusCourseIntros": [
     {
       "weekKey": "2026-W36",
+      "kicker": "Trafik · DP151A",
+      "title": "Polisiärt arbete i trafikmiljö",
+      "paragraphs": [
+        "Kursen består av föreläsningar, seminarier och övningar inklusive avrapportering. Uppgifterna i Canvas förbereder dig inför lektionerna.",
+        "Gå igenom samtliga moment från kursstart. Börja särskilt tidigt med moment 6, där basgrupperna redovisar sina uppgifter om trafikbrottslagen."
+      ],
+      "requirements": [
+        "Uppdatera tjänstemobilen till senaste programversionen och ta med den till samtliga moment.",
+        "Kontakta Patrik Svahn eller Joakim Hugosson via Canvas-inkorgen vid frågor.",
+        "Kursdokument, quiz och Zoomlänk finns i Canvas. Schema, klassrum och tider kontrolleras i TimeEdit."
+      ],
+      "responsibles": [
+        { "name": "Patrik Svahn", "role": "Lärare Trafik enligt kursintroduktionen" },
+        { "name": "Joakim Hugosson", "role": "Lärare Trafik enligt kursintroduktionen" }
+      ],
+      "note": "Moment 1–3 ligger i vecka 36, moment 4–5 i vecka 37, moment 6 i vecka 38, moment 7–8 i vecka 39 och moment 9–10 i vecka 40 enligt TimeEdit-utdraget. Alla tio har utfällbar information vid schemapasset. Lärarna per moment visas fortfarande enligt den separata närstudieöversikten; kursintroduktionen anger inte deras fördelning mellan passen.",
+      "sourceUrl": "https://mau.instructure.com/courses/24251/modules"
+    },
+    {
+      "weekKey": "2026-W36",
       "kicker": "Polkon F · Termin 5",
       "title": "Fysiska tekniker och metoder",
       "paragraphs": [
@@ -326,7 +346,130 @@ export const TERM_INFO = {
       "note": "Moment 12 är schemalagt den 23 september 2026, vecka 39, och ligger därför utanför närstudieveckornas momentpaneler. Moment 13–15 har detaljer vid respektive närstudievecka."
     }
   ],
+  "scheduleLessonRules": [
+    { "audience": "DP151A-HT2026-DT151", "detailPrefix": "traffic-" }
+  ],
   "campusLessonDetails": {
+    "traffic-1": {
+      "badge": "Trafik M1",
+      "title": "Kursintroduktion – polisiärt arbete i trafikmiljö",
+      "content": "Genomgång av kursens innehåll och Polismyndighetens strategi för arbetet i trafikmiljö.",
+      "preparation": "Ta del av Nollvisionen och Polismyndighetens strategi för hur trafikarbetet ska prioriteras och genomföras.",
+      "equipment": "Uppdaterad tjänstemobil. Den ska tas med till samtliga Trafik-moment.",
+      "resources": ["Nollvisionen PDF.pdf", "Nollvisionen nystart pdf.pdf"],
+      "sourceUrl": "https://mau.instructure.com/courses/24251/modules/items/864896"
+    },
+    "traffic-2": {
+      "badge": "Trafik M2",
+      "title": "Stoppande av fordon, fordonslag och fordonsförordning",
+      "content": "Föreläsning om stoppande av fordon, fordonslagen (FOL) och fordonsförordningen (FOF).",
+      "preparation": "Titta på PowerPoint-presentationen om sållningsinstrumentet Dräger 6820 före lektionen.",
+      "equipment": "Trafikförfattningar och uppdaterad tjänstemobil.",
+      "resources": ["Dräger 6820 utb användare-2.pptx"],
+      "sourceUrl": "https://mau.instructure.com/courses/24251/modules/items/864896"
+    },
+    "traffic-3": {
+      "badge": "Trafik M3",
+      "title": "Fordons registrering och användning",
+      "content": "Föreläsning om lag och förordning om fordons registrering och användning (LFRA/FFRA), trafikskadelagen (TSL) och vägtrafikskattelagen (VTSL).",
+      "preparation": "Ta del av läsanvisningarna inför seminariet och Transportstyrelsens föreskrifter om registrering av fordon i vägtrafikregistret, TSFS 2015-63.",
+      "activities": ["Quiz LFRA-FFRA-TSL-VTSL är en frivillig kunskapskontroll, inte en examination. Det får göras flera gånger. Varje fråga anger lagrummet där svaret finns; läs på och försök igen tills du får alla rätt."],
+      "equipment": "Trafikförfattningar och uppdaterad tjänstemobil.",
+      "resources": ["Läsanvisningar inför seminarium", "TSFS 2015-63", "Quiz LFRA-FFRA-TSL-VTSL, Testa dig själv – inget examinerande"],
+      "sourceUrl": "https://mau.instructure.com/courses/24251/modules/items/864896"
+    },
+    "traffic-4": {
+      "badge": "Trafik M4",
+      "title": "Körkortslag och körkortsförordning",
+      "content": "Föreläsning om körkortslagen (KKL) och körkortsförordningen (KKF), med frågor att besvara i förväg.",
+      "preparationSteps": [
+        "Titta igenom körkortslagen och körkortsförordningen så att du är bekant med lagstiftningen.",
+        "Lös uppgifterna i Seminarieuppgift Körkortslag.",
+        "Använd övningsquizet Behörigheter påkopplad släpvagn i Canvas."
+      ],
+      "equipment": "Trafikförfattningar och uppdaterad tjänstemobil.",
+      "resources": ["Seminarieuppgift Körkortslag-1.docx", "Övningsquiz: Behörigheter påkopplad släpvagn"],
+      "sourceUrl": "https://mau.instructure.com/courses/24251/modules/items/864896"
+    },
+    "traffic-5": {
+      "badge": "Trafik M5",
+      "title": "Trafikförordningen",
+      "content": "Lektion om trafikförordningen.",
+      "preparation": "Titta igenom trafikförordningen och Transportstyrelsens föreskrifter TSFS 2014:52 och TSFS 2017:94. Lös uppgifterna i Seminarieuppgift Trafikförordning före lektionen.",
+      "equipment": "Trafikförfattningar, ordningsbotshandbok och uppdaterad tjänstemobil.",
+      "resources": ["Seminarieuppgift Trafikförordning.docx", "TrF-1.pdf"],
+      "sourceUrl": "https://mau.instructure.com/courses/24251/modules/items/864896"
+    },
+    "traffic-6": {
+      "badge": "Trafik M6",
+      "title": "Seminarium – lag om straff för vissa trafikbrott (TBL)",
+      "content": "Basgrupperna redovisar paragraferna i trafikbrottslagen. Förklara paragrafernas innehåll och ordalydelser samt använd relevanta, moderna rättsfall för att visa hur rätten har tolkat lagen och dömt.",
+      "preparation": "Förbered basgruppens redovisning och ta hjälp av de inspelade föreläsningarna. Börja titta igenom materialet redan från kursstart.",
+      "groupAssignments": [
+        "Basgrupp 1: TBL 1 § och 2 §.",
+        "Basgrupp 2: TBL 3 §.",
+        "Basgrupp 3: TBL 4 § och 4 a §.",
+        "Basgrupp 4: TBL 5 § och 7 §."
+      ],
+      "equipment": "Uppdaterad tjänstemobil.",
+      "externalResources": [
+        { "label": "Inspelad föreläsning: Inledning TBL", "url": "https://play.mau.se/media/t/0_tbzzy4cj" },
+        { "label": "Inspelad föreläsning: TBL 1 §", "url": "https://play.mau.se/media/t/0_5zlpq3n1" },
+        { "label": "Inspelad föreläsning: TBL 2 §", "url": "https://play.mau.se/media/t/0_ofdegreo" },
+        { "label": "Inspelad föreläsning: TBL 3 §", "url": "https://play.mau.se/media/t/0_9bcin9c4" },
+        { "label": "Inspelad föreläsning: TBL 4 §", "url": "https://play.mau.se/media/t/0_hday9lia" },
+        { "label": "Inspelad föreläsning: TBL 5 §", "url": "https://play.mau.se/media/t/0_o7x187t0" },
+        { "label": "Inspelad föreläsning: TBL 7 §", "url": "https://play.mau.se/media/t/0_kk9n6vi4" }
+      ],
+      "sourceNote": "TimeEdit benämner passet Föreläsning. Den uppdaterade Canvas-sidan beskriver momentet som ett seminarium med basgruppsredovisning.",
+      "sourceUrl": "https://mau.instructure.com/courses/24251/modules/items/864896"
+    },
+    "traffic-7": {
+      "badge": "Trafik M7",
+      "title": "Samverkan vid trafikolycka",
+      "content": "Seminarium där ni resonerar om arbetet med och på en trafikolycksplats.",
+      "preparation": "Läs kapitel 8 och kapitel 10 i materialet Akutsjukvård trafik/trauma som Canvas länkar till.",
+      "equipment": "Uppdaterad tjänstemobil.",
+      "externalResources": [
+        { "label": "Akutsjukvård trafik/trauma – läs kapitel 8 och 10", "url": "https://rib.msb.se/filer/pdf/28395.pdf" }
+      ],
+      "sourceNote": "TimeEdit benämner passet Föreläsning. Canvas beskriver det som ett seminarium.",
+      "sourceUrl": "https://mau.instructure.com/courses/24251/modules/items/864897"
+    },
+    "traffic-8": {
+      "badge": "Trafik M8",
+      "title": "Avrapportering – ordningsföreläggande, SAMLA och SLF",
+      "content": "Lär er om och öva på att skriva ordningsföreläggande (o-bot), både på blankett och digitalt i tjänstemobilen. Ni arbetar också med SAMLA-appen och övar på att lägga upp ett ärende.",
+      "preparation": "Titta igenom och lyssna på den inspelade PowerPoint-presentationen om ordningsföreläggande före lektionen. Ta även del av materialet om snabbare lagföring (SLF).",
+      "requirement": "Ladda ned bildspelet från Canvas och öppna det i programmet PowerPoint för att kunna höra de inspelade kommentarerna.",
+      "equipment": "Uppdaterad tjänstemobil.",
+      "resources": [
+        "Ordningsbot Nytt bildspel, inspelad föreläsning.pptx",
+        "Inläst föreläsning inför avrapportering del 1, åhörare ex PDF Studenter.",
+        "Lektions PDF, student, Avrapportering Trafikbrott, del 2..pdf"
+      ],
+      "externalResources": [
+        { "label": "Förhörsfilm om SLF", "url": "https://play.mau.se/media/t/0_xnfejpyl" },
+        { "label": "Film: Arbetsmetoden snabbare lagföring (3:29)", "url": "https://youtu.be/7Hcjm6QnLKQ" }
+      ],
+      "sourceUrl": "https://mau.instructure.com/courses/24251/modules/items/864897"
+    },
+    "traffic-9": {
+      "badge": "Trafik M9",
+      "title": "Övning – trafikkontroll",
+      "content": "Öva på stopp och kontroll av fordon och förare samt att rapportera trafikförseelser via o-bot.",
+      "location": "Samling utanför garaget enligt Canvas. Övningen sker utomhus.",
+      "equipment": "Kom fullt rustad för tjänstgöring som polis och klädd efter väder. Ta med uppdaterad och laddad tjänstemobil.",
+      "sourceUrl": "https://mau.instructure.com/courses/24251/modules/items/864897"
+    },
+    "traffic-10": {
+      "badge": "Trafik M10",
+      "title": "Övning – trafikolycka",
+      "content": "Öva på hantering av trafikolycka. En basgrupp i taget tränar praktiska handgrepp medan övriga arbetar med pappersbaserade case i klassrummet.",
+      "location": "Samling i angivet klassrum enligt Canvas. Lektionen genomförs både i klassrum och utomhus; se TimeEdit för klassrum.",
+      "equipment": "Kom fullt rustad för tjänstgöring som polis till utomhusövningen och klädd efter väder. Ta med uppdaterad och laddad tjänstemobil.",
+      "sourceUrl": "https://mau.instructure.com/courses/24251/modules/items/864897"
+    },
     "samband-5:1": {
       "badge": "Samband 5:1",
       "title": "Samband och mobilitet",
@@ -516,7 +659,7 @@ export const TERM_INFO = {
   "groupMembers": {
     "BG1": [
       "Jennifer",
-      "Helene",
+      "Sara",
       "Hanna",
       "Ellen"
     ],
@@ -524,7 +667,6 @@ export const TERM_INFO = {
       "Julia",
       "Adrian",
       "Emanuel",
-      "Sara",
       "Cornelia"
     ],
     "BG3": [
@@ -542,7 +684,7 @@ export const TERM_INFO = {
   },
   "sourceLabel": "Information inför termin 5, HT26",
   "campusWeekSourceLabel": "Momentöversikter i Canvas för termin 5, HT26",
-  "campusLessonSourceLabel": "Lektionssidor i Canvas för Samband, FTM, PNF och Akutsjukvård, termin 5",
+  "campusLessonSourceLabel": "Lektionssidor i Canvas för Trafik, Samband, FTM, PNF och Akutsjukvård, termin 5",
   "campusWeekDisclaimer": "Canvas visar veckans moment, förberedelser, ansvariga lärare och kompletterande lektionsinformation. Exakta dagar, tider och platser hämtas även fortsättningsvis från TimeEdit. Innehållet kan ändras vid exempelvis sjukfrånvaro eller logistikproblem."
 };
 
