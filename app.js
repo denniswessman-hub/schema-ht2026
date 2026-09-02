@@ -1,4 +1,4 @@
-import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO } from "./schedule-data.js?v=19";
+import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO } from "./schedule-data.js?v=20";
 
 const GROUP_STORAGE_KEY = "schemaHT26.baseGroup";
 const THEME_STORAGE_KEY = "schemaHT26.theme";
@@ -601,7 +601,7 @@ function renderCampusLessonDetails(item, options = {}) {
   ` : "";
   const externalResources = lesson.externalResources?.length ? `
     <section class="campus-detail-section campus-external-resources">
-      <h5>Länkar och filmer</h5>
+      <h5>${escapeHtml(lesson.externalResourcesHeading || "Länkar och filmer")}</h5>
       <ul>${lesson.externalResources.map((resource) => {
         const url = safeExternalUrl(resource.url);
         return url ? `<li><a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(resource.label)}</a></li>` : "";
@@ -702,6 +702,7 @@ function renderCampusWeekPlan(campusWeek) {
 }
 
 function getScheduleLessonDetailId(event) {
+  if (event.detailId && TERM_INFO.campusLessonDetails?.[event.detailId]) return event.detailId;
   if (event.category !== "teaching") return "";
   const rule = (TERM_INFO.scheduleLessonRules || []).find((entry) => entry.audience === event.audience);
   if (!rule || !/^\d+$/.test(event.momentNumber)) return "";
@@ -852,7 +853,7 @@ elements.iosDialog.addEventListener("click", (event) => {
 window.addEventListener("appinstalled", () => { elements.install.hidden = true; });
 
 if ("serviceWorker" in navigator && window.isSecureContext) {
-  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=19"));
+  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=20"));
 }
 
 initTheme();

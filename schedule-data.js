@@ -74,7 +74,7 @@ export const TERM_INFO = {
       "moments": [
         { "subject": "Examensarbete", "moment": "Information inför uppsatsintroduktionen", "preparation": "", "teachers": ["Malin Mc Glinn"] },
         { "subject": "Polkon T", "moment": "5:2 Sök i terräng. Rek/Obs/Säk", "preparation": "Klädsel: uniform.", "teachers": ["Jan Peter Fredriksson"] },
-        { "subject": "Rättssäker dokumentation / DurTvå", "moment": "Moment 15 – Kapellskäret", "preparation": "Moment 15–17", "teachers": ["Fredrik Arvidsson"] },
+        { "subject": "Rättssäker dokumentation / DurTvå", "moment": "Moment 15 – Kapellskäret", "preparation": "Förberedelse inför examinationen samt egentest och repetition.", "teachers": ["Fredrik Arvidsson"], "detailId": "documentation-15" },
         { "subject": "Polisiärt arbete i trafikmiljö", "moment": "M 9 Praktisk övning – Trafikkontroll", "preparation": "", "teachers": ["Peter Hellqvist"], "detailId": "traffic-9" },
         { "subject": "Polkon F", "moment": "5:4", "preparation": "", "teachers": ["Daniel Lundberg"], "detailId": "ftm-5:4" },
         { "subject": "Akutsjukvård", "moment": "M 10 HLR – Barn", "preparation": "Steg 1: Anmäl dig till Barn-HLR DPU. Steg 2: Se materialet Barn-HLR och MSB:s film om att barn drunknar tyst. Steg 3: Genomför den digitala webbutbildningen och visa kursintyget för ansvarig lärare; namn och datum måste synas. Utan intyg får du inte delta utan tilldelas en annan examinationstid. Ta med giltigt ID-kort. Den praktiska lektionen är obligatorisk och examinerande.", "teachers": ["Emma K Gavell"], "detailId": "acute-10" },
@@ -98,7 +98,7 @@ export const TERM_INFO = {
       "canvasUrl": "https://mau.instructure.com/courses/19413/modules/items/886494",
       "moments": [
         { "subject": "Sambandstjänst", "moment": "5:6", "preparation": "", "teachers": ["Charlotte Berg"] },
-        { "subject": "Rättssäker dokumentation / DurTvå", "moment": "Moment 16 Inför examination", "preparation": "Moment 15–17", "teachers": ["Andreas Falk"] },
+        { "subject": "Rättssäker dokumentation / DurTvå", "moment": "Moment 16 Inför examination", "preparation": "Frivilligt resurstillfälle för frågor och träning i Durtvå, DAF och rättssäker avrapportering.", "teachers": ["Andreas Falk"], "detailId": "documentation-16" },
         { "subject": "Sambandstjänst", "moment": "5:7", "preparation": "", "teachers": ["Charlotte Berg"] },
         { "subject": "Polkon T", "moment": "AMF – Planspel", "preparation": "", "teachers": ["Martin Persson"] },
         { "subject": "PNF", "moment": "M 14 Examination – Lågfart, tätort", "preparation": "", "teachers": ["Peter Hellqvist"], "detailId": "pnf-14" },
@@ -130,7 +130,7 @@ export const TERM_INFO = {
         { "subject": "Polkon V", "moment": "5:10 Omexamination 1", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:10" },
         { "subject": "Professionsutveckling", "moment": "Dödsbudsövning", "preparation": "", "teachers": ["Peter Hellqvist"] },
         { "subject": "Övrigt", "moment": "Brandövning", "preparation": "", "teachers": ["Christian Von Malmborg"] },
-        { "subject": "Rättssäker dokumentation / DurTvå", "moment": "Moment 17 Examination", "preparation": "Moment 15–17", "teachers": ["Marcus Darnhede"] }
+        { "subject": "Rättssäker dokumentation / DurTvå", "moment": "Moment 17 Examination", "preparation": "Öva på avrapportering med övningsscenarierna i Canvas och använd vid behov resurstillfällena.", "teachers": ["Marcus Darnhede"], "detailId": "documentation-17" }
       ]
     },
     {
@@ -469,6 +469,63 @@ export const TERM_INFO = {
       "location": "Samling i angivet klassrum enligt Canvas. Lektionen genomförs både i klassrum och utomhus; se TimeEdit för klassrum.",
       "equipment": "Kom fullt rustad för tjänstgöring som polis till utomhusövningen och klädd efter väder. Ta med uppdaterad och laddad tjänstemobil.",
       "sourceUrl": "https://mau.instructure.com/courses/24251/modules/items/864897"
+    },
+    "documentation-15": {
+      "badge": "Dokumentation M15",
+      "title": "Kapellskäret",
+      "content": "Förberedelse inför examinationen genom egentest och repetition. Du får ett papperscase och skriver en självständig avrapportering med lärarstöd vid behov.",
+      "goal": "Att planera och genomföra en så komplett och rättssäker avrapportering som möjligt samt förstå vilket syfte de olika dokumenten och avrapporteringssystemen har.",
+      "activities": [
+        "Bedöm vilka dokument som ska skrivas och vad som hör hemma i Durtvå, DAF respektive formulärportalen.",
+        "Durtvå används för uppgifter som rör utredning av brott.",
+        "DAF används i detta ärende för frihetsberövande och gripande.",
+        "Formulärportalen används för ingripanden enligt PL 19 § andra stycket och PL 20 a §. Fokus är att förklara grunden för ingripandet, inte att skriva ett PM för brottsutredningen."
+      ],
+      "preparation": "Repetera tidigare moment och läs Durtvå användarguide 2025:1, sida 77–79, om att lägga in en utländsk aktör i ett ärende. Canvas innehåller dessutom två övningsuppgifter inför examinationen.",
+      "resources": [
+        "Kappelskäret skrivuppgift",
+        "Prebens berättelse",
+        "Kapellskäret – dokument och filmer"
+      ],
+      "requirement": "Tiden för avrapporteringen är begränsad, liksom vid examinationen. Vid frågor före eller efter lektionen: kontakta Fredrik Arvidsson via Canvas-mail.",
+      "sourceUrl": "https://mau.instructure.com/courses/19413/pages/moment-14-17?module_item_id=891436"
+    },
+    "documentation-16": {
+      "badge": "Dokumentation M16",
+      "title": "Inför examination",
+      "content": "Frivilligt resurstillfälle där du kan ställa frågor och träna på Durtvå, DAF och rättssäker avrapportering.",
+      "activities": [
+        "Träna på att skriva och avrapportera.",
+        "Få hjälp med exempelvis förhörsblankett, förenklad delgivning, slutunderrättelse, mobilitet, polisiära appar eller tjänstetelefonen.",
+        "Arbeta med övningsuppgifterna och materialet på mobilitetssidan i Canvas."
+      ],
+      "preparation": "Skicka gärna önskemål om en särskild genomgång till Fredrik Arvidsson före resurstillfället, så att lärarna kan förbereda den.",
+      "audience": "Närvaron är frivillig. Det är tillåtet att delta vid flera resurstillfällen och även vid ett tillfälle som du inte är schemalagd på.",
+      "resources": [
+        "Övningsuppgifter i Canvas",
+        "Mobilitet – övningsuppgifter och filmer"
+      ],
+      "requirement": "Vid frågor: kontakta Fredrik Arvidsson eller Andreas Falk via Canvas eller e-post.",
+      "sourceUrl": "https://mau.instructure.com/courses/19413/pages/moment-14-17?module_item_id=891436"
+    },
+    "documentation-17": {
+      "badge": "Dokumentation M17",
+      "title": "Examination",
+      "content": "Du får ett papperscase som ska avrapporteras i de polisiära utbildningssystemen Durtvå, DAF och/eller formulärportalen. Avrapporteringen laddas upp i Canvas och granskas enligt en poängsatt bedömning.",
+      "goal": "Att kontrollera att lärandemålen för rättssäker dokumentation är uppfyllda.",
+      "preparation": "Öva på avrapportering med övningsscenarierna i Canvas. Du kan också delta vid resurstillfällena och kontakta lärarna om något är oklart.",
+      "resources": [
+        "Övningsuppgifter i Canvas",
+        "Tips vid avrapportering och JO-fall i modulen Rättssäker dokumentation",
+        "Tidigare anmälningar, JUNO, lathundar, Canvas-dokument och egna anteckningar får användas under examinationen"
+      ],
+      "requirement": "Det är förbjudet att ta hjälp av andra studenter under examinationen. Sådant samarbete rapporteras som fusk. Vid frågor inför examinationen: kontakta Fredrik Arvidsson via Canvas-mail.",
+      "passCriteria": "Avrapporteringen måste vara rättssäker och samtidigt nå poänggränsen för godkänt.",
+      "externalResources": [
+        { "label": "Öppna examinationsinlämningen i Canvas", "url": "https://mau.instructure.com/courses/19413/assignments/167666" }
+      ],
+      "externalResourcesHeading": "Canvas-länkar",
+      "sourceUrl": "https://mau.instructure.com/courses/19413/pages/moment-14-17?module_item_id=891436"
     },
     "samband-5:1": {
       "badge": "Samband 5:1",
@@ -1730,6 +1787,7 @@ export const SCHEDULE_DATA = [
     "type": "Lektion",
     "momentText": "Kapellskäret",
     "momentNumber": "15",
+    "detailId": "documentation-15",
     "examInfo": "",
     "category": "teaching"
   },
@@ -2394,6 +2452,7 @@ export const SCHEDULE_DATA = [
     "type": "Lektion",
     "momentText": "Inför examination",
     "momentNumber": "16",
+    "detailId": "documentation-16",
     "examInfo": "",
     "category": "teaching"
   },
@@ -3460,6 +3519,7 @@ export const SCHEDULE_DATA = [
     "type": "Examination",
     "momentText": "",
     "momentNumber": "17",
+    "detailId": "documentation-17",
     "examInfo": "",
     "category": "examination"
   },
