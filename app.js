@@ -1,4 +1,4 @@
-import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO } from "./schedule-data.js?v=20";
+import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO } from "./schedule-data.js?v=21";
 
 const GROUP_STORAGE_KEY = "schemaHT26.baseGroup";
 const THEME_STORAGE_KEY = "schemaHT26.theme";
@@ -410,6 +410,40 @@ function initTermInfo() {
   });
 }
 
+function lessonSearchText(lesson) {
+  if (!lesson) return "";
+  return [
+    lesson.badge,
+    lesson.title,
+    lesson.content,
+    lesson.goal,
+    lesson.location,
+    lesson.duration,
+    lesson.equipment,
+    lesson.preparation,
+    lesson.audience,
+    lesson.requirement,
+    lesson.passCriteria,
+    lesson.absence,
+    lesson.sourceNote,
+    ...(lesson.activities || []),
+    ...(lesson.preparationSteps || []),
+    ...(lesson.groupAssignments || []),
+    ...(lesson.examParts || []),
+    ...(lesson.resources || []),
+    ...(lesson.externalResources || []).map((resource) => resource.label),
+  ].join(" ");
+}
+
+function searchMatchesHaystack(haystack, query) {
+  const needle = normalize(query).trim();
+  if (!needle) return true;
+  if (/^[a-z0-9]{1,3}$/.test(needle)) {
+    return haystack.split(/[^a-z0-9]+/).some((token) => token.startsWith(needle));
+  }
+  return haystack.includes(needle);
+}
+
 function eventMatches(event) {
   if (state.group !== "all" && event.groups.length && !event.groups.includes(state.group)) return false;
 
@@ -436,13 +470,9 @@ function eventMatches(event) {
       event.momentText,
       event.momentNumber,
       event.examInfo,
-      lesson?.badge,
-      lesson?.title,
-      lesson?.content,
-      lesson?.preparation,
-      ...(lesson?.resources || []),
+      lessonSearchText(lesson),
     ].join(" "));
-    if (!haystack.includes(normalize(state.search))) return false;
+    if (!searchMatchesHaystack(haystack, state.search)) return false;
   }
   return true;
 }
@@ -551,7 +581,7 @@ function renderWeaponCourseIntro(campusWeek) {
   const course = TERM_INFO.weaponCourse;
   return `
     <details class="weapon-course-intro">
-      <summary>
+      <summary aria-label="Läs om vapenutbildningens kursupplägg och examination">
         <span>
           <span class="weapon-summary-kicker">Vapen · Termin 5</span>
           <strong>Kursupplägg och examination</strong>
@@ -611,7 +641,7 @@ function renderCampusLessonDetails(item, options = {}) {
 
   return `
     <details class="campus-lesson-details${options.unplaced ? " is-unplaced" : ""}" data-detail-id="${escapeHtml(item.detailId || `weapon-${item.lessonId}`)}">
-      <summary>
+      <summary aria-label="${escapeHtml(`Läs mer om ${badge}: ${lesson.title}`)}">
         <span class="campus-lesson-summary-text">${escapeHtml(options.summaryText || "Läs mer om lektionen")}</span>
         <span class="campus-lesson-badge">${escapeHtml(badge)}</span>
       </summary>
@@ -853,7 +883,7 @@ elements.iosDialog.addEventListener("click", (event) => {
 window.addEventListener("appinstalled", () => { elements.install.hidden = true; });
 
 if ("serviceWorker" in navigator && window.isSecureContext) {
-  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=20"));
+  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=21"));
 }
 
 initTheme();

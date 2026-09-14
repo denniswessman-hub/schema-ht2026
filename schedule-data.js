@@ -86,7 +86,7 @@ export const TERM_INFO = {
         { "subject": "Polkon F", "moment": "5:5 Arrest", "preparation": "", "teachers": ["Daniel Lundberg"], "detailId": "ftm-5:5" },
         { "subject": "Polisiärt arbete i trafikmiljö", "moment": "Skriftlig salstentamen – 4 timmar", "preparation": "", "teachers": ["Peter Hellqvist"] },
         { "subject": "Polkon T", "moment": "AMF – Juridisk metod", "preparation": "", "teachers": ["Martin Persson"] },
-        { "subject": "Sambandstjänst", "moment": "5:5", "preparation": "", "teachers": ["Charlotte"] },
+        { "subject": "Sambandstjänst", "moment": "5:5", "preparation": "Ta del av materialet om symboler, displayfelsökning, POLMAN och arbete i annan region.", "teachers": ["Charlotte"], "detailId": "samband-5:5" },
         { "subject": "Polkon V", "moment": "5:6 Låg färdigställning/drag från hölster", "preparation": "", "teachers": ["Michael Åhlander"], "lessonId": "5:6" }
       ]
     },
@@ -97,9 +97,9 @@ export const TERM_INFO = {
       "key": "2026-W45",
       "canvasUrl": "https://mau.instructure.com/courses/19413/modules/items/886494",
       "moments": [
-        { "subject": "Sambandstjänst", "moment": "5:6", "preparation": "", "teachers": ["Charlotte Berg"] },
+        { "subject": "Sambandstjänst", "moment": "5:6", "preparation": "Förbered särskilda frågor eller teman som du vill repetera.", "teachers": ["Charlotte Berg"], "detailId": "samband-5:6" },
         { "subject": "Rättssäker dokumentation / DurTvå", "moment": "Moment 16 Inför examination", "preparation": "Frivilligt resurstillfälle för frågor och träning i Durtvå, DAF och rättssäker avrapportering.", "teachers": ["Andreas Falk"], "detailId": "documentation-16" },
-        { "subject": "Sambandstjänst", "moment": "5:7", "preparation": "", "teachers": ["Charlotte Berg"] },
+        { "subject": "Sambandstjänst", "moment": "5:7", "preparation": "Gör gruppuppgiften inför lektion 7 och ta del av materialet om NFO och Rakelnätet.", "teachers": ["Charlotte Berg"], "detailId": "samband-5:7" },
         { "subject": "Polkon T", "moment": "AMF – Planspel", "preparation": "", "teachers": ["Martin Persson"] },
         { "subject": "PNF", "moment": "M 14 Examination – Lågfart, tätort", "preparation": "", "teachers": ["Peter Hellqvist"], "detailId": "pnf-14" },
         { "subject": "Polkon F", "moment": "5:6", "preparation": "", "teachers": ["Daniel Lundberg"], "detailId": "ftm-5:6" },
@@ -433,8 +433,8 @@ export const TERM_INFO = {
       "externalResources": [
         { "label": "Akutsjukvård trafik/trauma – läs kapitel 8 och 10", "url": "https://rib.msb.se/filer/pdf/28395.pdf" }
       ],
-      "sourceNote": "TimeEdit benämner passet Föreläsning. Canvas beskriver det som ett seminarium.",
-      "sourceUrl": "https://mau.instructure.com/courses/24251/modules/items/864897"
+      "sourceNote": "TimeEdit benämner passet Föreläsning. Canvas beskriver det som ett seminarium. Zoomlänken finns kvar i Canvas och visas inte på den publika schemasidan.",
+      "sourceUrl": "https://mau.instructure.com/courses/24251/pages/trafik-moment-7-11?module_item_id=864897"
     },
     "traffic-8": {
       "badge": "Trafik M8",
@@ -445,14 +445,15 @@ export const TERM_INFO = {
       "equipment": "Uppdaterad tjänstemobil.",
       "resources": [
         "Ordningsbot Nytt bildspel, inspelad föreläsning.pptx",
-        "Inläst föreläsning inför avrapportering del 1, åhörare ex PDF Studenter.",
-        "Lektions PDF, student, Avrapportering Trafikbrott, del 2..pdf"
+        "Inläst föreläsning inför avrapportering del 1, åhörare ex PDF Studenter.pdf",
+        "Lektions PPT, del 2, PDF studenter, Avrapporterin trafikbrott.pdf"
       ],
       "externalResources": [
         { "label": "Förhörsfilm om SLF", "url": "https://play.mau.se/media/t/0_xnfejpyl" },
         { "label": "Film: Arbetsmetoden snabbare lagföring (3:29)", "url": "https://youtu.be/7Hcjm6QnLKQ" }
       ],
-      "sourceUrl": "https://mau.instructure.com/courses/24251/modules/items/864897"
+      "sourceNote": "Zoomlänken finns kvar i Canvas och visas inte på den publika schemasidan.",
+      "sourceUrl": "https://mau.instructure.com/courses/24251/pages/trafik-moment-7-11?module_item_id=864897"
     },
     "traffic-9": {
       "badge": "Trafik M9",
@@ -460,7 +461,7 @@ export const TERM_INFO = {
       "content": "Öva på stopp och kontroll av fordon och förare samt att rapportera trafikförseelser via o-bot.",
       "location": "Samling utanför garaget enligt Canvas. Övningen sker utomhus.",
       "equipment": "Kom fullt rustad för tjänstgöring som polis och klädd efter väder. Ta med uppdaterad och laddad tjänstemobil.",
-      "sourceUrl": "https://mau.instructure.com/courses/24251/modules/items/864897"
+      "sourceUrl": "https://mau.instructure.com/courses/24251/pages/trafik-moment-7-11?module_item_id=864897"
     },
     "traffic-10": {
       "badge": "Trafik M10",
@@ -468,7 +469,7 @@ export const TERM_INFO = {
       "content": "Öva på hantering av trafikolycka. En basgrupp i taget tränar praktiska handgrepp medan övriga arbetar med pappersbaserade case i klassrummet.",
       "location": "Samling i angivet klassrum enligt Canvas. Lektionen genomförs både i klassrum och utomhus; se TimeEdit för klassrum.",
       "equipment": "Kom fullt rustad för tjänstgöring som polis till utomhusövningen och klädd efter väder. Ta med uppdaterad och laddad tjänstemobil.",
-      "sourceUrl": "https://mau.instructure.com/courses/24251/modules/items/864897"
+      "sourceUrl": "https://mau.instructure.com/courses/24251/pages/trafik-moment-7-11?module_item_id=864897"
     },
     "documentation-15": {
       "badge": "Dokumentation M15",
@@ -576,6 +577,55 @@ export const TERM_INFO = {
         { "label": "Ljudklipp: Förtursbegäran biträde", "url": "https://play.mau.se/media/t/0_gk7z8p40" },
         { "label": "Ljudklipp: Förtursbegäran av misstag", "url": "https://play.mau.se/media/t/0_gf9okvxz" }
       ]
+    },
+    "samband-5:5": {
+      "badge": "Samband 5:5",
+      "title": "Felsökning och repetition",
+      "content": "Lektion i felsökning med repetition av POLMAN och geografisk förflyttning. Om tiden räcker finns även möjlighet till repetition efter egna önskemål.",
+      "activities": [
+        "Felsökning.",
+        "Repetition av POLMAN.",
+        "Repetition av geografisk förflyttning.",
+        "Repetition efter eget önskemål i mån av tid."
+      ],
+      "preparation": "Ta del av dokumenten, ljudklippet och filmerna som Canvas anger inför lektionen.",
+      "resources": [
+        "Symboler.pdf",
+        "Övningar Display Felsökning.pdf",
+        "Polman.pdf",
+        "Filmer: POLMAN, 5 filmer",
+        "Filmer: Arbete i annan region, 2 filmer"
+      ],
+      "externalResources": [
+        { "label": "Ljudklipp: Köra till annan region", "url": "https://play.mau.se/media/t/0_tgn6nbiq" },
+        { "label": "Öppna Sambandstjänst: Filmer i Canvas", "url": "https://mau.instructure.com/courses/19413/pages/sambandstjanst-filmer" }
+      ],
+      "externalResourcesHeading": "Ljud och filmer",
+      "sourceUrl": "https://mau.instructure.com/courses/19413/pages/studiehandledning-termin-5?module_item_id=886550"
+    },
+    "samband-5:6": {
+      "badge": "Samband 5:6",
+      "title": "Repetition",
+      "content": "Repetition av terminens sambandstjänst utifrån gruppens behov och frågor.",
+      "preparation": "Förbered särskilda frågor eller teman som du vill repetera.",
+      "resources": [
+        "Kunskapsbanken – översikt över olika funktioner"
+      ],
+      "sourceUrl": "https://mau.instructure.com/courses/19413/pages/studiehandledning-termin-5?module_item_id=886550"
+    },
+    "samband-5:7": {
+      "badge": "Samband 5:7",
+      "title": "Nätkapacitet, reservdrift och NFO",
+      "content": "Lektion om Rakelnätets kapacitet, reservdrift samt särskild händelse och Nationell förstärkningsorganisation, NFO, kopplat till AMF.",
+      "preparation": "Gör gruppuppgiften inför lektion 7 och ta del av dokumentet om NFO samt filmen om sambandssystemet och Rakelnätet.",
+      "resources": [
+        "Gruppuppgift T5 Samband inför lektion 7.pdf",
+        "NFO NY.pdf"
+      ],
+      "externalResources": [
+        { "label": "Film: Vårt sambandssystem och Rakelnätet", "url": "https://play.mau.se/media/t/0_dclkycy2" }
+      ],
+      "sourceUrl": "https://mau.instructure.com/courses/19413/pages/studiehandledning-termin-5?module_item_id=886550"
     },
     "ftm-5:1": {
       "badge": "F 5:1",
@@ -2245,6 +2295,7 @@ export const SCHEDULE_DATA = [
     "type": "Lektion",
     "momentText": "",
     "momentNumber": "5:5",
+    "detailId": "samband-5:5",
     "examInfo": "",
     "category": "teaching"
   },
@@ -2270,6 +2321,7 @@ export const SCHEDULE_DATA = [
     "type": "Lektion",
     "momentText": "",
     "momentNumber": "5:5",
+    "detailId": "samband-5:5",
     "examInfo": "",
     "category": "teaching"
   },
@@ -2405,6 +2457,7 @@ export const SCHEDULE_DATA = [
     "type": "Lektion",
     "momentText": "",
     "momentNumber": "5:6",
+    "detailId": "samband-5:6",
     "examInfo": "",
     "category": "teaching"
   },
@@ -2430,6 +2483,7 @@ export const SCHEDULE_DATA = [
     "type": "Lektion",
     "momentText": "",
     "momentNumber": "5:6",
+    "detailId": "samband-5:6",
     "examInfo": "",
     "category": "teaching"
   },
@@ -2478,6 +2532,7 @@ export const SCHEDULE_DATA = [
     "type": "Lektion",
     "momentText": "",
     "momentNumber": "5:7",
+    "detailId": "samband-5:7",
     "examInfo": "",
     "category": "teaching"
   },
@@ -2503,6 +2558,7 @@ export const SCHEDULE_DATA = [
     "type": "Lektion",
     "momentText": "",
     "momentNumber": "5:7",
+    "detailId": "samband-5:7",
     "examInfo": "",
     "category": "teaching"
   },
