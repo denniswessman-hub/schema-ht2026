@@ -1,4 +1,4 @@
-import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO, THESIS_PLAN, THESIS_PLAN_EVENTS } from "./schedule-data.js?v=22";
+import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO, THESIS_PLAN, THESIS_PLAN_EVENTS } from "./schedule-data.js?v=23";
 
 const GROUP_STORAGE_KEY = "schemaHT26.baseGroup";
 const THEME_STORAGE_KEY = "schemaHT26.theme";
@@ -952,7 +952,7 @@ elements.iosDialog.addEventListener("click", (event) => {
 window.addEventListener("appinstalled", () => { elements.install.hidden = true; });
 
 if ("serviceWorker" in navigator && window.isSecureContext) {
-  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=22"));
+  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=23"));
 }
 
 initTheme();
