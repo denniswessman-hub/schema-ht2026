@@ -318,6 +318,124 @@ h3 { margin-bottom: 5px; font-size: 1.08rem; }
 }
 .responsible { color: var(--muted) !important; }
 
+.thesis-update {
+  margin-top: 12px;
+  padding: 17px;
+  border: 1px solid color-mix(in srgb, var(--blue) 34%, var(--line));
+  border-left: 5px solid var(--blue);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--blue-soft) 72%, var(--surface));
+}
+.thesis-update-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.thesis-update .section-kicker { color: var(--blue); }
+.thesis-update-heading h3 { margin: 0; font-size: 1.08rem; }
+.thesis-update > p { color: var(--text-secondary); }
+.thesis-update-status,
+.thesis-status {
+  flex: 0 0 auto;
+  padding: 4px 9px;
+  border: 1px solid color-mix(in srgb, var(--blue) 30%, var(--line));
+  border-radius: 999px;
+  color: var(--blue);
+  background: var(--surface);
+  font-size: .72rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.thesis-near-study {
+  margin: 12px 0;
+  padding: 9px 11px;
+  border-left: 3px solid var(--blue);
+  border-radius: 0 7px 7px 0;
+  background: var(--surface);
+}
+.thesis-milestones {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0;
+  padding: 0;
+  list-style: none;
+}
+.thesis-milestones li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 3px 12px;
+  min-width: 0;
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+.thesis-milestones time {
+  grid-column: 1 / -1;
+  color: var(--cherry-dark);
+  font-size: .72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.thesis-milestones strong { min-width: 0; line-height: 1.3; overflow-wrap: anywhere; }
+.thesis-milestones span { color: var(--muted); font-size: .78rem; text-align: right; }
+.thesis-display-note { margin: 12px 0 0; font-size: .86rem; }
+.thesis-date-warning {
+  margin: 12px 0;
+  padding: 10px 11px;
+  border-left: 4px solid #d3b500;
+  border-radius: 0 8px 8px 0;
+  color: var(--ink) !important;
+  background: var(--vanilla);
+  font-size: .86rem;
+}
+.thesis-group-schedule {
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+.thesis-group-schedule > summary {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 9px 11px;
+  color: var(--blue);
+  font-size: .86rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.thesis-group-schedule ul {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0 11px 12px;
+  list-style: none;
+}
+.thesis-group-schedule li {
+  padding-top: 6px;
+  border-top: 1px solid var(--line);
+  color: var(--text-secondary);
+  font-size: .82rem;
+  overflow-wrap: anywhere;
+}
+.thesis-plan-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  margin-top: 12px;
+  padding: 9px 14px;
+  border: 1px solid var(--contrast-bg);
+  border-radius: 8px;
+  color: var(--contrast-text);
+  background: var(--contrast-bg);
+  font-weight: 800;
+  text-align: center;
+}
+.thesis-plan-button:hover { opacity: .88; }
+
 .term-info-grid { display: grid; gap: 12px; margin-top: 12px; }
 .campus-weeks,
 .graduation-note,
@@ -767,6 +885,14 @@ h3 { margin-bottom: 5px; font-size: 1.08rem; }
 .event-card.is-examination { border-left-color: var(--cherry); }
 .event-card.is-notice { border-left-color: #d3b500; background: var(--vanilla); }
 .event-card.is-holiday { border-left-color: var(--jade); background: var(--mint); }
+.event-card.is-course-update {
+  border-color: color-mix(in srgb, var(--blue) 34%, var(--line));
+  border-left-color: var(--blue);
+  background: color-mix(in srgb, var(--blue-soft) 36%, var(--surface));
+}
+.event-card.is-course-update.is-examination,
+.event-card.is-deadline { border-left-color: var(--cherry); }
+.event-card.is-deadline { background: color-mix(in srgb, var(--soft-red) 62%, var(--surface)); }
 .event-card.is-finished { opacity: .62; box-shadow: none; }
 .event-card.is-ongoing { border-left-color: var(--jade); outline: 2px solid rgb(2 97 91 / 18%); }
 .event-card.is-next { border-left-color: var(--blue); outline: 3px solid rgb(30 69 137 / 16%); }
@@ -806,6 +932,11 @@ h3 { margin-bottom: 5px; font-size: 1.08rem; }
 }
 .badge.group { color: var(--blue); background: var(--blue-soft); }
 .badge.exam { color: var(--cherry-dark); background: var(--soft-red); }
+.badge.update {
+  border: 1px solid color-mix(in srgb, var(--jade) 32%, transparent);
+  color: var(--jade);
+  background: var(--mint);
+}
 
 .location { margin: 0; color: var(--text-secondary); font-size: .91rem; }
 .location strong { font-weight: 700; }
@@ -815,6 +946,23 @@ h3 { margin-bottom: 5px; font-size: 1.08rem; }
 .event-extra dl { display: grid; grid-template-columns: max-content 1fr; gap: 5px 10px; margin-bottom: 0; }
 .event-extra dt { font-weight: 700; }
 .event-extra dd { margin: 0; overflow-wrap: anywhere; }
+.event-group-schedule {
+  margin-top: 12px;
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  background: var(--soft-surface);
+}
+.event-group-schedule > strong { display: block; margin-bottom: 7px; color: var(--ink); }
+.event-group-schedule ul {
+  display: grid;
+  gap: 5px 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.event-group-schedule li { overflow-wrap: anywhere; }
 
 .past-weeks {
   margin-top: 34px;
@@ -903,6 +1051,9 @@ dialog::backdrop { background: rgb(0 0 0 / 45%); }
   .campus-weeks ul { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .examination-card-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .campus-moment-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .thesis-milestones,
+  .thesis-group-schedule ul,
+  .event-group-schedule ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (min-width: 980px) {
@@ -925,6 +1076,12 @@ dialog::backdrop { background: rgb(0 0 0 / 45%); }
   .quick-filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; }
   .quick-filter { width: 100%; padding-inline: 10px; }
   .event-card { grid-template-columns: 68px minmax(0, 1fr); gap: 10px; padding: 14px 12px; }
+  .event-card.has-time-label { grid-template-columns: minmax(0, 1fr); }
+  .event-card.has-time-label .event-time {
+    grid-column: 1 / -1;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+  }
   .event-content h4 { margin-right: 0; padding-right: 0; }
   .status-flag { position: static; grid-column: 1 / -1; width: fit-content; margin-bottom: 2px; }
   .week-label-wrap { flex-wrap: wrap; gap: 4px 9px; }
@@ -936,6 +1093,14 @@ dialog::backdrop { background: rgb(0 0 0 / 45%); }
   .summary-action { display: none; }
   .group-info-heading { align-items: flex-start; flex-direction: column; }
   .ordinary-examinations-heading { align-items: flex-start; }
+  .thesis-update { padding: 14px 12px; }
+  .thesis-update-heading { flex-direction: column; }
+  .thesis-update-status,
+  .thesis-status { white-space: normal; }
+  .thesis-milestones li { grid-template-columns: 1fr; }
+  .thesis-milestones time { grid-column: auto; }
+  .thesis-milestones span { text-align: left; }
+  .thesis-plan-button { width: 100%; }
 }
 
 @media (prefers-reduced-motion: reduce) {

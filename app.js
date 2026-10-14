@@ -1,9 +1,14 @@
-import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO } from "./schedule-data.js?v=21";
+import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO, THESIS_PLAN, THESIS_PLAN_EVENTS } from "./schedule-data.js?v=22";
 
 const GROUP_STORAGE_KEY = "schemaHT26.baseGroup";
 const THEME_STORAGE_KEY = "schemaHT26.theme";
 const EXAM_DATE = "2027-01-15";
 const DAY_IN_MILLISECONDS = 86_400_000;
+const supersededTimeEditIds = new Set(THESIS_PLAN.supersededTimeEditIds);
+const DISPLAY_SCHEDULE_DATA = [
+  ...SCHEDULE_DATA.filter((event) => !supersededTimeEditIds.has(event.id)),
+  ...THESIS_PLAN_EVENTS,
+].sort((a, b) => `${a.date}T${a.startTime || "00:00"}-${a.id}`.localeCompare(`${b.date}T${b.startTime || "00:00"}-${b.id}`));
 const dateFormatter = new Intl.DateTimeFormat("sv-SE", { weekday: "long", day: "numeric", month: "long" });
 const shortDateFormatter = new Intl.DateTimeFormat("sv-SE", { day: "numeric", month: "short" });
 const fullTodayFormatter = new Intl.DateTimeFormat("sv-SE", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
@@ -240,7 +245,7 @@ function saveGroup(value) {
 
 function ordinaryExaminationOverview() {
   const retakePattern = /omexamination|omtentamen/i;
-  const ordinaryEvents = SCHEDULE_DATA.filter((event) => {
+  const ordinaryEvents = DISPLAY_SCHEDULE_DATA.filter((event) => {
     const description = [event.type, event.title, event.momentText, event.examInfo].join(" ");
     return event.category === "examination" && !retakePattern.test(description);
   });
@@ -288,7 +293,7 @@ function initFilters() {
   }
   elements.group.value = state.group;
 
-  const weeks = [...new Map(SCHEDULE_DATA.map((event) => {
+  const weeks = [...new Map(DISPLAY_SCHEDULE_DATA.map((event) => {
     const date = parseLocalDate(event.date);
     const parts = isoWeekParts(date);
     return [isoWeekKey(date), parts];
@@ -301,10 +306,10 @@ function initFilters() {
     elements.week.append(option);
   }
 
-  elements.termPeriod.textContent = `${SCHEDULE_META.eventPeriod.replace(" - ", "–")} · aktuellt utdrag`;
+  elements.termPeriod.textContent = `${SCHEDULE_META.eventPeriod.replace(" - ", "–")} · TimeEdit + kursuppdatering`;
   updateCurrentDateLabel();
   elements.footerTitle.textContent = SCHEDULE_META.scheduleTitle;
-  elements.footerSource.textContent = `Källa: ${SCHEDULE_META.sourceFile}, exporterad ${SCHEDULE_META.sourceExportedAt}`;
+  elements.footerSource.textContent = `Källor: ${SCHEDULE_META.sourceFile}, exporterad ${SCHEDULE_META.sourceExportedAt}; examensarbetet uppdaterat av Malin Mc Glinn – TimeEdit inväntas`;
 }
 
 function initTermInfo() {
@@ -356,9 +361,38 @@ function initTermInfo() {
     `;
   }).join("");
 
+  const thesisMilestones = THESIS_PLAN.milestones.map((milestone) => `
+    <li>
+      <time datetime="${escapeHtml(milestone.date)}">${escapeHtml(milestone.label)}</time>
+      <strong>${escapeHtml(milestone.title)}</strong>
+      <span>${escapeHtml(milestone.time)}</span>
+    </li>
+  `).join("");
+  const thesisGroupSchedule = THESIS_PLAN.groupSchedule.map((slot) => `<li>${escapeHtml(slot)}</li>`).join("");
+
   elements.termInfo.innerHTML = `
     <p class="term-introduction">${escapeHtml(TERM_INFO.introduction)}</p>
     <div class="course-grid">${courseCards}</div>
+    <section class="thesis-update" aria-labelledby="thesis-update-heading">
+      <div class="thesis-update-heading">
+        <div>
+          <p class="section-kicker">${escapeHtml(THESIS_PLAN.badge)}</p>
+          <h3 id="thesis-update-heading">${escapeHtml(THESIS_PLAN.title)}</h3>
+        </div>
+        <span class="thesis-update-status">TimeEdit inväntas</span>
+      </div>
+      <p>${escapeHtml(THESIS_PLAN.summary)}</p>
+      <p class="thesis-owner"><strong>Ansvarig:</strong> ${escapeHtml(THESIS_PLAN.responsible)} · <strong>Källa:</strong> ${escapeHtml(THESIS_PLAN.sourceLabel)}</p>
+      <p class="thesis-near-study"><strong>${escapeHtml(THESIS_PLAN.nearStudyWeek)}</strong></p>
+      <ul class="thesis-milestones">${thesisMilestones}</ul>
+      <p class="thesis-display-note">${escapeHtml(THESIS_PLAN.displayNote)}</p>
+      <p class="thesis-date-warning"><strong>Datum behöver bekräftas:</strong> ${escapeHtml(THESIS_PLAN.dateWarning)}</p>
+      <details class="thesis-group-schedule">
+        <summary>Handledningsschema 17 oktober · 13:00–15:00</summary>
+        <ul>${thesisGroupSchedule}</ul>
+      </details>
+      <button class="thesis-plan-button" type="button" data-thesis-plan>Visa det nya upplägget i schemat</button>
+    </section>
     <div class="term-info-grid">
       <section class="campus-weeks" aria-labelledby="campus-weeks-heading">
         <p class="section-kicker">På plats</p>
@@ -379,7 +413,7 @@ function initTermInfo() {
         </div>
         <span class="examination-count">${examinationOverview.length} datum</span>
       </div>
-      <p class="ordinary-examinations-note">Dag, datum och tid enligt det aktuella TimeEdit-utdraget. Omexaminationer, omtentor och examensceremonin visas inte här.</p>
+      <p class="ordinary-examinations-note">Dag, datum och tid enligt TimeEdit samt Malin Mc Glinns uppdaterade examensarbetsupplägg. Omexaminationer, omtentor och examensceremonin visas inte här.</p>
       <div class="examination-card-grid">${examinations}</div>
     </section>
     <section class="group-info" aria-labelledby="group-info-heading">
@@ -395,6 +429,23 @@ function initTermInfo() {
   `;
 
   elements.termInfo.addEventListener("click", (event) => {
+    const thesisButton = event.target.closest("[data-thesis-plan]");
+    if (thesisButton) {
+      state.week = "all";
+      state.range = "all";
+      state.search = THESIS_PLAN.searchTerm;
+      elements.week.value = "all";
+      elements.search.value = state.search;
+      for (const quickButton of elements.quick) {
+        const active = quickButton.dataset.range === "all";
+        quickButton.classList.toggle("is-active", active);
+        quickButton.setAttribute("aria-pressed", String(active));
+      }
+      render();
+      requestAnimationFrame(() => elements.list.closest("#schema")?.scrollIntoView({ block: "start" }));
+      return;
+    }
+
     const button = event.target.closest("[data-campus-week]");
     if (!button) return;
     state.week = button.dataset.campusWeek;
@@ -470,6 +521,10 @@ function eventMatches(event) {
       event.momentText,
       event.momentNumber,
       event.examInfo,
+      event.sourceType === "course-update" ? "Kursuppdatering examensarbete uppsats" : "",
+      event.updateNote,
+      event.timeLabel,
+      ...(event.groupSchedule || []),
       lessonSearchText(lesson),
     ].join(" "));
     if (!searchMatchesHaystack(haystack, state.search)) return false;
@@ -486,7 +541,7 @@ function eventEnd(event) {
 }
 
 function render() {
-  const filtered = SCHEDULE_DATA.filter(eventMatches);
+  const filtered = DISPLAY_SCHEDULE_DATA.filter(eventMatches);
   const now = new Date();
   const nextEvent = filtered.find((event) => eventEnd(event) > now);
 
@@ -745,17 +800,20 @@ function renderEvent(event, now, nextEvent) {
   const start = eventStart(event);
   const end = eventEnd(event);
   const status = end <= now ? "finished" : start <= now && end > now ? "ongoing" : nextEvent?.id === event.id ? "next" : "upcoming";
-  article.className = `event-card is-${event.category} is-${status}`;
+  const sourceClass = event.sourceType ? ` is-${event.sourceType}` : "";
+  const timeLabelClass = event.timeLabel ? " has-time-label" : "";
+  article.className = `event-card is-${event.category} is-${status}${sourceClass}${timeLabelClass}`;
 
   const statusLabel = status === "ongoing" ? "Pågår nu" : status === "next" ? "Nästa aktivitet" : "";
-  const time = event.allDay ? "Hela dagen" : `${event.startTime}–${event.endTime}`;
+  const time = event.timeLabel || (event.allDay ? "Hela dagen" : `${event.startTime}–${event.endTime}`);
   const timeDetail = event.endDate !== event.date && !event.allDay ? `till ${event.endDate}` : "";
   const groupLabel = event.groups.length ? event.groups.join(" + ") : "Alla basgrupper";
-  const showGroup = event.category === "teaching" || event.category === "examination";
+  const showGroup = event.category === "teaching" || event.category === "examination" || event.category === "deadline";
   const moment = event.momentText && event.momentText !== event.title ? `<p class="event-moment">${escapeHtml(event.momentText)}</p>` : "";
-  const examClass = event.category === "examination" ? " exam" : "";
+  const examClass = event.category === "examination" || event.category === "deadline" ? " exam" : "";
   const typeBadge = event.type && event.type !== event.title ? `<span class="badge${examClass}">${escapeHtml(event.type)}</span>` : "";
   const groupBadge = showGroup ? `<span class="badge group">${escapeHtml(groupLabel)}</span>` : "";
+  const sourceBadge = event.sourceType === "course-update" ? `<span class="badge update">Kursuppdatering</span>` : "";
   const location = event.locations || event.locationIds ? `
     <p class="location"><strong>${escapeHtml(event.locations || "Lokal")}</strong>${event.locationIds ? `<span class="location-id">${escapeHtml(event.locationIds)}</span>` : ""}</p>` : "";
 
@@ -763,20 +821,31 @@ function renderEvent(event, now, nextEvent) {
   if (event.momentNumber) details.push(["Moment", event.momentNumber]);
   if (event.examInfo) details.push(["Tentamensinfo", event.examInfo]);
   if (event.audience && event.audience !== event.title) details.push(["Klass/grupp", event.audience]);
-  const extra = details.length ? `
+  if (event.sourceType === "course-update") {
+    details.push(["Källa", THESIS_PLAN.sourceLabel]);
+    details.push(["Status", THESIS_PLAN.status]);
+  }
+  if (event.updateNote) details.push(["Notering", event.updateNote]);
+  const groupSchedule = event.groupSchedule?.length ? `
+    <div class="event-group-schedule">
+      <strong>Handledningsschema</strong>
+      <ul>${event.groupSchedule.map((slot) => `<li>${escapeHtml(slot)}</li>`).join("")}</ul>
+    </div>` : "";
+  const extra = details.length || groupSchedule ? `
     <details class="event-extra">
-      <summary>Mer information</summary>
-      <dl>${details.map(([term, value]) => `<dt>${escapeHtml(term)}</dt><dd>${escapeHtml(value)}</dd>`).join("")}</dl>
+      <summary>${event.sourceType === "course-update" ? "Detaljer och källa" : "Mer information"}</summary>
+      ${details.length ? `<dl>${details.map(([term, value]) => `<dt>${escapeHtml(term)}</dt><dd>${escapeHtml(value)}</dd>`).join("")}</dl>` : ""}
+      ${groupSchedule}
     </details>` : "";
 
   article.setAttribute("aria-label", `${time}, ${event.title}${event.momentText && event.momentText !== event.title ? `, ${event.momentText}` : ""}`);
   article.innerHTML = `
     ${statusLabel ? `<span class="status-flag">${statusLabel}</span>` : ""}
-    <time class="event-time" datetime="${event.date}T${event.startTime}">${escapeHtml(time)}${timeDetail ? `<span>${escapeHtml(timeDetail)}</span>` : ""}</time>
+    <time class="event-time" datetime="${event.allDay ? event.date : `${event.date}T${event.startTime}`}">${escapeHtml(time)}${timeDetail ? `<span>${escapeHtml(timeDetail)}</span>` : ""}</time>
     <div class="event-content">
       <h4>${escapeHtml(event.title)}</h4>
       ${moment}
-      ${(groupBadge || typeBadge) ? `<div class="badge-row">${groupBadge}${typeBadge}</div>` : ""}
+      ${(groupBadge || typeBadge || sourceBadge) ? `<div class="badge-row">${groupBadge}${typeBadge}${sourceBadge}</div>` : ""}
       ${location}
       ${extra}
     </div>
@@ -883,7 +952,7 @@ elements.iosDialog.addEventListener("click", (event) => {
 window.addEventListener("appinstalled", () => { elements.install.hidden = true; });
 
 if ("serviceWorker" in navigator && window.isSecureContext) {
-  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=21"));
+  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=22"));
 }
 
 initTheme();
