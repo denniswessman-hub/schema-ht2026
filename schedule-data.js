@@ -804,7 +804,6 @@ export const THESIS_PLAN = {
   "status": "TimeEdit är ännu inte uppdaterat",
   "summary": "Undervisningen komprimeras utan att skrivtiden minskar. Upplägget ger två deadlines samt fler fasta och frivilliga handledningstillfällen.",
   "nearStudyWeek": "Närstudievecka 2–6 november 2026",
-  "dateWarning": "Kontrollera datumet för extrahandledningen: informationen anger 17 oktober, som är en lördag, men beskriver samtidigt tillfället som fredagens handledning. Appen visar det uttryckliga datumet 17 oktober tills annat meddelas.",
   "displayNote": "Appen visar det uppdaterade upplägget i stället för de äldre DP152A-posterna i det nuvarande TimeEdit-utdraget. Övriga TimeEdit-poster påverkas inte.",
   "searchTerm": "Kursuppdatering",
   "supersededTimeEditIds": ["te-74", "te-75", "te-101", "te-104", "te-105", "te-106", "te-107", "te-127"],
@@ -826,13 +825,13 @@ export const THESIS_PLAN = {
 
 export const THESIS_PLAN_EVENTS = [
   {
-    "id": "manual-dp152-2026-10-17-guidance",
+    "id": "manual-dp152-2026-10-16-guidance",
     "sourceRow": null,
     "week": 42,
-    "weekday": "Lördag",
-    "date": "2026-10-17",
+    "weekday": "Fredag",
+    "date": "2026-10-16",
     "startTime": "13:00",
-    "endDate": "2026-10-17",
+    "endDate": "2026-10-16",
     "endTime": "15:00",
     "allDay": false,
     "groups": [],
@@ -847,7 +846,6 @@ export const THESIS_PLAN_EVENTS = [
     "examInfo": "",
     "category": "teaching",
     "sourceType": "course-update",
-    "updateNote": "Datumet återges som 17 oktober enligt informationen. Det infaller på en lördag trots formuleringen fredagens handledning.",
     "groupSchedule": [
       "13:00–13:20 · Emanuel & Fredrik",
       "13:20–13:40 · Dennis, Adrian & Alex",

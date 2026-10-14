@@ -1,4 +1,4 @@
-import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO, THESIS_PLAN, THESIS_PLAN_EVENTS } from "./schedule-data.js?v=24";
+import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO, THESIS_PLAN, THESIS_PLAN_EVENTS } from "./schedule-data.js?v=25";
 
 const GROUP_STORAGE_KEY = "schemaHT26.baseGroup";
 const THEME_STORAGE_KEY = "schemaHT26.theme";
@@ -386,9 +386,8 @@ function initTermInfo() {
       <p class="thesis-near-study"><strong>${escapeHtml(THESIS_PLAN.nearStudyWeek)}</strong></p>
       <ul class="thesis-milestones">${thesisMilestones}</ul>
       <p class="thesis-display-note">${escapeHtml(THESIS_PLAN.displayNote)}</p>
-      <p class="thesis-date-warning"><strong>Datum behöver bekräftas:</strong> ${escapeHtml(THESIS_PLAN.dateWarning)}</p>
       <details class="thesis-group-schedule">
-        <summary>Handledningsschema 17 oktober · 13:00–15:00</summary>
+        <summary>Handledningsschema 16 oktober · 13:00–15:00</summary>
         <ul>${thesisGroupSchedule}</ul>
       </details>
       <button class="thesis-plan-button" type="button" data-thesis-plan>Visa det nya upplägget i schemat</button>
@@ -952,7 +951,7 @@ elements.iosDialog.addEventListener("click", (event) => {
 window.addEventListener("appinstalled", () => { elements.install.hidden = true; });
 
 if ("serviceWorker" in navigator && window.isSecureContext) {
-  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=24"));
+  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=25"));
 }
 
 initTheme();
