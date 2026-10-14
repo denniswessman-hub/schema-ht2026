@@ -916,7 +916,7 @@ h3 { margin-bottom: 5px; font-size: 1.08rem; }
 .event-time span { display: block; color: var(--muted); font-size: .78rem; font-weight: 400; }
 .event-content { min-width: 0; }
 .event-card > .campus-lesson-details { grid-column: 1 / -1; min-width: 0; margin-top: 0; }
-.event-content h4 { margin: 0 70px 5px 0; font-size: 1.08rem; line-height: 1.3; overflow-wrap: anywhere; }
+.event-content h4 { margin: 0 70px 5px 0; font-size: 1.08rem; line-height: 1.3; overflow-wrap: anywhere; hyphens: auto; }
 .event-moment { margin: 0 0 9px; color: var(--text-secondary); }
 .badge-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 9px; }
 .badge {
@@ -1077,11 +1077,16 @@ dialog::backdrop { background: rgb(0 0 0 / 45%); }
   .quick-filter { width: 100%; padding-inline: 10px; }
   .event-card { grid-template-columns: 68px minmax(0, 1fr); gap: 10px; padding: 14px 12px; }
   .event-card.has-time-label { grid-template-columns: minmax(0, 1fr); }
-  .event-card.has-time-label .event-time {
+  .event-card.is-course-update.is-examination { grid-template-columns: minmax(0, 1fr); }
+  .event-card.has-time-label .event-time,
+  .event-card.is-course-update.is-examination .event-time {
     grid-column: 1 / -1;
     padding-bottom: 8px;
     border-bottom: 1px solid var(--line);
   }
+  .event-card.is-course-update .event-extra dl { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .event-card.is-course-update .event-extra dt:not(:first-child) { margin-top: 6px; }
+  .event-card.is-course-update .event-extra dd { margin-bottom: 2px; }
   .event-content h4 { margin-right: 0; padding-right: 0; }
   .status-flag { position: static; grid-column: 1 / -1; width: fit-content; margin-bottom: 2px; }
   .week-label-wrap { flex-wrap: wrap; gap: 4px 9px; }
