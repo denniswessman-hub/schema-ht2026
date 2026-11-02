@@ -1,12 +1,16 @@
-import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO, THESIS_PLAN, THESIS_PLAN_EVENTS } from "./schedule-data.js?v=25";
+import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO, THESIS_PLAN, THESIS_PLAN_EVENTS, WEEK45_UPDATE } from "./schedule-data.js?v=26";
 
 const GROUP_STORAGE_KEY = "schemaHT26.baseGroup";
 const THEME_STORAGE_KEY = "schemaHT26.theme";
 const EXAM_DATE = "2027-01-15";
 const DAY_IN_MILLISECONDS = 86_400_000;
-const supersededTimeEditIds = new Set(THESIS_PLAN.supersededTimeEditIds);
+const supersededTimeEditIds = new Set([
+  ...THESIS_PLAN.supersededTimeEditIds,
+  ...WEEK45_UPDATE.supersededTimeEditIds,
+]);
 const DISPLAY_SCHEDULE_DATA = [
   ...SCHEDULE_DATA.filter((event) => !supersededTimeEditIds.has(event.id)),
+  ...WEEK45_UPDATE.events,
   ...THESIS_PLAN_EVENTS,
 ].sort((a, b) => `${a.date}T${a.startTime || "00:00"}-${a.id}`.localeCompare(`${b.date}T${b.startTime || "00:00"}-${b.id}`));
 const dateFormatter = new Intl.DateTimeFormat("sv-SE", { weekday: "long", day: "numeric", month: "long" });
@@ -306,10 +310,10 @@ function initFilters() {
     elements.week.append(option);
   }
 
-  elements.termPeriod.textContent = `${SCHEDULE_META.eventPeriod.replace(" - ", "–")} · TimeEdit + kursuppdatering`;
+  elements.termPeriod.textContent = `${SCHEDULE_META.eventPeriod.replace(" - ", "–")} · TimeEdit + kursuppdateringar`;
   updateCurrentDateLabel();
   elements.footerTitle.textContent = SCHEDULE_META.scheduleTitle;
-  elements.footerSource.textContent = `Källor: ${SCHEDULE_META.sourceFile}, exporterad ${SCHEDULE_META.sourceExportedAt}; examensarbetet uppdaterat av Malin Mc Glinn – TimeEdit inväntas`;
+  elements.footerSource.textContent = `Källor: ${SCHEDULE_META.sourceFile}, exporterad ${SCHEDULE_META.sourceExportedAt}; vecka 45: ${WEEK45_UPDATE.sourceFile}, exporterad ${WEEK45_UPDATE.sourceExportedAt}; examensarbetet uppdaterat av Malin Mc Glinn – TimeEdit inväntas`;
 }
 
 function initTermInfo() {
@@ -521,6 +525,7 @@ function eventMatches(event) {
       event.momentNumber,
       event.examInfo,
       event.sourceType === "course-update" ? "Kursuppdatering examensarbete uppsats" : "",
+      event.sourceType === "timeedit-update" ? "TimeEdit uppdatering vecka 45" : "",
       event.updateNote,
       event.timeLabel,
       ...(event.groupSchedule || []),
@@ -812,7 +817,11 @@ function renderEvent(event, now, nextEvent) {
   const examClass = event.category === "examination" || event.category === "deadline" ? " exam" : "";
   const typeBadge = event.type && event.type !== event.title ? `<span class="badge${examClass}">${escapeHtml(event.type)}</span>` : "";
   const groupBadge = showGroup ? `<span class="badge group">${escapeHtml(groupLabel)}</span>` : "";
-  const sourceBadge = event.sourceType === "course-update" ? `<span class="badge update">Kursuppdatering</span>` : "";
+  const sourceBadge = event.sourceType === "course-update"
+    ? `<span class="badge update">Kursuppdatering</span>`
+    : event.sourceType === "timeedit-update"
+      ? `<span class="badge update">TimeEdit uppdaterad</span>`
+      : "";
   const location = event.locations || event.locationIds ? `
     <p class="location"><strong>${escapeHtml(event.locations || "Lokal")}</strong>${event.locationIds ? `<span class="location-id">${escapeHtml(event.locationIds)}</span>` : ""}</p>` : "";
 
@@ -823,6 +832,9 @@ function renderEvent(event, now, nextEvent) {
   if (event.sourceType === "course-update") {
     details.push(["Källa", THESIS_PLAN.sourceLabel]);
     details.push(["Status", THESIS_PLAN.status]);
+  } else if (event.sourceType === "timeedit-update") {
+    details.push(["Källa", `${WEEK45_UPDATE.sourceFile}, exporterad ${WEEK45_UPDATE.sourceExportedAt}`]);
+    details.push(["Omfattning", WEEK45_UPDATE.status]);
   }
   if (event.updateNote) details.push(["Notering", event.updateNote]);
   const groupSchedule = event.groupSchedule?.length ? `
@@ -832,7 +844,7 @@ function renderEvent(event, now, nextEvent) {
     </div>` : "";
   const extra = details.length || groupSchedule ? `
     <details class="event-extra">
-      <summary>${event.sourceType === "course-update" ? "Detaljer och källa" : "Mer information"}</summary>
+      <summary>${event.sourceType ? "Detaljer och källa" : "Mer information"}</summary>
       ${details.length ? `<dl>${details.map(([term, value]) => `<dt>${escapeHtml(term)}</dt><dd>${escapeHtml(value)}</dd>`).join("")}</dl>` : ""}
       ${groupSchedule}
     </details>` : "";
@@ -848,7 +860,7 @@ function renderEvent(event, now, nextEvent) {
       ${location}
       ${extra}
     </div>
-    ${renderCampusLessonDetails({ detailId: getScheduleLessonDetailId(event) })}
+    ${renderCampusLessonDetails({ detailId: getScheduleLessonDetailId(event), lessonId: event.lessonId })}
   `;
   return article;
 }
@@ -951,7 +963,7 @@ elements.iosDialog.addEventListener("click", (event) => {
 window.addEventListener("appinstalled", () => { elements.install.hidden = true; });
 
 if ("serviceWorker" in navigator && window.isSecureContext) {
-  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=25"));
+  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=26"));
 }
 
 initTheme();

@@ -1185,6 +1185,167 @@ export const THESIS_PLAN_EVENTS = [
   }
 ];
 
+const WEEK45_ALL = "DP132A-HT2025-DP132";
+const WEEK45_BG12 = "DP132A-HT2025-DP132-Bg1, DP132A-HT2025-DP132-Bg2";
+const WEEK45_BG34 = "DP132A-HT2025-DP132-Bg3, DP132A-HT2025-DP132-Bg4";
+
+const WEEK45_UPDATE_ROWS = [
+  {
+    id: "01", sourcePage: 1, weekday: "Måndag", date: "2026-11-02", startTime: "13:15", endTime: "17:00",
+    groups: [], audience: WEEK45_ALL, title: "Rättssäker dokumentation DURTvå", course: "Rättssäker dokumentation DURTvå",
+    locationIds: "KR:1114N2", locations: "Datorsal", type: "Lektion", momentText: "Inför examination", momentNumber: "16",
+    detailId: "documentation-16"
+  },
+  {
+    id: "02", sourcePage: 1, weekday: "Tisdag", date: "2026-11-03", startTime: "08:15", endTime: "10:00",
+    groups: [], audience: WEEK45_ALL, title: "Polkon Vapen", course: "Polkon Vapen",
+    locationIds: "KR:1009F0, KR:1012K3", locations: "Skjutbana, Skjutbana", type: "Lektion",
+    momentText: "Låg färdigställning/Drag från hölster", momentNumber: "5:6", lessonId: "5:6"
+  },
+  {
+    id: "03", sourcePage: 1, weekday: "Tisdag", date: "2026-11-03", startTime: "10:15", endTime: "12:00",
+    groups: ["BG1", "BG2"], audience: WEEK45_BG12, title: "Sambandstjänst", course: "Sambandstjänst",
+    locationIds: "KR:1118N2", locations: "Radiosal", type: "Lektion", momentText: "", momentNumber: "5:7",
+    detailId: "samband-5:7"
+  },
+  {
+    id: "04", sourcePage: 1, weekday: "Tisdag", date: "2026-11-03", startTime: "10:15", endTime: "12:00",
+    groups: ["BG3", "BG4"], audience: WEEK45_BG34, title: "Sambandstjänst", course: "Sambandstjänst",
+    locationIds: "KR:1120N2", locations: "Radiosal", type: "Lektion", momentText: "", momentNumber: "5:7",
+    detailId: "samband-5:7"
+  },
+  {
+    id: "05", sourcePage: 1, weekday: "Tisdag", date: "2026-11-03", startTime: "13:15", endTime: "17:00",
+    groups: [], audience: WEEK45_ALL, title: "Polkon Taktik", course: "Polkon Taktik",
+    locationIds: "KR:1222H1", locations: "Lärosal / ALC", type: "AMF", momentText: "Planspel", momentNumber: ""
+  },
+  {
+    id: "06", sourcePage: 1, weekday: "Onsdag", date: "2026-11-04", startTime: "08:15", endTime: "10:00",
+    groups: ["BG1", "BG2"], audience: WEEK45_BG12, title: "Aspirant, skyddsväst och hjälm", course: "",
+    locationIds: "KR:1021B4", locations: "Beklädnadsförråd", type: "Utprovning",
+    momentText: "Aspirant, skyddsväst och hjälm", momentNumber: ""
+  },
+  {
+    id: "07", sourcePage: 1, weekday: "Onsdag", date: "2026-11-04", startTime: "08:15", endTime: "09:00",
+    groups: ["BG3", "BG4"], audience: WEEK45_BG34, title: "PNF", course: "PNF",
+    locationIds: "KR:1221B1", locations: "Grupprum", type: "Examination", momentText: "Lågfart tätort", momentNumber: "14",
+    detailId: "pnf-14"
+  },
+  {
+    id: "08", sourcePage: 2, weekday: "Onsdag", date: "2026-11-04", startTime: "09:00", endTime: "12:00",
+    groups: ["BG3", "BG4"], audience: WEEK45_BG34, title: "PNF", course: "PNF",
+    locationIds: "", locations: "", type: "Examination", momentText: "Lågfart tätort", momentNumber: "14",
+    detailId: "pnf-14"
+  },
+  {
+    id: "09", sourcePage: 2, weekday: "Onsdag", date: "2026-11-04", startTime: "10:15", endTime: "12:00",
+    groups: ["BG1", "BG2"], audience: WEEK45_BG12, title: "Polkon FTM", course: "Polkon FTM",
+    locationIds: "KR:1208J1, KR:1212J1", locations: "Grepphall, Mjuk övningsmiljö", type: "Lektion", momentText: "", momentNumber: "5:6",
+    detailId: "ftm-5:6"
+  },
+  {
+    id: "10", sourcePage: 2, weekday: "Onsdag", date: "2026-11-04", startTime: "13:15", endTime: "14:00",
+    groups: ["BG1", "BG2"], audience: WEEK45_BG12, title: "PNF", course: "PNF",
+    locationIds: "KR:1221B1", locations: "Grupprum", type: "Examination", momentText: "Lågfart tätort", momentNumber: "14",
+    detailId: "pnf-14"
+  },
+  {
+    id: "11", sourcePage: 2, weekday: "Onsdag", date: "2026-11-04", startTime: "13:15", endTime: "15:00",
+    groups: ["BG3", "BG4"], audience: WEEK45_BG34, title: "Polkon FTM", course: "Polkon FTM",
+    locationIds: "KR:1208J1, KR:1212J1", locations: "Grepphall, Mjuk övningsmiljö", type: "Lektion", momentText: "", momentNumber: "5:6",
+    detailId: "ftm-5:6"
+  },
+  {
+    id: "12", sourcePage: 2, weekday: "Onsdag", date: "2026-11-04", startTime: "14:00", endTime: "17:00",
+    groups: ["BG1", "BG2"], audience: WEEK45_BG12, title: "PNF", course: "PNF",
+    locationIds: "", locations: "", type: "Examination", momentText: "Lågfart tätort", momentNumber: "14",
+    detailId: "pnf-14"
+  },
+  {
+    id: "13", sourcePage: 2, weekday: "Onsdag", date: "2026-11-04", startTime: "15:15", endTime: "17:00",
+    groups: ["BG3", "BG4"], audience: WEEK45_BG34, title: "Aspirant, skyddsväst och hjälm", course: "",
+    locationIds: "KR:1021B4", locations: "Beklädnadsförråd", type: "Utprovning",
+    momentText: "Aspirant, skyddsväst och hjälm", momentNumber: ""
+  },
+  {
+    id: "14", sourcePage: 2, weekday: "Torsdag", date: "2026-11-05", startTime: "08:15", endTime: "10:00",
+    groups: [], audience: WEEK45_ALL, title: "Sambandstjänst", course: "Sambandstjänst",
+    locationIds: "KR:1103N2, KR:1224E2", locations: "Lärosal, Lärosal / Hybrid", type: "Examination", momentText: "", momentNumber: "5:8"
+  },
+  {
+    id: "15", sourcePage: 3, weekday: "Torsdag", date: "2026-11-05", startTime: "10:15", endTime: "12:00",
+    groups: ["BG1", "BG2"], audience: WEEK45_BG12, title: "Polkon Vapen", course: "Polkon Vapen",
+    locationIds: "KR:1009F0", locations: "Skjutbana", type: "Lektion", momentText: "Sammanfattning", momentNumber: "5:7",
+    lessonId: "5:7"
+  },
+  {
+    id: "16", sourcePage: 3, weekday: "Torsdag", date: "2026-11-05", startTime: "10:15", endTime: "12:00",
+    groups: ["BG3", "BG4"], audience: WEEK45_BG34, title: "Polkon FTM", course: "Polkon FTM",
+    locationIds: "KR:1208J1, KR:1212J1", locations: "Grepphall, Mjuk övningsmiljö", type: "Lektion", momentText: "", momentNumber: "5:7",
+    detailId: "ftm-5:7"
+  },
+  {
+    id: "17", sourcePage: 3, weekday: "Torsdag", date: "2026-11-05", startTime: "13:15", endTime: "15:00",
+    groups: ["BG1", "BG2"], audience: WEEK45_BG12, title: "Polkon FTM", course: "Polkon FTM",
+    locationIds: "KR:1208J1, KR:1212J1", locations: "Grepphall, Mjuk övningsmiljö", type: "Lektion", momentText: "", momentNumber: "5:7",
+    detailId: "ftm-5:7"
+  },
+  {
+    id: "18", sourcePage: 3, weekday: "Torsdag", date: "2026-11-05", startTime: "13:15", endTime: "15:00",
+    groups: ["BG3", "BG4"], audience: WEEK45_BG34, title: "Polkon Vapen", course: "Polkon Vapen",
+    locationIds: "KR:1009F0", locations: "Skjutbana", type: "Lektion", momentText: "Sammanfattning", momentNumber: "5:7",
+    lessonId: "5:7"
+  },
+  {
+    id: "19", sourcePage: 3, weekday: "Torsdag", date: "2026-11-05", startTime: "15:15", endTime: "17:00",
+    groups: [], audience: WEEK45_ALL, title: "Inför aspirantförberedande övning", course: "",
+    locationIds: "KR:1103N2", locations: "Lärosal", type: "Lektion",
+    momentText: "Inför aspirantförberedande övning", momentNumber: ""
+  },
+  {
+    id: "20", sourcePage: 3, weekday: "Fredag", date: "2026-11-06", startTime: "08:15", endTime: "12:00",
+    groups: [], audience: WEEK45_ALL, title: "Aspirantförberedande övningar", course: "",
+    locationIds: "KR:1006N4, KR:101701, KR:102501, KR:1103N2", locations: "Arrest, Lgh 2, Lgh 2, Lärosal", type: "Övning",
+    momentText: "Aspirantförberedande övningar", momentNumber: ""
+  },
+  {
+    id: "21", sourcePage: 3, weekday: "Fredag", date: "2026-11-06", startTime: "13:15", endTime: "15:00",
+    groups: ["BG1", "BG2"], audience: WEEK45_BG12, title: "Polkon Vapen", course: "Polkon Vapen",
+    locationIds: "KR:1012K3", locations: "Skjutbana", type: "Examination", momentText: "Behörighetsprovet", momentNumber: "5:8",
+    lessonId: "5:8"
+  },
+  {
+    id: "22", sourcePage: 4, weekday: "Fredag", date: "2026-11-06", startTime: "15:15", endTime: "17:00",
+    groups: ["BG3", "BG4"], audience: WEEK45_BG34, title: "Polkon Vapen", course: "Polkon Vapen",
+    locationIds: "KR:1012K3", locations: "Skjutbana", type: "Examination", momentText: "Behörighetsprovet", momentNumber: "5:8",
+    lessonId: "5:8"
+  }
+];
+
+export const WEEK45_UPDATE = {
+  "sourceFile": "Schema-timeedit-v.42.pdf",
+  "sourceLabel": "TimeEdit-uppdatering för vecka 45",
+  "sourceExportedAt": "2026-11-02 12:07",
+  "sourcePeriod": "2026-11-02 - 2026-12-04",
+  "selectedObject": "DP132A-HT2025-DP132",
+  "status": "Ersätter de 20 äldre DP132A-posterna i vecka 45. Övriga kurser och veckor påverkas inte.",
+  "supersededTimeEditIds": [
+    "te-77", "te-78", "te-79", "te-80", "te-81", "te-82", "te-83", "te-84", "te-85", "te-86",
+    "te-87", "te-88", "te-89", "te-90", "te-91", "te-92", "te-93", "te-94", "te-95", "te-96"
+  ],
+  "events": WEEK45_UPDATE_ROWS.map(({ id, ...row }) => ({
+    id: `timeedit-v42-w45-${id}`,
+    sourceRow: null,
+    week: 45,
+    endDate: row.date,
+    allDay: false,
+    examInfo: "",
+    category: row.type === "Examination" ? "examination" : "teaching",
+    sourceType: "timeedit-update",
+    ...row
+  }))
+};
+
 export const SCHEDULE_DATA = [
   {
     "id": "te-7",
