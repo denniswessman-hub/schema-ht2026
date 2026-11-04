@@ -1,12 +1,13 @@
 # Polisutbildningen Malmö – Schema HT2026
 
-En snabb, mobilanpassad och installerbar webbapp för schemat i TimeEdit-exporten `TimeEdit_2026-08-12_13_40.xlsx`, kompletterad med tydligt märkta kursuppdateringar som ännu inte nått TimeEdit. Appen är byggd med HTML, CSS och JavaScript utan server, databas, ramverk eller externa resurser.
+En snabb, mobilanpassad och installerbar webbapp för schemat i TimeEdit-exporten `TimeEdit_2026-08-12_13_40.xlsx`, kompletterad med tydligt märkta TimeEdit- och kursuppdateringar. Appen är byggd med HTML, CSS och JavaScript utan server, databas, ramverk eller externa resurser.
 
 ## Källor och avgränsning
 
 - `TimeEdit_2026-08-12_13_40.xlsx` är schemats grundkälla och innehåller 144 poster från 31 augusti 2026 till 15 januari 2027. Filen uppdaterades den 14 augusti 2026 och har ersatt tidigare innehåll helt; senare tydligt märkta kurs- och TimeEdit-uppdateringar läggs ovanpå grundexporten.
-- Rådata från grundexporten består fortsatt av 144 poster. I appens visning ersätts 8 äldre DP152A-poster med 15 poster från Malin Mc Glinns uppdaterade upplägg. Därutöver ersätts de 20 äldre DP132A-posterna i vecka 45 med 22 poster från `Schema-timeedit-v.42.pdf`, vilket ger 153 visade poster.
+- Rådata från grundexporten består fortsatt av 144 poster. I appens visning ersätts 8 äldre DP152A-poster med 15 poster från Malin Mc Glinns uppdaterade upplägg. Därutöver ersätts de 20 äldre DP132A-posterna i vecka 45 med 22 poster från `Schema-timeedit-v.42.pdf`. Den senaste framåtexporten ersätter eller tar bort ytterligare 10 äldre poster och lägger till 13 aktuella poster. Totalt visas 156 schemaposter.
 - `Schema-timeedit-v.42.pdf` exporterades från TimeEdit den 2 november 2026 kl. 12:07 och omfattar endast urvalet `DP132A-HT2025-DP132`. Därför lämnas den separata DP151A-tentamen lördag 7 november kvar; frånvaron i den filtrerade PDF:en visar inte att den är inställd.
+- `TimeEdit_DP132A-HT2025-DP132_DP111A-HT2025-H0011_2026-11-04_12_23.pdf` exporterades den 4 november 2026 kl. 12:23 för perioden 4 november 2026–15 januari 2027. Den innehåller 62 rader: 4 nya, 1 borttagen, 9 justerade och 49 oförändrade. Endast de 13 nya eller justerade posterna läggs som ett nytt källmärkt lager; det borttagna passet döljs. Exportens första rad börjar kl. 13:15 den 4 november, så tidigare händelser samma dag lämnas orörda. Urvalet omfattar `DP132A-HT2025-DP132` och `DP111A-HT2025-H0011`; inga faktiska DP111A-rader finns i exporten.
 - Extrahandledningen är bekräftad till fredag 16 oktober 2026 kl. 13:00–15:00 och innehåller sex bokade gruppass à 20 minuter.
 - Informationen som användaren lämnade om terminens upplägg, närstudieveckor, kursansvariga och basgrupper finns i `TERM_INFO` i `schedule-data.js`. Där finns också momentöversikter, förberedelser och ansvariga lärare från Canvas för samtliga fem närstudieveckor samt utfällbara lektionsdetaljer för Vapen V 5:1–V 5:15, Trafik, Samband, FTM, PNF och Akutsjukvård. Canvas-översikterna kompletterar schemat men skapar inte schemahändelser eller ersätter dagar, tider och lokaler från TimeEdit.
 - Trafik moment 1–10 är kontrollerade mot kurs 24251 i Canvas, senast den 14 september 2026 för moment 7–10. Moment 1–3 och 9–10 har detaljer i närstudieöversikterna. Alla tio har också detaljer direkt på sina TimeEdit-pass, även moment 4–8 i veckorna 37–39. Matchningen kräver både rätt kursinstans (`DP151A-HT2026-DT151`) och momentnummer; andra kurser med samma nummer påverkas inte. Sidan för moment 7–11 hade inget innehåll för moment 11. Kursintroduktionen namnger Patrik Svahn och Joakim Hugosson, men specificerar inte lärare per pass.
@@ -24,7 +25,7 @@ En snabb, mobilanpassad och installerbar webbapp för schemat i TimeEdit-exporte
 
 All data ligger i `schedule-data.js`. `SCHEDULE_DATA` är en lista av schemaobjekt och `TERM_INFO` innehåller terminens beskrivning, närstudieveckor, Canvas-moment, kompletterande lektionsdetaljer, förberedelser, ansvariga lärare, kursansvariga och basgruppsmedlemmar. Varje schemapost har bland annat datum, start-/sluttid, basgrupper, kurs/delkurs, lokal-id, lokalnamn, undervisningstyp, momenttext, momentnummer och tentamensinformation. Fält som saknas i TimeEdit visas inte i appen.
 
-`sourceRow` pekar på ursprungsraden i Excel-filen. Det gör det enklare att kontrollera en post mot källan. Kalenderposter som helgdagar och terminsmarkeringar finns kvar men får en egen visuell behandling.
+`sourceRow` pekar på ursprungsraden i Excel-filen. PDF-baserade uppdateringar har i stället `sourceRow: null`, källsidans nummer och ett uppdaterings-id som kopplar varje post till rätt PDF och exporttid. Kalenderposter som helgdagar och terminsmarkeringar finns kvar men får en egen visuell behandling.
 
 ### Ändra schemat
 

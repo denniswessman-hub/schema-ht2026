@@ -1,16 +1,18 @@
-import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO, THESIS_PLAN, THESIS_PLAN_EVENTS, WEEK45_UPDATE } from "./schedule-data.js?v=26";
+import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO, THESIS_PLAN, THESIS_PLAN_EVENTS, TIMEEDIT_UPDATES } from "./schedule-data.js?v=27";
 
 const GROUP_STORAGE_KEY = "schemaHT26.baseGroup";
 const THEME_STORAGE_KEY = "schemaHT26.theme";
 const EXAM_DATE = "2027-01-15";
 const DAY_IN_MILLISECONDS = 86_400_000;
+const timeEditUpdateById = new Map(TIMEEDIT_UPDATES.map((update) => [update.updateId, update]));
+const timeEditUpdateEvents = TIMEEDIT_UPDATES.flatMap((update) => update.events);
 const supersededTimeEditIds = new Set([
   ...THESIS_PLAN.supersededTimeEditIds,
-  ...WEEK45_UPDATE.supersededTimeEditIds,
+  ...TIMEEDIT_UPDATES.flatMap((update) => update.supersededTimeEditIds),
 ]);
 const DISPLAY_SCHEDULE_DATA = [
   ...SCHEDULE_DATA.filter((event) => !supersededTimeEditIds.has(event.id)),
-  ...WEEK45_UPDATE.events,
+  ...timeEditUpdateEvents,
   ...THESIS_PLAN_EVENTS,
 ].sort((a, b) => `${a.date}T${a.startTime || "00:00"}-${a.id}`.localeCompare(`${b.date}T${b.startTime || "00:00"}-${b.id}`));
 const dateFormatter = new Intl.DateTimeFormat("sv-SE", { weekday: "long", day: "numeric", month: "long" });
@@ -313,7 +315,10 @@ function initFilters() {
   elements.termPeriod.textContent = `${SCHEDULE_META.eventPeriod.replace(" - ", "–")} · TimeEdit + kursuppdateringar`;
   updateCurrentDateLabel();
   elements.footerTitle.textContent = SCHEDULE_META.scheduleTitle;
-  elements.footerSource.textContent = `Källor: ${SCHEDULE_META.sourceFile}, exporterad ${SCHEDULE_META.sourceExportedAt}; vecka 45: ${WEEK45_UPDATE.sourceFile}, exporterad ${WEEK45_UPDATE.sourceExportedAt}; examensarbetet uppdaterat av Malin Mc Glinn – TimeEdit inväntas`;
+  const timeEditSources = TIMEEDIT_UPDATES
+    .map((update) => `${update.sourceLabel}, exporterad ${update.sourceExportedAt}`)
+    .join("; ");
+  elements.footerSource.textContent = `Källor: ${SCHEDULE_META.sourceFile}, exporterad ${SCHEDULE_META.sourceExportedAt}; ${timeEditSources}; examensarbetet uppdaterat av Malin Mc Glinn – TimeEdit inväntas`;
 }
 
 function initTermInfo() {
@@ -509,6 +514,7 @@ function eventMatches(event) {
 
   if (state.search) {
     const lesson = TERM_INFO.campusLessonDetails?.[getScheduleLessonDetailId(event)];
+    const timeEditUpdate = timeEditUpdateById.get(event.sourceUpdateId);
     const haystack = normalize([
       event.weekday,
       event.date,
@@ -525,7 +531,10 @@ function eventMatches(event) {
       event.momentNumber,
       event.examInfo,
       event.sourceType === "course-update" ? "Kursuppdatering examensarbete uppsats" : "",
-      event.sourceType === "timeedit-update" ? "TimeEdit uppdatering vecka 45" : "",
+      event.sourceType === "timeedit-update" ? "TimeEdit uppdatering" : "",
+      timeEditUpdate?.sourceLabel,
+      timeEditUpdate?.sourceFile,
+      timeEditUpdate?.sourceExportedAt,
       event.updateNote,
       event.timeLabel,
       ...(event.groupSchedule || []),
@@ -833,8 +842,11 @@ function renderEvent(event, now, nextEvent) {
     details.push(["Källa", THESIS_PLAN.sourceLabel]);
     details.push(["Status", THESIS_PLAN.status]);
   } else if (event.sourceType === "timeedit-update") {
-    details.push(["Källa", `${WEEK45_UPDATE.sourceFile}, exporterad ${WEEK45_UPDATE.sourceExportedAt}`]);
-    details.push(["Omfattning", WEEK45_UPDATE.status]);
+    const timeEditUpdate = timeEditUpdateById.get(event.sourceUpdateId);
+    details.push(["Källa", timeEditUpdate
+      ? `${timeEditUpdate.sourceFile}, exporterad ${timeEditUpdate.sourceExportedAt}`
+      : "TimeEdit-uppdatering"]);
+    if (timeEditUpdate?.status) details.push(["Omfattning", timeEditUpdate.status]);
   }
   if (event.updateNote) details.push(["Notering", event.updateNote]);
   const groupSchedule = event.groupSchedule?.length ? `
@@ -963,7 +975,7 @@ elements.iosDialog.addEventListener("click", (event) => {
 window.addEventListener("appinstalled", () => { elements.install.hidden = true; });
 
 if ("serviceWorker" in navigator && window.isSecureContext) {
-  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=26"));
+  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=27"));
 }
 
 initTheme();

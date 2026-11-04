@@ -1188,6 +1188,7 @@ export const THESIS_PLAN_EVENTS = [
 const WEEK45_ALL = "DP132A-HT2025-DP132";
 const WEEK45_BG12 = "DP132A-HT2025-DP132-Bg1, DP132A-HT2025-DP132-Bg2";
 const WEEK45_BG34 = "DP132A-HT2025-DP132-Bg3, DP132A-HT2025-DP132-Bg4";
+const WEEK45_UPDATE_ID = "timeedit-v42-week45";
 
 const WEEK45_UPDATE_ROWS = [
   {
@@ -1323,6 +1324,7 @@ const WEEK45_UPDATE_ROWS = [
 ];
 
 export const WEEK45_UPDATE = {
+  "updateId": WEEK45_UPDATE_ID,
   "sourceFile": "Schema-timeedit-v.42.pdf",
   "sourceLabel": "TimeEdit-uppdatering för vecka 45",
   "sourceExportedAt": "2026-11-02 12:07",
@@ -1342,9 +1344,129 @@ export const WEEK45_UPDATE = {
     examInfo: "",
     category: row.type === "Examination" ? "examination" : "teaching",
     sourceType: "timeedit-update",
+    sourceUpdateId: WEEK45_UPDATE_ID,
     ...row
   }))
 };
+
+const FORWARD_UPDATE_ID = "timeedit-2026-11-04-1223";
+const FORWARD_ALL = "DP132A-HT2025-DP132";
+const FORWARD_BG12 = "DP132A-HT2025-DP132-Bg1, DP132A-HT2025-DP132-Bg2";
+const FORWARD_BG34 = "DP132A-HT2025-DP132-Bg3, DP132A-HT2025-DP132-Bg4";
+
+const FORWARD_UPDATE_ROWS = [
+  {
+    id: "01", sourcePage: 4, week: 50, weekday: "Onsdag", date: "2026-12-09", startTime: "15:15", endTime: "17:00",
+    groups: [], audience: "DP132A-HT2025-DP132, PO141C-HT2026-141CA, PO141C-HT2026-141DI",
+    title: "Dk4. Fördjupning i polisiärt arbete och brottsutredning", course: "Dk4. Fördjupning i polisiärt arbete och brottsutredning",
+    locationIds: "KR:1217E2, KR:1224E2", locations: "Lärosal, Lärosal / Hybrid", type: "Föreläsning",
+    momentText: "IT-forensik", momentNumber: "22", category: "teaching"
+  },
+  {
+    id: "02", supersedesId: "te-110", sourcePage: 4, week: 51, weekday: "Måndag", date: "2026-12-14", startTime: "13:15", endTime: "15:00",
+    groups: ["BG1", "BG2"], audience: FORWARD_BG12, title: "Polkon Vapen", course: "Polkon Vapen",
+    locationIds: "KR:1009F0", locations: "Skjutbana", type: "Resurstid 1", momentText: "", momentNumber: "5:9",
+    category: "teaching", lessonId: "5:9"
+  },
+  {
+    id: "03", supersedesId: "te-111", sourcePage: 4, week: 51, weekday: "Måndag", date: "2026-12-14", startTime: "13:15", endTime: "15:00",
+    groups: ["BG3", "BG4"], audience: FORWARD_BG34, title: "Polkon Vapen", course: "Polkon Vapen",
+    locationIds: "KR:1012K3", locations: "Skjutbana", type: "Resurstid 1", momentText: "", momentNumber: "5:9",
+    category: "teaching", lessonId: "5:9"
+  },
+  {
+    id: "04", supersedesId: "te-121", sourcePage: 5, week: 51, weekday: "Torsdag", date: "2026-12-17", startTime: "10:15", endTime: "12:00",
+    groups: [], audience: FORWARD_ALL, title: "Polkon Vapen", course: "Polkon Vapen",
+    locationIds: "KR:1009F0, KR:1012K3", locations: "Skjutbana, Skjutbana", type: "Omexamination 1",
+    momentText: "", momentNumber: "5:10", category: "examination", lessonId: "5:10"
+  },
+  {
+    id: "05", sourcePage: 5, week: 51, weekday: "Fredag", date: "2026-12-18", startTime: "09:00", endTime: "10:00",
+    groups: [], audience: FORWARD_ALL, title: "Utlämning av aspirantuniform", course: "",
+    locationIds: "KR:1021B4", locations: "Beklädnadsförråd", type: "Utlämning",
+    momentText: "Utlämning av aspirantuniform", momentNumber: "", category: "teaching"
+  },
+  {
+    id: "06", supersedesId: "te-134", sourcePage: 6, week: 2, weekday: "Måndag", date: "2027-01-11", startTime: "08:15", endTime: "10:00",
+    groups: [], audience: FORWARD_ALL, title: "Polkon Vapen", course: "Polkon Vapen",
+    locationIds: "KR:1009F0, KR:1012K3", locations: "Skjutbana, Skjutbana", type: "Resurstid 2",
+    momentText: "", momentNumber: "5:11", category: "teaching", lessonId: "5:11"
+  },
+  {
+    id: "07", sourcePage: 6, week: 2, weekday: "Måndag", date: "2027-01-11", startTime: "10:15", endTime: "12:00",
+    groups: ["BG1", "BG2"], audience: FORWARD_BG12, title: "Polkon Vapen", course: "Polkon Vapen",
+    locationIds: "KR:1009F0", locations: "Skjutbana", type: "Omexamination 2",
+    momentText: "", momentNumber: "5:12", category: "examination", lessonId: "5:12"
+  },
+  {
+    id: "08", supersedesId: "te-135", sourcePage: 6, week: 2, weekday: "Måndag", date: "2027-01-11", startTime: "10:15", endTime: "12:00",
+    groups: ["BG3", "BG4"], audience: FORWARD_BG34, title: "Polkon Vapen", course: "Polkon Vapen",
+    locationIds: "KR:1218J1", locations: "Simulatorskjutning", type: "Simulator",
+    momentText: "", momentNumber: "5:13", category: "teaching", lessonId: "5:13"
+  },
+  {
+    id: "09", supersedesId: "te-138", sourcePage: 7, week: 2, weekday: "Måndag", date: "2027-01-11", startTime: "15:15", endTime: "17:00",
+    groups: ["BG1", "BG2"], audience: FORWARD_BG12, title: "Polkon Vapen", course: "Polkon Vapen",
+    locationIds: "KR:1218J1", locations: "Simulatorskjutning", type: "Simulator",
+    momentText: "", momentNumber: "5:13", category: "teaching", lessonId: "5:13"
+  },
+  {
+    id: "10", supersedesId: "te-142", sourcePage: 7, week: 2, weekday: "Onsdag", date: "2027-01-13", startTime: "13:15", endTime: "15:00",
+    groups: [], audience: FORWARD_ALL, title: "Polkon Vapen", course: "Polkon Vapen",
+    locationIds: "KR:1009F0, KR:1012K3", locations: "Skjutbana, Skjutbana", type: "Lektion",
+    momentText: "Skydd/Skyl", momentNumber: "5:14", category: "teaching", lessonId: "5:14"
+  },
+  {
+    id: "11", sourcePage: 8, week: 2, weekday: "Torsdag", date: "2027-01-14", startTime: "08:15", endTime: "10:00",
+    groups: ["BG3", "BG4"], audience: FORWARD_BG34, title: "Polkon Vapen", course: "Polkon Vapen",
+    locationIds: "KR:1009F0", locations: "Skjutbana", type: "Omexamination 2",
+    momentText: "", momentNumber: "5:12", category: "examination", lessonId: "5:12"
+  },
+  {
+    id: "12", supersedesId: "te-148", sourcePage: 8, week: 2, weekday: "Fredag", date: "2027-01-15", startTime: "08:15", endTime: "10:00",
+    groups: [], audience: FORWARD_ALL, title: "Polkon Vapen", course: "Polkon Vapen",
+    locationIds: "KR:1009F0, KR:1012K3", locations: "Skjutbana, Skjutbana", type: "Lektion",
+    momentText: "Dolt bärande", momentNumber: "5:15", category: "teaching", lessonId: "5:15"
+  },
+  {
+    id: "13", supersedesId: "te-149", sourcePage: 9, week: 2, weekday: "Fredag", date: "2027-01-15", startTime: "10:15", endTime: "12:00",
+    groups: [], audience: FORWARD_ALL, title: "Inlämning av uniformsutrustning. Utlämning av aspirantuniform", course: "",
+    locationIds: "KR:1021B4", locations: "Beklädnadsförråd", type: "Inlämning",
+    momentText: "Inlämning av uniformsutrustning. Utlämning av aspirantuniform", momentNumber: "", category: "teaching"
+  }
+];
+
+export const FORWARD_TIMEEDIT_UPDATE = {
+  "updateId": FORWARD_UPDATE_ID,
+  "sourceFile": "TimeEdit_DP132A-HT2025-DP132_DP111A-HT2025-H0011_2026-11-04_12_23.pdf",
+  "sourceLabel": "TimeEdit-uppdatering från 4 november",
+  "sourceExportedAt": "2026-11-04 12:23",
+  "sourcePeriod": "2026-11-04 - 2027-01-15",
+  "selectedObjects": "DP132A-HT2025-DP132, DP111A-HT2025-H0011",
+  "status": "Exporten innehåller 4 nya, 1 borttagen och 9 justerade schemaposter. De 49 övriga raderna är oförändrade.",
+  "supersededTimeEditIds": [
+    "te-110", "te-111", "te-121", "te-123", "te-134", "te-135", "te-138", "te-142", "te-148", "te-149"
+  ],
+  "diff": {
+    "added": 4,
+    "removed": 1,
+    "modified": 9,
+    "unchanged": 49,
+    "sourceRows": 62
+  },
+  "events": FORWARD_UPDATE_ROWS.map(({ id, ...row }) => ({
+    id: `timeedit-2026-11-04-${id}`,
+    sourceRow: null,
+    endDate: row.date,
+    allDay: false,
+    examInfo: "",
+    sourceType: "timeedit-update",
+    sourceUpdateId: FORWARD_UPDATE_ID,
+    ...row
+  }))
+};
+
+export const TIMEEDIT_UPDATES = [WEEK45_UPDATE, FORWARD_TIMEEDIT_UPDATE];
 
 export const SCHEDULE_DATA = [
   {
