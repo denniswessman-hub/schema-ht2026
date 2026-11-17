@@ -762,7 +762,44 @@ export const TERM_INFO = {
       "sourceNote": "Canvas benämner förberedelseavsnittet Moment 9, medan närstudieöversikten och TimeEdit placerar Barn-HLR som M 10 i vecka 40."
     }
   },
-  "graduation": "Examen planeras till kalendervecka 2. Exakt dag är ännu inte fastställd eftersom den beror på tillgång till lokal för ceremonin.",
+  "graduation": "Avslutningsceremonin hålls fredag 15 januari 2027 på Eleda Stadion. Studentsamling är 13:30 och ceremonin börjar 15:00.",
+  "graduationCeremony": {
+    "eventId": "te-150",
+    "title": "Avslutningsceremoni",
+    "date": "2027-01-15",
+    "venue": {
+      "name": "Eleda Stadion",
+      "entrance": "Ingång 7",
+      "address": "Eric Perssons väg 31, 217 26 Malmö",
+      "travel": "Ta buss, till exempel linje 10 från Centralstationen, eller tåg till en närliggande station och gå sista sträckan.",
+      "parking": "Parkering finns runt Eleda Stadion.",
+      "mapUrl": "https://mau.instructure.com/courses/24151/files/3978007/preview"
+    },
+    "schedule": [
+      { "time": "13:30", "label": "Samling på Eleda Stadion för studenter. Alla behöver ha biljett." },
+      { "time": "13:45", "label": "Klassvis fotografering av alla avgångsstudenter." },
+      { "time": "14:15", "label": "Insläpp för gäster börjar. Alla behöver ha biljett." },
+      { "time": "15:00", "label": "Ceremonin börjar och pågår cirka 80 minuter, till ungefär 16:20." }
+    ],
+    "studentSeating": "Polisstudenterna sitter på de utmärkta platserna längst fram. Platserna längst ut på sidorna är märkta med klassens namn och studenternas namn står på stolarna. Studenterna ropas upp klassvis och går upp på scenens vänstra sida. Efter applåder och fotografering går de ner på den högra sidan och sätter sig på samma plats igen.",
+    "afterCeremony": "Efter ceremonin kan nära och kära gratulera studenterna utanför i entrén.",
+    "seatingPlanUrl": "https://mau.instructure.com/courses/24151/files/3978004/preview",
+    "dressCode": "Ljusblå skjorta, raka byxor, slips med slipsnål från Polismyndigheten samt svarta lågskor. Vid transport till och från avslutningen ska civil jacka bäras över uniformen.",
+    "tickets": [
+      "Avslutningsstudenten får anmäla sig själv och högst fem gäster.",
+      "Varje anmäld mejladress får en QR-kod som skannas vid ingången.",
+      "Vid förhinder ska avbokning göras så tidigt som möjligt via länken i bokningsbekräftelsen."
+    ],
+    "seating": "Anpassade sittplatser för studenter och gäster är utmärkta i lokalen. Övriga gäster har fri sittning.",
+    "wardrobe": "Ytterplagg får inte tas med in till sittningen. Garderob, plats för barnvagnar och rullatorer samt hiss finns på plan 2.",
+    "photography": "Studenterna fotograferas 13:45. En länk till bilderna mejlas efteråt till samma adress som användes vid anmälan. Kontrollera att e-postadressen i Ladok är aktuell.",
+    "contacts": [
+      { "label": "Problem med anmälan, QR-kod eller avbokning", "email": "konferensservice@mau.se" },
+      { "label": "Övriga frågor", "email": "lisa.m.andersson@mau.se" },
+      { "label": "Övriga frågor", "email": "stina.lennartsson@mau.se" }
+    ],
+    "sourceLabel": "Information inför avslutningsceremonin"
+  },
   "groupMembers": {
     "BG1": [
       "Jennifer",
@@ -1467,6 +1504,40 @@ export const FORWARD_TIMEEDIT_UPDATE = {
 };
 
 export const TIMEEDIT_UPDATES = [WEEK45_UPDATE, FORWARD_TIMEEDIT_UPDATE];
+
+export const CEREMONY_UPDATE = {
+  "updateId": "ceremony-2027-01-15",
+  "sourceLabel": "Information inför avslutningsceremonin",
+  "supersededTimeEditIds": ["te-150"],
+  "events": [
+    {
+      "id": "ceremony-update-2027-01-15",
+      "sourceRow": null,
+      "week": 2,
+      "weekday": "Fredag",
+      "date": "2027-01-15",
+      "startTime": "13:00",
+      "endDate": "2027-01-15",
+      "endTime": "17:00",
+      "allDay": false,
+      "groups": [],
+      "audience": "DP132A-HT2025-DP132, PO141C-HT2026-141CA, PO141C-HT2026-141DI",
+      "title": "Avslutningsceremoni",
+      "course": "",
+      "locationIds": "Ingång 7 · Eric Perssons väg 31, 217 26 Malmö",
+      "locations": "Eleda Stadion",
+      "type": "Avslutning",
+      "momentText": "Examen",
+      "momentNumber": "",
+      "examInfo": "",
+      "category": "ceremony",
+      "sourceType": "ceremony-update",
+      "sourceUpdateId": "ceremony-2027-01-15",
+      "ceremonyDetailId": "graduation-2027-01-15",
+      "updateNote": "TimeEdits tidsram 13:00–17:00 är behållen. Detaljprogrammet anger studentsamling 13:30 och ceremonistart 15:00."
+    }
+  ]
+};
 
 export const SCHEDULE_DATA = [
   {

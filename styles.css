@@ -874,6 +874,10 @@ h3 { margin-bottom: 5px; font-size: 1.08rem; }
 }
 
 .event-card.is-examination { border-left-color: var(--cherry); }
+.event-card.is-ceremony {
+  border-left-color: var(--cherry);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--soft-red) 62%, var(--surface)), var(--surface) 58%);
+}
 .event-card.is-notice { border-left-color: #d3b500; background: var(--vanilla); }
 .event-card.is-holiday { border-left-color: var(--jade); background: var(--mint); }
 .event-card.is-course-update {
@@ -928,6 +932,11 @@ h3 { margin-bottom: 5px; font-size: 1.08rem; }
   color: var(--jade);
   background: var(--mint);
 }
+.badge.ceremony {
+  border: 1px solid color-mix(in srgb, var(--cherry) 32%, transparent);
+  color: var(--cherry-dark);
+  background: var(--soft-red);
+}
 
 .location { margin: 0; color: var(--text-secondary); font-size: .91rem; }
 .location strong { font-weight: 700; }
@@ -937,6 +946,90 @@ h3 { margin-bottom: 5px; font-size: 1.08rem; }
 .event-extra dl { display: grid; grid-template-columns: max-content 1fr; gap: 5px 10px; margin-bottom: 0; }
 .event-extra dt { font-weight: 700; }
 .event-extra dd { margin: 0; overflow-wrap: anywhere; }
+.ceremony-details {
+  display: grid;
+  gap: 14px;
+  margin: 4px 0 15px;
+  color: var(--text-secondary);
+}
+.ceremony-details h5 {
+  margin: 0 0 7px;
+  color: var(--ink);
+  font-size: .9rem;
+}
+.ceremony-details p { margin: 0; line-height: 1.55; }
+.ceremony-details p + p { margin-top: 7px; }
+.ceremony-program,
+.ceremony-wide-section,
+.ceremony-contacts {
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--soft-surface);
+}
+.ceremony-timeline {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ceremony-timeline li {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 9px;
+  align-items: baseline;
+}
+.ceremony-timeline time {
+  color: var(--cherry-dark);
+  font-weight: 850;
+  font-variant-numeric: tabular-nums;
+}
+.ceremony-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.ceremony-detail-grid section {
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--surface);
+}
+.ceremony-detail-grid ul,
+.ceremony-contacts ul {
+  margin: 0;
+  padding-left: 18px;
+}
+.ceremony-detail-grid li + li { margin-top: 5px; }
+.ceremony-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  align-items: center;
+}
+.ceremony-links a,
+.ceremony-contacts a {
+  color: var(--blue);
+  font-weight: 750;
+  overflow-wrap: anywhere;
+  text-underline-offset: 3px;
+}
+.ceremony-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+.ceremony-links small { width: 100%; color: var(--muted); }
+.ceremony-contacts li {
+  display: grid;
+  gap: 2px;
+}
+.ceremony-contacts li + li { margin-top: 8px; }
+.event-card.is-ceremony .event-extra > dl {
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
 .event-group-schedule {
   margin-top: 12px;
   padding: 11px 12px;
@@ -1067,6 +1160,8 @@ dialog::backdrop { background: rgb(0 0 0 / 45%); }
   .quick-filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; }
   .quick-filter { width: 100%; padding-inline: 10px; }
   .event-card { grid-template-columns: 68px minmax(0, 1fr); gap: 10px; padding: 14px 12px; }
+  .event-card.is-ceremony { grid-template-columns: minmax(0, 1fr); }
+  .ceremony-detail-grid { grid-template-columns: minmax(0, 1fr); }
   .event-card.has-time-label { grid-template-columns: minmax(0, 1fr); }
   .event-card.is-course-update.is-examination { grid-template-columns: minmax(0, 1fr); }
   .event-card.has-time-label .event-time,

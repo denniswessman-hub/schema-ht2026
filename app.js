@@ -1,4 +1,4 @@
-import { SCHEDULE_DATA, SCHEDULE_META, TERM_INFO, THESIS_PLAN, THESIS_PLAN_EVENTS, TIMEEDIT_UPDATES } from "./schedule-data.js?v=27";
+import { CEREMONY_UPDATE, SCHEDULE_DATA, SCHEDULE_META, TERM_INFO, THESIS_PLAN, THESIS_PLAN_EVENTS, TIMEEDIT_UPDATES } from "./schedule-data.js?v=28";
 
 const GROUP_STORAGE_KEY = "schemaHT26.baseGroup";
 const THEME_STORAGE_KEY = "schemaHT26.theme";
@@ -9,10 +9,12 @@ const timeEditUpdateEvents = TIMEEDIT_UPDATES.flatMap((update) => update.events)
 const supersededTimeEditIds = new Set([
   ...THESIS_PLAN.supersededTimeEditIds,
   ...TIMEEDIT_UPDATES.flatMap((update) => update.supersededTimeEditIds),
+  ...CEREMONY_UPDATE.supersededTimeEditIds,
 ]);
 const DISPLAY_SCHEDULE_DATA = [
   ...SCHEDULE_DATA.filter((event) => !supersededTimeEditIds.has(event.id)),
   ...timeEditUpdateEvents,
+  ...CEREMONY_UPDATE.events,
   ...THESIS_PLAN_EVENTS,
 ].sort((a, b) => `${a.date}T${a.startTime || "00:00"}-${a.id}`.localeCompare(`${b.date}T${b.startTime || "00:00"}-${b.id}`));
 const dateFormatter = new Intl.DateTimeFormat("sv-SE", { weekday: "long", day: "numeric", month: "long" });
@@ -227,6 +229,30 @@ function safeExternalUrl(value) {
   }
 }
 
+function safeEmail(value) {
+  const email = String(value ?? "").trim();
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? email : "";
+}
+
+function ceremonySearchText(ceremony) {
+  if (!ceremony) return "";
+  return [
+    ceremony.title,
+    ceremony.date,
+    ...Object.values(ceremony.venue || {}),
+    ...(ceremony.schedule || []).flatMap((item) => [item.time, item.label]),
+    ceremony.studentSeating,
+    ceremony.afterCeremony,
+    ceremony.dressCode,
+    ...(ceremony.tickets || []),
+    ceremony.seating,
+    ceremony.wardrobe,
+    ceremony.photography,
+    ...(ceremony.contacts || []).flatMap((contact) => [contact.label, contact.email]),
+    ceremony.sourceLabel,
+  ].join(" ");
+}
+
 function capitalizeFirst(value) {
   const text = String(value ?? "");
   return text ? text[0].toLocaleUpperCase("sv-SE") + text.slice(1) : text;
@@ -312,13 +338,13 @@ function initFilters() {
     elements.week.append(option);
   }
 
-  elements.termPeriod.textContent = `${SCHEDULE_META.eventPeriod.replace(" - ", "–")} · TimeEdit + kursuppdateringar`;
+  elements.termPeriod.textContent = `${SCHEDULE_META.eventPeriod.replace(" - ", "–")} · TimeEdit + kurs- och ceremoniuppdateringar`;
   updateCurrentDateLabel();
   elements.footerTitle.textContent = SCHEDULE_META.scheduleTitle;
   const timeEditSources = TIMEEDIT_UPDATES
     .map((update) => `${update.sourceLabel}, exporterad ${update.sourceExportedAt}`)
     .join("; ");
-  elements.footerSource.textContent = `Källor: ${SCHEDULE_META.sourceFile}, exporterad ${SCHEDULE_META.sourceExportedAt}; ${timeEditSources}; examensarbetet uppdaterat av Malin Mc Glinn – TimeEdit inväntas`;
+  elements.footerSource.textContent = `Källor: ${SCHEDULE_META.sourceFile}, exporterad ${SCHEDULE_META.sourceExportedAt}; ${timeEditSources}; examensarbetet uppdaterat av Malin Mc Glinn – TimeEdit inväntas; ${CEREMONY_UPDATE.sourceLabel}`;
 }
 
 function initTermInfo() {
@@ -515,6 +541,7 @@ function eventMatches(event) {
   if (state.search) {
     const lesson = TERM_INFO.campusLessonDetails?.[getScheduleLessonDetailId(event)];
     const timeEditUpdate = timeEditUpdateById.get(event.sourceUpdateId);
+    const ceremony = event.sourceType === "ceremony-update" ? TERM_INFO.graduationCeremony : null;
     const haystack = normalize([
       event.weekday,
       event.date,
@@ -532,6 +559,7 @@ function eventMatches(event) {
       event.examInfo,
       event.sourceType === "course-update" ? "Kursuppdatering examensarbete uppsats" : "",
       event.sourceType === "timeedit-update" ? "TimeEdit uppdatering" : "",
+      event.sourceType === "ceremony-update" ? "Ceremoni avslutning examen" : "",
       timeEditUpdate?.sourceLabel,
       timeEditUpdate?.sourceFile,
       timeEditUpdate?.sourceExportedAt,
@@ -539,6 +567,7 @@ function eventMatches(event) {
       event.timeLabel,
       ...(event.groupSchedule || []),
       lessonSearchText(lesson),
+      ceremonySearchText(ceremony),
     ].join(" "));
     if (!searchMatchesHaystack(haystack, state.search)) return false;
   }
@@ -808,6 +837,74 @@ function getScheduleLessonDetailId(event) {
   return TERM_INFO.campusLessonDetails?.[detailId] ? detailId : "";
 }
 
+function renderCeremonyDetails(ceremony) {
+  if (!ceremony) return "";
+
+  const mapUrl = safeExternalUrl(ceremony.venue?.mapUrl);
+  const seatingPlanUrl = safeExternalUrl(ceremony.seatingPlanUrl);
+  const timeline = (ceremony.schedule || []).map((item) => `
+    <li>
+      <time datetime="${escapeHtml(`${ceremony.date}T${item.time}`)}">${escapeHtml(item.time)}</time>
+      <span>${escapeHtml(item.label)}</span>
+    </li>`).join("");
+  const tickets = (ceremony.tickets || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+  const contacts = (ceremony.contacts || []).map((contact) => {
+    const email = safeEmail(contact.email);
+    return `
+      <li>
+        <span>${escapeHtml(contact.label)}</span>
+        ${email ? `<a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a>` : escapeHtml(contact.email)}
+      </li>`;
+  }).join("");
+  const links = [
+    mapUrl ? `<a href="${escapeHtml(mapUrl)}" target="_blank" rel="noopener noreferrer">Visa bild över ingång och parkering</a>` : "",
+    seatingPlanUrl ? `<a href="${escapeHtml(seatingPlanUrl)}" target="_blank" rel="noopener noreferrer">Visa skiss över sittplatser och scenflöde</a>` : "",
+  ].filter(Boolean).join("");
+
+  return `
+    <div class="ceremony-details">
+      <section class="ceremony-program" aria-labelledby="ceremony-program-heading">
+        <h5 id="ceremony-program-heading">Program</h5>
+        <ol class="ceremony-timeline">${timeline}</ol>
+      </section>
+      <div class="ceremony-detail-grid">
+        <section>
+          <h5>Plats och resa</h5>
+          <p><strong>${escapeHtml(ceremony.venue?.name)}</strong>, ${escapeHtml(ceremony.venue?.entrance)}<br>${escapeHtml(ceremony.venue?.address)}</p>
+          <p>${escapeHtml(ceremony.venue?.travel)}</p>
+          <p>${escapeHtml(ceremony.venue?.parking)}</p>
+        </section>
+        <section>
+          <h5>Biljetter och avbokning</h5>
+          <ul>${tickets}</ul>
+        </section>
+        <section>
+          <h5>Klädsel</h5>
+          <p>${escapeHtml(ceremony.dressCode)}</p>
+        </section>
+        <section>
+          <h5>Sittplatser och garderob</h5>
+          <p>${escapeHtml(ceremony.seating)}</p>
+          <p>${escapeHtml(ceremony.wardrobe)}</p>
+        </section>
+      </div>
+      <section class="ceremony-wide-section">
+        <h5>Studenternas placering och scenflöde</h5>
+        <p>${escapeHtml(ceremony.studentSeating)}</p>
+        <p>${escapeHtml(ceremony.afterCeremony)}</p>
+      </section>
+      <section class="ceremony-wide-section">
+        <h5>Fotografering</h5>
+        <p>${escapeHtml(ceremony.photography)}</p>
+      </section>
+      ${links ? `<nav class="ceremony-links" aria-label="Bilder från Canvas">${links}<small>Canvas-inloggning kan krävas.</small></nav>` : ""}
+      <section class="ceremony-contacts">
+        <h5>Kontakt</h5>
+        <ul>${contacts}</ul>
+      </section>
+    </div>`;
+}
+
 function renderEvent(event, now, nextEvent) {
   const article = document.createElement("article");
   const start = eventStart(event);
@@ -830,7 +927,9 @@ function renderEvent(event, now, nextEvent) {
     ? `<span class="badge update">Kursuppdatering</span>`
     : event.sourceType === "timeedit-update"
       ? `<span class="badge update">TimeEdit uppdaterad</span>`
-      : "";
+      : event.sourceType === "ceremony-update"
+        ? `<span class="badge ceremony">Ceremoniinformation</span>`
+        : "";
   const location = event.locations || event.locationIds ? `
     <p class="location"><strong>${escapeHtml(event.locations || "Lokal")}</strong>${event.locationIds ? `<span class="location-id">${escapeHtml(event.locationIds)}</span>` : ""}</p>` : "";
 
@@ -847,6 +946,8 @@ function renderEvent(event, now, nextEvent) {
       ? `${timeEditUpdate.sourceFile}, exporterad ${timeEditUpdate.sourceExportedAt}`
       : "TimeEdit-uppdatering"]);
     if (timeEditUpdate?.status) details.push(["Omfattning", timeEditUpdate.status]);
+  } else if (event.sourceType === "ceremony-update") {
+    details.push(["Källa", CEREMONY_UPDATE.sourceLabel]);
   }
   if (event.updateNote) details.push(["Notering", event.updateNote]);
   const groupSchedule = event.groupSchedule?.length ? `
@@ -854,9 +955,13 @@ function renderEvent(event, now, nextEvent) {
       <strong>Handledningsschema</strong>
       <ul>${event.groupSchedule.map((slot) => `<li>${escapeHtml(slot)}</li>`).join("")}</ul>
     </div>` : "";
-  const extra = details.length || groupSchedule ? `
+  const ceremonyDetails = event.sourceType === "ceremony-update"
+    ? renderCeremonyDetails(TERM_INFO.graduationCeremony)
+    : "";
+  const extra = details.length || groupSchedule || ceremonyDetails ? `
     <details class="event-extra">
-      <summary>${event.sourceType ? "Detaljer och källa" : "Mer information"}</summary>
+      <summary>${event.sourceType === "ceremony-update" ? "Program och praktisk information" : event.sourceType ? "Detaljer och källa" : "Mer information"}</summary>
+      ${ceremonyDetails}
       ${details.length ? `<dl>${details.map(([term, value]) => `<dt>${escapeHtml(term)}</dt><dd>${escapeHtml(value)}</dd>`).join("")}</dl>` : ""}
       ${groupSchedule}
     </details>` : "";
@@ -975,7 +1080,7 @@ elements.iosDialog.addEventListener("click", (event) => {
 window.addEventListener("appinstalled", () => { elements.install.hidden = true; });
 
 if ("serviceWorker" in navigator && window.isSecureContext) {
-  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=27"));
+  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=28"));
 }
 
 initTheme();
